@@ -23,14 +23,14 @@
 		1E7FDFEE134CC30D00063CCE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1E7FDFF0134CC30D00063CCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */ = {isa = PBXFileReference; path = "AnimeUnderground-Info.plist"; sourceTree = "<group>"; };
+		1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnimeUnderground-Info.plist"; sourceTree = "<group>"; };
 		1E7FDFF8134CC30D00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */ = {isa = PBXFileReference; path = "AnimeUnderground-Prefix.pch"; sourceTree = "<group>"; };
+		1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnimeUnderground-Prefix.pch"; sourceTree = "<group>"; };
 		1E7FDFFB134CC30D00063CCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */ = {isa = PBXFileReference; path = AnimeUndergroundAppDelegate.h; sourceTree = "<group>"; };
+		1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimeUndergroundAppDelegate.h; sourceTree = "<group>"; };
 		1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimeUndergroundAppDelegate.m; sourceTree = "<group>"; };
 		1E7FE001134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		1E7FE003134CC30E00063CCE /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		1E7FE003134CC30E00063CCE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1E7FE004134CC30E00063CCE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1E7FE007134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */

@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
+		1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF0134CC30D00063CCE /* Foundation.framework */; };
+		1E7FDFF3134CC30D00063CCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */; };
+		1E7FDFF9134CC30D00063CCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FDFF7134CC30D00063CCE /* InfoPlist.strings */; };
+		1E7FDFFC134CC30D00063CCE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FDFFB134CC30D00063CCE /* main.m */; };
+		1E7FDFFF134CC30E00063CCE /* AnimeUndergroundAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */; };
+		1E7FE002134CC30E00063CCE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE000134CC30E00063CCE /* MainWindow.xib */; };
+		1E7FE005134CC30E00063CCE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FE004134CC30E00063CCE /* RootViewController.m */; };
+		1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE006134CC30E00063CCE /* RootViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E7FDFEE134CC30D00063CCE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1E7FDFF0134CC30D00063CCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */ = {isa = PBXFileReference; path = "AnimeUnderground-Info.plist"; sourceTree = "<group>"; };
+		1E7FDFF8134CC30D00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */ = {isa = PBXFileReference; path = "AnimeUnderground-Prefix.pch"; sourceTree = "<group>"; };
+		1E7FDFFB134CC30D00063CCE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */ = {isa = PBXFileReference; path = AnimeUndergroundAppDelegate.h; sourceTree = "<group>"; };
+		1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimeUndergroundAppDelegate.m; sourceTree = "<group>"; };
+		1E7FE001134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		1E7FE003134CC30E00063CCE /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		1E7FE004134CC30E00063CCE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		1E7FE007134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E7FDFE7134CC30D00063CCE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */,
+				1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */,
+				1E7FDFF3134CC30D00063CCE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E7FDFDF134CC30B00063CCE = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFF4134CC30D00063CCE /* AnimeUnderground */,
+				1E7FDFED134CC30D00063CCE /* Frameworks */,
+				1E7FDFEB134CC30D00063CCE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E7FDFEB134CC30D00063CCE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1E7FDFED134CC30D00063CCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFEE134CC30D00063CCE /* UIKit.framework */,
+				1E7FDFF0134CC30D00063CCE /* Foundation.framework */,
+				1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1E7FDFF4134CC30D00063CCE /* AnimeUnderground */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */,
+				1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */,
+				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
+				1E7FE003134CC30E00063CCE /* RootViewController.h */,
+				1E7FE004134CC30E00063CCE /* RootViewController.m */,
+				1E7FE006134CC30E00063CCE /* RootViewController.xib */,
+				1E7FDFF5134CC30D00063CCE /* Supporting Files */,
+			);
+			path = AnimeUnderground;
+			sourceTree = "<group>";
+		};
+		1E7FDFF5134CC30D00063CCE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */,
+				1E7FDFF7134CC30D00063CCE /* InfoPlist.strings */,
+				1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */,
+				1E7FDFFB134CC30D00063CCE /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E7FDFE9134CC30D00063CCE /* AnimeUnderground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E7FE00B134CC30E00063CCE /* Build configuration list for PBXNativeTarget "AnimeUnderground" */;
+			buildPhases = (
+				1E7FDFE6134CC30D00063CCE /* Sources */,
+				1E7FDFE7134CC30D00063CCE /* Frameworks */,
+				1E7FDFE8134CC30D00063CCE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnimeUnderground;
+			productName = AnimeUnderground;
+			productReference = 1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1E7FDFE1134CC30B00063CCE /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1E7FDFE4134CC30B00063CCE /* Build configuration list for PBXProject "AnimeUnderground" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1E7FDFDF134CC30B00063CCE;
+			productRefGroup = 1E7FDFEB134CC30D00063CCE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1E7FDFE9134CC30D00063CCE /* AnimeUnderground */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1E7FDFE8134CC30D00063CCE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7FDFF9134CC30D00063CCE /* InfoPlist.strings in Resources */,
+				1E7FE002134CC30E00063CCE /* MainWindow.xib in Resources */,
+				1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E7FDFE6134CC30D00063CCE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E7FDFFC134CC30D00063CCE /* main.m in Sources */,
+				1E7FDFFF134CC30E00063CCE /* AnimeUndergroundAppDelegate.m in Sources */,
+				1E7FE005134CC30E00063CCE /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1E7FDFF7134CC30D00063CCE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E7FDFF8134CC30D00063CCE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1E7FE000134CC30E00063CCE /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E7FE001134CC30E00063CCE /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		1E7FE006134CC30E00063CCE /* RootViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E7FE007134CC30E00063CCE /* en */,
+			);
+			name = RootViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1E7FE009134CC30E00063CCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1E7FE00A134CC30E00063CCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		1E7FE00C134CC30E00063CCE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeUnderground/AnimeUnderground-Prefix.pch";
+				INFOPLIST_FILE = "AnimeUnderground/AnimeUnderground-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1E7FE00D134CC30E00063CCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnimeUnderground/AnimeUnderground-Prefix.pch";
+				INFOPLIST_FILE = "AnimeUnderground/AnimeUnderground-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E7FDFE4134CC30B00063CCE /* Build configuration list for PBXProject "AnimeUnderground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7FE009134CC30E00063CCE /* Debug */,
+				1E7FE00A134CC30E00063CCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E7FE00B134CC30E00063CCE /* Build configuration list for PBXNativeTarget "AnimeUnderground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E7FE00C134CC30E00063CCE /* Debug */,
+				1E7FE00D134CC30E00063CCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1E7FDFE1134CC30B00063CCE /* Project object */;
+}

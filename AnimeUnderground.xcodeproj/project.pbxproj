@@ -16,6 +16,11 @@
 		1E7FE002134CC30E00063CCE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE000134CC30E00063CCE /* MainWindow.xib */; };
 		1E7FE005134CC30E00063CCE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FE004134CC30E00063CCE /* RootViewController.m */; };
 		1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE006134CC30E00063CCE /* RootViewController.xib */; };
+		1EB882BF1354991A001CE8ED /* AUnder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882BE1354991A001CE8ED /* AUnder.m */; };
+		1EB882C313549ADE001CE8ED /* Noticia.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C213549ADE001CE8ED /* Noticia.m */; };
+		1EB882C613549BAF001CE8ED /* Ente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C513549BAF001CE8ED /* Ente.m */; };
+		1EB882CC13549C3B001CE8ED /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C913549C3B001CE8ED /* NSDataAdditions.m */; };
+		1EB882CD13549C3B001CE8ED /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882CB13549C3B001CE8ED /* TBXML.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,16 @@
 		1E7FE003134CC30E00063CCE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1E7FE004134CC30E00063CCE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1E7FE007134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		1EB882BD1354991A001CE8ED /* AUnder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUnder.h; sourceTree = "<group>"; };
+		1EB882BE1354991A001CE8ED /* AUnder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUnder.m; sourceTree = "<group>"; };
+		1EB882C113549ADE001CE8ED /* Noticia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noticia.h; sourceTree = "<group>"; };
+		1EB882C213549ADE001CE8ED /* Noticia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Noticia.m; sourceTree = "<group>"; };
+		1EB882C413549BAF001CE8ED /* Ente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ente.h; sourceTree = "<group>"; };
+		1EB882C513549BAF001CE8ED /* Ente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ente.m; sourceTree = "<group>"; };
+		1EB882C813549C3B001CE8ED /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		1EB882C913549C3B001CE8ED /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		1EB882CA13549C3B001CE8ED /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		1EB882CB13549C3B001CE8ED /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +64,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E25AEB2134F9C30007C68FF /* Logica */ = {
+			isa = PBXGroup;
+			children = (
+				1EB882BD1354991A001CE8ED /* AUnder.h */,
+				1EB882BE1354991A001CE8ED /* AUnder.m */,
+				1EB882C113549ADE001CE8ED /* Noticia.h */,
+				1EB882C213549ADE001CE8ED /* Noticia.m */,
+				1EB882C413549BAF001CE8ED /* Ente.h */,
+				1EB882C513549BAF001CE8ED /* Ente.m */,
+			);
+			name = Logica;
+			sourceTree = "<group>";
+		};
+		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FE006134CC30E00063CCE /* RootViewController.xib */,
+				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
+			);
+			name = Presentacion;
+			sourceTree = "<group>";
+		};
+		1E25AEB5134F9C8B007C68FF /* Controladores */ = {
+			isa = PBXGroup;
+			children = (
+				1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */,
+				1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */,
+				1E7FE003134CC30E00063CCE /* RootViewController.h */,
+				1E7FE004134CC30E00063CCE /* RootViewController.m */,
+			);
+			name = Controladores;
+			sourceTree = "<group>";
+		};
 		1E7FDFDF134CC30B00063CCE = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +127,10 @@
 		1E7FDFF4134CC30D00063CCE /* AnimeUnderground */ = {
 			isa = PBXGroup;
 			children = (
-				1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */,
-				1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */,
-				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
-				1E7FE003134CC30E00063CCE /* RootViewController.h */,
-				1E7FE004134CC30E00063CCE /* RootViewController.m */,
-				1E7FE006134CC30E00063CCE /* RootViewController.xib */,
+				1EB882C713549C3B001CE8ED /* TBXML */,
+				1E25AEB5134F9C8B007C68FF /* Controladores */,
+				1E25AEB4134F9C4F007C68FF /* Presentacion */,
+				1E25AEB2134F9C30007C68FF /* Logica */,
 				1E7FDFF5134CC30D00063CCE /* Supporting Files */,
 			);
 			path = AnimeUnderground;
@@ -99,6 +145,17 @@
 				1E7FDFFB134CC30D00063CCE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1EB882C713549C3B001CE8ED /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				1EB882C813549C3B001CE8ED /* NSDataAdditions.h */,
+				1EB882C913549C3B001CE8ED /* NSDataAdditions.m */,
+				1EB882CA13549C3B001CE8ED /* TBXML.h */,
+				1EB882CB13549C3B001CE8ED /* TBXML.m */,
+			);
+			path = TBXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +221,11 @@
 				1E7FDFFC134CC30D00063CCE /* main.m in Sources */,
 				1E7FDFFF134CC30E00063CCE /* AnimeUndergroundAppDelegate.m in Sources */,
 				1E7FE005134CC30E00063CCE /* RootViewController.m in Sources */,
+				1EB882BF1354991A001CE8ED /* AUnder.m in Sources */,
+				1EB882C313549ADE001CE8ED /* Noticia.m in Sources */,
+				1EB882C613549BAF001CE8ED /* Ente.m in Sources */,
+				1EB882CC13549C3B001CE8ED /* NSDataAdditions.m in Sources */,
+				1EB882CD13549C3B001CE8ED /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +271,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -223,7 +285,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -276,6 +338,7 @@
 				1E7FE00D134CC30E00063CCE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

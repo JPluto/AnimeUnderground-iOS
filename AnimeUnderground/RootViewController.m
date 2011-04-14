@@ -12,6 +12,8 @@
 
 - (void)viewDidLoad
 {
+    
+    [self setText:@"AnimeUnderground"];
     [super viewDidLoad];
 }
 

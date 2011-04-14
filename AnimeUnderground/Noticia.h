@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class Ente, Serie;
 
 @interface Noticia : NSObject {
     int codigo;
     NSString *titulo;
-    // Ente *autor;
+    Ente *autor;
     NSString *fecha;
     NSString *texto;
     NSString *enlace;
-    // Serie *serie;
+    Serie *serie;
     NSString *tid;
     NSArray *descargas;
     NSArray *imagenes;

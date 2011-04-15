@@ -10,5 +10,15 @@
 
 
 @implementation Noticia
+@synthesize codigo;
+@synthesize titulo;
+@synthesize autor;
+@synthesize fecha;
+@synthesize texto;
+@synthesize enlace;
+@synthesize serie;
+@synthesize tid;
+@synthesize descargas;
+@synthesize imagenes;
 
 @end

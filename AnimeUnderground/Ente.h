@@ -23,4 +23,18 @@
     NSArray *cargos;
 }
 
+@property (nonatomic, assign) int codigo;
+@property (nonatomic, retain) NSString *nick;
+@property (nonatomic, assign) int uid;
+@property (nonatomic, assign, getter=isActivo) BOOL activo;
+@property (nonatomic, retain) NSString *avatar;
+@property (nonatomic, retain) NSString *titulo;
+@property (nonatomic, retain) NSString *ciudad;
+@property (nonatomic, retain) NSString *bio;
+@property (nonatomic, retain) NSString *sexo;
+@property (nonatomic, assign) int edad;
+@property (nonatomic, retain) NSArray *cargos;
+
+
+
 @end

@@ -35,4 +35,28 @@
     NSArray *staff;
 }
 
+@property (nonatomic, assign) int codigo;
+@property (nonatomic, retain) NSString *nombre;
+@property (nonatomic, retain) NSString *sinopsis;
+@property (nonatomic, retain) NSString *estudio;
+@property (nonatomic, assign) int capitulosTotales;
+@property (nonatomic, assign) int capitulosActuales;
+@property (nonatomic, retain) NSString *imagen;
+@property (nonatomic, retain) NSString *imagenBoton;
+@property (nonatomic, retain) Serie *precuela;
+@property (nonatomic, retain) Serie *secuela;
+@property (nonatomic, retain) NSString *fuente;
+@property (nonatomic, retain) NSString *codecVideo;
+@property (nonatomic, retain) NSString *resolucion;
+@property (nonatomic, retain) NSString *codecAudio;
+@property (nonatomic, retain) NSString *contenedor;
+@property (nonatomic, retain) NSString *subtitulos;
+@property (nonatomic, assign) int peso;
+@property (nonatomic, assign, getter=isRecomendable) BOOL recomendable;
+@property (nonatomic, assign, getter=isCancelada) BOOL cancelada;
+@property (nonatomic, assign, getter=isTerminada) BOOL terminada;
+@property (nonatomic, retain) NSArray *generos;
+@property (nonatomic, retain) NSArray *staff;
+
+
 @end

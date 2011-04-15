@@ -10,5 +10,17 @@
 
 
 @implementation Ente
+@synthesize codigo;
+@synthesize nick;
+@synthesize uid;
+@synthesize activo;
+@synthesize avatar;
+@synthesize titulo;
+@synthesize ciudad;
+@synthesize bio;
+@synthesize sexo;
+@synthesize edad;
+@synthesize cargos;
+
 
 @end

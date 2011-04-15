@@ -15,5 +15,9 @@
     NSString *cargo;
     int capitulos;
 }
+@property (nonatomic, retain) Ente *ente;
+@property (nonatomic, retain) Serie *serie;
+@property (nonatomic, retain) NSString *cargo;
+@property (nonatomic, assign) int capitulos;
 
 @end

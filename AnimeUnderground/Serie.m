@@ -11,4 +11,30 @@
 
 @implementation Serie
 
+@synthesize codigo;
+@synthesize nombre;
+@synthesize sinopsis;
+@synthesize estudio;
+@synthesize capitulosTotales;
+@synthesize capitulosActuales;
+@synthesize imagen;
+@synthesize imagenBoton;
+@synthesize precuela;
+@synthesize secuela;
+@synthesize fuente;
+@synthesize codecVideo;
+@synthesize resolucion;
+@synthesize codecAudio;
+@synthesize contenedor;
+@synthesize subtitulos;
+@synthesize peso;
+@synthesize recomendable;
+@synthesize cancelada;
+@synthesize terminada;
+@synthesize generos;
+@synthesize staff;
+
+
+
+
 @end

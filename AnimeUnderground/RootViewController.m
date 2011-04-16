@@ -13,7 +13,7 @@
 - (void)viewDidLoad
 {
     
-    [self setText:@"AnimeUnderground"];
+    self.title = @"AnimeUnderground";
     [super viewDidLoad];
 }
 

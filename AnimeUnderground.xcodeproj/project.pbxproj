@@ -16,6 +16,9 @@
 		1E7FE002134CC30E00063CCE /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE000134CC30E00063CCE /* MainWindow.xib */; };
 		1E7FE005134CC30E00063CCE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7FE004134CC30E00063CCE /* RootViewController.m */; };
 		1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7FE006134CC30E00063CCE /* RootViewController.xib */; };
+		1E9856B21359FD9300D5504A /* Imagen.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9856B11359FD9300D5504A /* Imagen.m */; };
+		1E9856B6135A001200D5504A /* Descarga.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9856B5135A001200D5504A /* Descarga.m */; };
+		1E9856B9135A01ED00D5504A /* Logro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9856B8135A01EC00D5504A /* Logro.m */; };
 		1EB882BF1354991A001CE8ED /* AUnder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882BE1354991A001CE8ED /* AUnder.m */; };
 		1EB882C313549ADE001CE8ED /* Noticia.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C213549ADE001CE8ED /* Noticia.m */; };
 		1EB882C613549BAF001CE8ED /* Ente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C513549BAF001CE8ED /* Ente.m */; };
@@ -40,6 +43,12 @@
 		1E7FE003134CC30E00063CCE /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1E7FE004134CC30E00063CCE /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		1E7FE007134CC30E00063CCE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
+		1E9856B01359FD9300D5504A /* Imagen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Imagen.h; sourceTree = "<group>"; };
+		1E9856B11359FD9300D5504A /* Imagen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Imagen.m; sourceTree = "<group>"; };
+		1E9856B4135A001200D5504A /* Descarga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Descarga.h; sourceTree = "<group>"; };
+		1E9856B5135A001200D5504A /* Descarga.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Descarga.m; sourceTree = "<group>"; };
+		1E9856B7135A01EC00D5504A /* Logro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logro.h; sourceTree = "<group>"; };
+		1E9856B8135A01EC00D5504A /* Logro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logro.m; sourceTree = "<group>"; };
 		1EB882BD1354991A001CE8ED /* AUnder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUnder.h; sourceTree = "<group>"; };
 		1EB882BE1354991A001CE8ED /* AUnder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUnder.m; sourceTree = "<group>"; };
 		1EB882C113549ADE001CE8ED /* Noticia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noticia.h; sourceTree = "<group>"; };
@@ -83,6 +92,12 @@
 				1EB882D71357394D001CE8ED /* Serie.m */,
 				1EB882DA13573B31001CE8ED /* CargoEnteSerie.h */,
 				1EB882DB13573B31001CE8ED /* CargoEnteSerie.m */,
+				1E9856B01359FD9300D5504A /* Imagen.h */,
+				1E9856B11359FD9300D5504A /* Imagen.m */,
+				1E9856B4135A001200D5504A /* Descarga.h */,
+				1E9856B5135A001200D5504A /* Descarga.m */,
+				1E9856B7135A01EC00D5504A /* Logro.h */,
+				1E9856B8135A01EC00D5504A /* Logro.m */,
 			);
 			name = Logica;
 			sourceTree = "<group>";
@@ -238,6 +253,9 @@
 				1EB882CD13549C3B001CE8ED /* TBXML.m in Sources */,
 				1EB882D81357394D001CE8ED /* Serie.m in Sources */,
 				1EB882DC13573B31001CE8ED /* CargoEnteSerie.m in Sources */,
+				1E9856B21359FD9300D5504A /* Imagen.m in Sources */,
+				1E9856B6135A001200D5504A /* Descarga.m in Sources */,
+				1E9856B9135A01ED00D5504A /* Logro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +301,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -297,7 +315,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -312,7 +330,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnimeUnderground/AnimeUnderground-Prefix.pch";
 				INFOPLIST_FILE = "AnimeUnderground/AnimeUnderground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -325,7 +345,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnimeUnderground/AnimeUnderground-Prefix.pch";
 				INFOPLIST_FILE = "AnimeUnderground/AnimeUnderground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

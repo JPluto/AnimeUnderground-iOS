@@ -10,7 +10,15 @@
 
 
 @interface Foro : NSObject {
-    
+    NSString *user;
+    NSString *pass;
+    NSHTTPCookie *authCookie;
 }
+
+@property (nonatomic, retain) NSString *user;
+@property (nonatomic, retain) NSString *pass;
+
+- (BOOL)doLogin;
+
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E019801135AECD00053A16C /* Foro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E019800135AECD00053A16C /* Foro.m */; };
+		1E019804135B13710053A16C /* icono.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E019803135B13710053A16C /* icono.png */; };
+		1E019806135B13AF0053A16C /* icono_peque.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E019805135B13AF0053A16C /* icono_peque.png */; };
 		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
 		1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF0134CC30D00063CCE /* Foundation.framework */; };
 		1E7FDFF3134CC30D00063CCE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */; };
@@ -22,13 +25,16 @@
 		1EB882BF1354991A001CE8ED /* AUnder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882BE1354991A001CE8ED /* AUnder.m */; };
 		1EB882C313549ADE001CE8ED /* Noticia.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C213549ADE001CE8ED /* Noticia.m */; };
 		1EB882C613549BAF001CE8ED /* Ente.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C513549BAF001CE8ED /* Ente.m */; };
-		1EB882CC13549C3B001CE8ED /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882C913549C3B001CE8ED /* NSDataAdditions.m */; };
 		1EB882CD13549C3B001CE8ED /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882CB13549C3B001CE8ED /* TBXML.m */; };
 		1EB882D81357394D001CE8ED /* Serie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882D71357394D001CE8ED /* Serie.m */; };
 		1EB882DC13573B31001CE8ED /* CargoEnteSerie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882DB13573B31001CE8ED /* CargoEnteSerie.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E0197FF135AECD00053A16C /* Foro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foro.h; sourceTree = "<group>"; };
+		1E019800135AECD00053A16C /* Foro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foro.m; sourceTree = "<group>"; };
+		1E019803135B13710053A16C /* icono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icono.png; sourceTree = "<group>"; };
+		1E019805135B13AF0053A16C /* icono_peque.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icono_peque.png; sourceTree = "<group>"; };
 		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7FDFEE134CC30D00063CCE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1E7FDFF0134CC30D00063CCE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +61,6 @@
 		1EB882C213549ADE001CE8ED /* Noticia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Noticia.m; sourceTree = "<group>"; };
 		1EB882C413549BAF001CE8ED /* Ente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ente.h; sourceTree = "<group>"; };
 		1EB882C513549BAF001CE8ED /* Ente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ente.m; sourceTree = "<group>"; };
-		1EB882C813549C3B001CE8ED /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
-		1EB882C913549C3B001CE8ED /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		1EB882CA13549C3B001CE8ED /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		1EB882CB13549C3B001CE8ED /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		1EB882D61357394D001CE8ED /* Serie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serie.h; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 				1E9856B5135A001200D5504A /* Descarga.m */,
 				1E9856B7135A01EC00D5504A /* Logro.h */,
 				1E9856B8135A01EC00D5504A /* Logro.m */,
+				1E0197FF135AECD00053A16C /* Foro.h */,
+				1E019800135AECD00053A16C /* Foro.m */,
 			);
 			name = Logica;
 			sourceTree = "<group>";
@@ -125,6 +131,8 @@
 		1E7FDFDF134CC30B00063CCE = {
 			isa = PBXGroup;
 			children = (
+				1E019805135B13AF0053A16C /* icono_peque.png */,
+				1E019803135B13710053A16C /* icono.png */,
 				1E7FDFF4134CC30D00063CCE /* AnimeUnderground */,
 				1E7FDFED134CC30D00063CCE /* Frameworks */,
 				1E7FDFEB134CC30D00063CCE /* Products */,
@@ -175,8 +183,6 @@
 		1EB882C713549C3B001CE8ED /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
-				1EB882C813549C3B001CE8ED /* NSDataAdditions.h */,
-				1EB882C913549C3B001CE8ED /* NSDataAdditions.m */,
 				1EB882CA13549C3B001CE8ED /* TBXML.h */,
 				1EB882CB13549C3B001CE8ED /* TBXML.m */,
 			);
@@ -233,6 +239,8 @@
 				1E7FDFF9134CC30D00063CCE /* InfoPlist.strings in Resources */,
 				1E7FE002134CC30E00063CCE /* MainWindow.xib in Resources */,
 				1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */,
+				1E019804135B13710053A16C /* icono.png in Resources */,
+				1E019806135B13AF0053A16C /* icono_peque.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,13 +257,13 @@
 				1EB882BF1354991A001CE8ED /* AUnder.m in Sources */,
 				1EB882C313549ADE001CE8ED /* Noticia.m in Sources */,
 				1EB882C613549BAF001CE8ED /* Ente.m in Sources */,
-				1EB882CC13549C3B001CE8ED /* NSDataAdditions.m in Sources */,
 				1EB882CD13549C3B001CE8ED /* TBXML.m in Sources */,
 				1EB882D81357394D001CE8ED /* Serie.m in Sources */,
 				1EB882DC13573B31001CE8ED /* CargoEnteSerie.m in Sources */,
 				1E9856B21359FD9300D5504A /* Imagen.m in Sources */,
 				1E9856B6135A001200D5504A /* Descarga.m in Sources */,
 				1E9856B9135A01ED00D5504A /* Logro.m in Sources */,
+				1E019801135AECD00053A16C /* Foro.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,10 +306,11 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -312,10 +321,11 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};

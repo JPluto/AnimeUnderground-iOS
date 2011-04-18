@@ -10,6 +10,7 @@
 
 
 @implementation AUnder
+@class TBXML;
 
 static AUnder* sharedInstance = nil;
 
@@ -19,6 +20,20 @@ static AUnder* sharedInstance = nil;
     
     return sharedInstance;
 }
+
+
+- (BOOL)update {
+    
+    [lock lock];
+    
+    // series, entes, noticias
+    TBXML *tb = [[TBXML alloc] initWithXMLString:@""];
+    
+    [lock unlock];
+    
+    return NO;
+}
+
 
 // functiones necesarias para singleton
 

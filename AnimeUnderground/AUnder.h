@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class Foro;
 
 @interface AUnder : NSObject {
-    
+    NSLock *lock;
+    Foro *foro;
 }
 
 + (id)sharedInstance;
-
+- (BOOL)update;
 @end

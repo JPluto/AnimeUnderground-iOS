@@ -12,6 +12,11 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string></string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icono.png</string>
+		<string>icono_peque.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>net.AUDev.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>

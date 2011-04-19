@@ -10,10 +10,13 @@
 
 @implementation RootViewController
 
+@class AUnder;
+
 - (void)viewDidLoad
 {
     
     self.title = @"AnimeUnderground";
+    [[AUnder sharedInstance]update];
     [super viewDidLoad];
 }
 

@@ -113,6 +113,8 @@
 	NSURL *url = [NSURL URLWithString:urlString];
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
 	
+    NSLog(@"GET %@",urlString);
+    
 	[request setURL:url];	
 	[request setHTTPMethod:@"GET"];
 	[request setTimeoutInterval:30];

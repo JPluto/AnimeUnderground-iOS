@@ -12,8 +12,21 @@
 @interface AUnder : NSObject {
     NSLock *lock;
     Foro *foro;
+    id updateHandler;
 }
 
 + (id)sharedInstance;
 - (BOOL)update;
+- (void)setDelegate:(id)delegate;
+- (void)doSomething;
+
 @end
+
+// para callbacks
+
+@interface NSObject(AUnderDelegates) 
+- (void)onBeginUpdate:(AUnder*)aunder;
+- (void)onFinishUpdate:(AUnder*)aunder;
+@end
+
+

@@ -8,6 +8,9 @@
 
 #import "AUnder.h"
 #import "TBXML.h"
+#import "Serie.h"
+#import "Ente.h"
+#import "Noticia.h"
 
 #define URL_SERIES "http://www.aunder.org/xml/seriesxml.php"
 
@@ -34,56 +37,100 @@ static Foro* theForo = nil;
     updateHandler = aDelegate; /// Not retained
 }
 
-- (BOOL)update {
+- (void)update {
     // TODO hacer el método asíncrono
-    [lock lock];
+    
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [lock lock];
+        
+        [updateHandler onBeginUpdate:self];
+        // cargamos la información de las series
+        
+        NSMutableArray *tmpSeries = [[NSMutableArray alloc]init];
+        
+        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de series", @"")];
+        
+        TBXML *tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/seriesxml.php"]];
+        
+        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Parseando información de series", @"")];
+        
+        TBXMLElement *root = tb.rootXMLElement;
+        
+        TBXMLElement *serie = [TBXML childElementNamed:@"Serie" parentElement:root];
+        
+        while (serie!=nil) {
+            
+            // hay que comprobar la existencia de los que varían antes de convertirlos
+            
+            NSString *ids = [TBXML textForElement:[TBXML childElementNamed:@"Id" parentElement:serie]];
+            NSString *nombreSerie = [TBXML textForElement:[TBXML childElementNamed:@"Nombre" parentElement:serie]];
+            NSString *sinopsisSerie = [TBXML textForElement:[TBXML childElementNamed:@"Sinopsis" parentElement:serie]];
+            NSString *estudioSerie = [TBXML textForElement:[TBXML childElementNamed:@"Estudio" parentElement:serie]];
+            
+            NSString *generoSerie = [TBXML textForElement:[TBXML childElementNamed:@"Genero" parentElement:serie]];
+            
+            NSString *capitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"Capitulos" parentElement:serie]];
+            NSString *capitulosTotales = [TBXML textForElement:[TBXML childElementNamed:@"CapituloActual" parentElement:serie]];
+            NSString *imagenSerie = [TBXML textForElement:[TBXML childElementNamed:@"Imagen" parentElement:serie]];
+            NSString *imagenBotonSerie = [TBXML textForElement:[TBXML childElementNamed:@"ImagenBoton" parentElement:serie]];
+            NSString *precuelaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Precuela" parentElement:serie]];
+            NSString *secuelaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Secuela" parentElement:serie]];
+            NSString *fuenteSerie = [TBXML textForElement:[TBXML childElementNamed:@"Fuente" parentElement:serie]];
+            NSString *codecVideoSerie = [TBXML textForElement:[TBXML childElementNamed:@"CodecVideo" parentElement:serie]];
+            NSString *codecAudioSerie = [TBXML textForElement:[TBXML childElementNamed:@"CodecAudio" parentElement:serie]];
+            NSString *resolucionSerie = [TBXML textForElement:[TBXML childElementNamed:@"Resolucion" parentElement:serie]];
+            NSString *contenedorSerie = [TBXML textForElement:[TBXML childElementNamed:@"Contenedor" parentElement:serie]];
+            NSString *subtitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"Subtitulos" parentElement:serie]];
+            NSString *pesoSerie = [TBXML textForElement:[TBXML childElementNamed:@"Peso" parentElement:serie]];
+            NSString *recomendableSerie = [TBXML textForElement:[TBXML childElementNamed:@"Recomendable" parentElement:serie]];
+            NSString *isCanceladaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Cancelada" parentElement:serie]];
+            NSString *isTerminadaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Terminada" parentElement:serie]];
+            
+            Serie *s = [[Serie alloc]init];
+            
+            int idserie = [ids intValue];
+            s.codigo = idserie;            
+            s.nombre = nombreSerie;
+            s.sinopsis = sinopsisSerie;
+            s.estudio = estudioSerie;
+            // TODO tratar los generos de las series
+            s.capitulosTotales = [capitulosTotales intValue];
+            s.capitulosActuales = [capitulosSerie intValue];
+            s.imagen = imagenSerie;
+            s.imagenBoton = imagenBotonSerie;
+            // TODO añadir precuelas y secuelas
+            s.fuente = fuenteSerie;
+            s.codecVideo = codecVideoSerie;
+            s.codecAudio = codecAudioSerie;
+            s.resolucion = resolucionSerie;
+            s.contenedor = contenedorSerie;
+            s.subtitulos = subtitulosSerie;
+            s.peso = [pesoSerie intValue];
+            s.recomendable = [recomendableSerie isEqualToString:@"1"];
+            s.cancelada = [isCanceladaSerie isEqualToString:@"1"];
+            s.terminada = [isTerminadaSerie isEqualToString:@"1"];
+            
+            [tmpSeries addObject:s];
+            
+            [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString(@"Analizando la serie %@", @""),nombreSerie]];
 
-    [updateHandler onBeginUpdate:self];
-    // series, entes, noticias
+            NSLog(@"Analizada serie %@",nombreSerie);
+            
+            serie = [TBXML nextSiblingNamed:@"Serie" searchFromElement:serie];
+        }
+        
+        series = [NSArray arrayWithArray:tmpSeries];
+        
+        // series parseadas
+        
+        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de entes", @"")];
 
-    TBXML *tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/seriesxml.php"]];
-    TBXMLElement *root = tb.rootXMLElement;
-    
-    TBXMLElement *serie = [TBXML childElementNamed:@"Serie" parentElement:root];
-    
-    while (serie!=nil) {
         
-        // hay que comprobar la existencia de los que varían antes de convertirlos
-        
-        NSString *ids = [TBXML textForElement:[TBXML childElementNamed:@"Id" parentElement:serie]];
-        NSString *nombreSerie = [TBXML textForElement:[TBXML childElementNamed:@"Nombre" parentElement:serie]];
-        NSString *sinopsisSerie = [TBXML textForElement:[TBXML childElementNamed:@"Sinopsis" parentElement:serie]];
-        NSString *estudioSerie = [TBXML textForElement:[TBXML childElementNamed:@"Estudio" parentElement:serie]];
-        
-        NSString *generoSerie = [TBXML textForElement:[TBXML childElementNamed:@"Genero" parentElement:serie]];
-        
-        NSString *capitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"Capitulos" parentElement:serie]];
-        NSString *capitulosTotales = [TBXML textForElement:[TBXML childElementNamed:@"CapituloActual" parentElement:serie]];
-        NSString *imagenSerie = [TBXML textForElement:[TBXML childElementNamed:@"Imagen" parentElement:serie]];
-        NSString *imagenBotonSerie = [TBXML textForElement:[TBXML childElementNamed:@"ImagenBoton" parentElement:serie]];
-        NSString *precuelaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Precuela" parentElement:serie]];
-        NSString *secuelaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Secuela" parentElement:serie]];
-        NSString *fuenteSerie = [TBXML textForElement:[TBXML childElementNamed:@"Fuente" parentElement:serie]];
-        NSString *codecVideoSerie = [TBXML textForElement:[TBXML childElementNamed:@"CodecVideo" parentElement:serie]];
-        NSString *codecAudioSerie = [TBXML textForElement:[TBXML childElementNamed:@"CodecAudio" parentElement:serie]];
-        NSString *resolucionSerie = [TBXML textForElement:[TBXML childElementNamed:@"Resolucion" parentElement:serie]];
-        NSString *contenedorSerie = [TBXML textForElement:[TBXML childElementNamed:@"Contenedor" parentElement:serie]];
-        NSString *subtitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"Subtitulos" parentElement:serie]];
-        NSString *pesoSerie = [TBXML textForElement:[TBXML childElementNamed:@"Peso" parentElement:serie]];
-        NSString *recomendableSerie = [TBXML textForElement:[TBXML childElementNamed:@"Recomendable" parentElement:serie]];
-        NSString *isCanceladaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Cancelada" parentElement:serie]];
-        NSString *isTerminadaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Terminada" parentElement:serie]];
-        
-        NSLog(@"Analizada serie %@",nombreSerie);
-        
-        serie = [TBXML childElementNamed:@"Serie" parentElement:root];
-    }
-    
-    [tb release];
-    
-    [lock unlock];
-    [updateHandler onFinishUpdate:self];
-    return NO;
+        [tb release];
+        [updateHandler onFinishUpdate:self];
+        [lock unlock];
+    });        
 }
 
 

@@ -9,6 +9,9 @@
 #import "RootViewController.h"
 
 @implementation RootViewController
+@synthesize loadingView;
+@synthesize loadingText;
+@synthesize loadingSpinner;
 
 @class AUnder;
 
@@ -16,8 +19,28 @@
 {
     
     self.title = @"AnimeUnderground";
-    [[AUnder sharedInstance]update];
+    [[AUnder sharedInstance]setUpdateHandler:self];
+    [[AUnder sharedInstance]update]; // el método es asíncrono
+    
     [super viewDidLoad];
+}
+
+// delegates
+
+- (void)onBeginUpdate:(AUnder*)aunder {
+    NSLog(@"Actualización comenzada");
+    
+    [self.view addSubview:loadingView];
+    loadingView.center = self.view.center;
+    
+}
+- (void)onUpdateStatus:(AUnder*)aunder:(NSString*)withStatus {
+    NSLog(@"Estado actual de la actualización: %@",withStatus);
+    [loadingText setText:withStatus];
+}
+- (void)onFinishUpdate:(AUnder*)aunder {
+    NSLog(@"Actualización finalizada");    
+    [loadingView removeFromSuperview];
 }
 
 - (void)viewWillAppear:(BOOL)animated

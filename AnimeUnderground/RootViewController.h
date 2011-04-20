@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface RootViewController : UITableViewController {
-
+    IBOutlet UIView *loadingView;
+    IBOutlet UILabel *loadingText;
+    IBOutlet UIActivityIndicatorView *loadingSpinner;
 }
 
+@property (nonatomic, retain) IBOutlet UIView *loadingView;
+@property (nonatomic, retain) IBOutlet UILabel *loadingText;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 @end

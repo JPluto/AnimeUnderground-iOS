@@ -13,12 +13,13 @@
     NSLock *lock;
     Foro *foro;
     id updateHandler;
+    
+    NSArray *series;
 }
 
 + (id)sharedInstance;
-- (BOOL)update;
-- (void)setDelegate:(id)delegate;
-- (void)doSomething;
+- (void)update;
+- (void)setUpdateHandler:(id)delegate;
 
 @end
 
@@ -26,6 +27,7 @@
 
 @interface NSObject(AUnderDelegates) 
 - (void)onBeginUpdate:(AUnder*)aunder;
+- (void)onUpdateStatus:(AUnder*)aunder:(NSString*)withStatus;
 - (void)onFinishUpdate:(AUnder*)aunder;
 @end
 

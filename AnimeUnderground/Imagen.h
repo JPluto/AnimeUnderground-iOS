@@ -2,7 +2,7 @@
 //  Imagen.h
 //  AnimeUnderground
 //
-//  Created by Nacho López Sais on 16/04/11.
+//  Created by Nacho L on 16/04/11.
 //  Copyright 2011 AUDev. All rights reserved.
 //
 

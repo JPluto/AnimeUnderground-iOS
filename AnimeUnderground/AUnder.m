@@ -210,8 +210,22 @@ static Foro* theForo = nil;
         TBXMLElement *noticia = [TBXML childElementNamed:@"Noticia" parentElement:tb.rootXMLElement];
         
         while (noticia!=nil) {
+            // elementos fijos
+            NSString *idn = [TBXML textForElement:[TBXML childElementNamed:@"Id" parentElement:noticia]];
+            NSString *tituloNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Titulo" parentElement:noticia]];
+            NSString *autorNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Autor" parentElement:noticia]];
+            NSString *fechaNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Fecha" parentElement:noticia]];
+            NSString *textoNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Texto" parentElement:noticia]];
+            NSString *enlaceNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Enlace" parentElement:noticia]];
+            NSString *threadNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Thread" parentElement:noticia]];
             
+            // ahora tenemos que comprobar los que no son fijos
             
+            // construimos la noticia
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString (@"Analizando la noticia %@", tituloNoticia),@""]];
+            });
             noticia = [TBXML nextSiblingNamed:@"Noticia" searchFromElement:noticia];
         }
         

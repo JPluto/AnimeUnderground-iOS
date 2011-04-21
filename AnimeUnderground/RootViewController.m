@@ -12,17 +12,21 @@
 @synthesize loadingView;
 @synthesize loadingText;
 @synthesize loadingSpinner;
+@synthesize tableView;
 
 @class AUnder;
 
 - (void)viewDidLoad
 {
-    
+    [super viewDidLoad];
+
     self.title = @"AnimeUnderground";
+    //self.tableView = tableView;
     [[AUnder sharedInstance]setUpdateHandler:self];
     [[AUnder sharedInstance]update]; // el método es asíncrono
     
-    [super viewDidLoad];
+    [tableView setDataSource:self];
+	[tableView setDelegate:self];
 }
 
 // delegates
@@ -160,13 +164,20 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    self.tableView = nil;
+    self.loadingText = nil;
+    self.loadingView = nil;
+    self.loadingSpinner = nil;
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
 
 - (void)dealloc
 {
+    [tableView release];
+    [loadingSpinner release];
+    [loadingText release];
+    [loadingView release];
     [super dealloc];
 }
 

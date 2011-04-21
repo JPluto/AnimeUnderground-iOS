@@ -23,4 +23,15 @@
 @synthesize cargos;
 
 
+- (id)initWithCodigo:(int)aCodigo nick:(NSString*)aNick 
+{
+    self = [super init];
+    if (self) {
+        codigo = aCodigo;
+        nick = [aNick retain];
+    }
+    return self;
+}
+
+
 @end

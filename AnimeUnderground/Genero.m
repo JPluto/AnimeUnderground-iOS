@@ -28,27 +28,26 @@ static NSLock *lock;
 +(void)addGenero:(NSString*)nombre:(Serie*)serie {
     [lock lock];
     Genero *g = [self getGenero:nombre];
-    if (g!=NULL) 
-        [[g series]addObject:serie];
-    else {
+    if (g==nil) {
         NSLog(@"Añadiendo género %@",nombre);
         g = [[Genero alloc]initWithNombre:nombre];
-        [[g series] addObject:serie];
+        [generos addObject:g];
     }
+    [[g series] addObject:serie];
     [[serie generos] addObject:g];
     [lock unlock];
 }
 
 +(void)addGeneros:(NSString *)generos:(Serie*)serie {
     [lock lock];
-    NSError *error = NULL;
-    NSRegularExpression *regex = [[NSRegularExpression alloc]initWithPattern:@"[.,!?:/;]+\\s*" options:NSRegularExpressionCaseInsensitive error:&error];
     
-    NSArray *matches = [regex matchesInString:generos options:0 range:NSMakeRange(0, [generos length])];
+    NSString *separadores = @".,-/";
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:separadores];
+    NSArray *matches = [generos componentsSeparatedByCharactersInSet:set];
     
-    for (NSTextCheckingResult *res in matches) {
-        NSString *genero = [generos substringWithRange:[res range]];
-        [self addGenero:genero :serie];
+    for (NSString *genero in matches) {
+        if (![genero isEqualToString:@""])
+            [self addGenero:genero:serie];
     }
     
     [lock unlock];
@@ -56,17 +55,18 @@ static NSLock *lock;
 
 +(void)clearGeneros {
     if (generos == nil)
-        generos = [[NSMutableArray alloc]init];
+        generos = [[[NSMutableArray alloc]init]retain];
     else
         [generos removeAllObjects];
 }
 
 +(Genero*)getGenero:(NSString *)nombre {
-    for (Genero *g in generos) 
-        if ([[g nombre]isEqualToString:nombre])
+    for (Genero *g in generos) {
+        if ([[g nombre] isEqualToString:nombre]) {
             return g;
-    
-    return NULL;
+        }
+    }
+    return nil;
 }
 
 +(NSArray*)getGeneros{

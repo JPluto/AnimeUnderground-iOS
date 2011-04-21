@@ -11,8 +11,9 @@
 #import "Serie.h"
 #import "Ente.h"
 #import "Noticia.h"
-
-#define URL_SERIES "http://www.aunder.org/xml/seriesxml.php"
+#import "Genero.h"
+#import "Foro.h"
+#import "CargoEnteSerie.h"
 
 @implementation AUnder
 
@@ -42,16 +43,24 @@ static Foro* theForo = nil;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [lock lock];
         
-        [updateHandler onBeginUpdate:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onBeginUpdate:self];
+        });
+        
         // cargamos la información de las series
         
+        [Genero clearGeneros];
         NSMutableArray *tmpSeries = [[NSMutableArray alloc]init];
         
-        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de series", @"")];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de series", @"")];
+        });
         
         TBXML *tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/seriesxml.php"]];
-        
-        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Parseando información de series", @"")];
+                       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onUpdateStatus:self :NSLocalizedString(@"Parseando información de series", @"")];
+        });
         
         TBXMLElement *root = tb.rootXMLElement;
         
@@ -93,7 +102,6 @@ static Foro* theForo = nil;
             s.nombre = nombreSerie;
             s.sinopsis = sinopsisSerie;
             s.estudio = estudioSerie;
-            // TODO tratar los generos de las series
             s.capitulosTotales = [capitulosTotales intValue];
             s.capitulosActuales = [capitulosSerie intValue];
             s.imagen = imagenSerie;
@@ -109,8 +117,10 @@ static Foro* theForo = nil;
             s.cancelada = [isCanceladaSerie isEqualToString:@"1"];
             s.terminada = [isTerminadaSerie isEqualToString:@"1"];
             
-            [tmpSeries addObject:s];
+            [Genero addGeneros:generoSerie:s];
             
+            [tmpSeries addObject:s];
+                        
             int precuela = [precuelaSerie intValue];
             int secuela = [secuelaSerie intValue];
             if (precuela>0) 
@@ -118,8 +128,9 @@ static Foro* theForo = nil;
             if (secuela>0)
                 [seriesConSecuela setValue:s forKey:secuelaSerie];
             
-            [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString(@"Analizando la serie %@", @""),nombreSerie]];
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString(@"Analizando la serie %@", @""),nombreSerie]];
+            });
             serie = [TBXML nextSiblingNamed:@"Serie" searchFromElement:serie];
         }
         
@@ -136,17 +147,96 @@ static Foro* theForo = nil;
             [conSecuela setPrecuela:conSecuela];
         }
         
-        // series parseadas
+        // series parseadas, parseamos entes
         
-        [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de entes", @"")];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de entes", @"")];
+        });
         tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/entesxml.php"]];
         
+        TBXMLElement *ente = [TBXML childElementNamed:@"Ente" parentElement:[tb rootXMLElement]];
+        while (ente!=nil) {
+            // extraemos los datos de ente
+            NSString *ide = [TBXML textForElement:[TBXML childElementNamed:@"Id" parentElement:ente]];
+            NSString *nombreEnte = [TBXML textForElement:[TBXML childElementNamed:@"Nombre" parentElement:ente]];
+            NSString *activoEnte = [TBXML textForElement:[TBXML childElementNamed:@"Activo" parentElement:ente]];
+            NSString *uidEnte = [TBXML textForElement:[TBXML childElementNamed:@"Uid" parentElement:ente]];
+            NSString *avatarEnte = [TBXML textForElement:[TBXML childElementNamed:@"Avatar" parentElement:ente]];
+            NSString *tituloUsuarioEnte = [TBXML textForElement:[TBXML childElementNamed:@"TituloUsuario" parentElement:ente]];
+            NSString *ciudadEnte = [TBXML textForElement:[TBXML childElementNamed:@"Ciudad" parentElement:ente]];
+            NSString *bioEnte = [TBXML textForElement:[TBXML childElementNamed:@"Bio" parentElement:ente]];
+            NSString *sexoEnte = [TBXML textForElement:[TBXML childElementNamed:@"Sexo" parentElement:ente]];
+            NSString *edadEnte = [TBXML textForElement:[TBXML childElementNamed:@"Edad" parentElement:ente]];
+            
+            int codigo = [ide intValue];
+            int uid = [uidEnte intValue];
+            BOOL activo = [activoEnte isEqualToString:@"1"];
+            int edad = [edadEnte intValue];
+            
+            Ente *e = [[Ente alloc] initWithCodigo:codigo nick:nombreEnte];
+            e.activo = activo;
+            e.uid = uid;
+            e.avatar = avatarEnte;
+            e.titulo = tituloUsuarioEnte;
+            e.ciudad = ciudadEnte;
+            e.bio = bioEnte;
+            e.sexo = sexoEnte;
+            e.edad = edad;
+            
+            TBXMLElement *seriesRoles = [TBXML childElementNamed:@"Serie" parentElement:ente];
+            while (seriesRoles!=nil) {
+                
+                int serieCodigo = [[TBXML textForElement:seriesRoles]intValue];
+                NSString *rol = [TBXML valueOfAttributeNamed:@"rol" forElement:seriesRoles];
+                int capitulos = [[TBXML valueOfAttributeNamed:@"capitulos" forElement:seriesRoles]intValue];
+                
+                CargoEnteSerie *ces = [[CargoEnteSerie alloc] initWithEnte:e serie:[self getSerieById:serieCodigo] cargo:rol capitulos:capitulos];
+                
+                seriesRoles = [TBXML nextSiblingNamed:@"Serie" searchFromElement:seriesRoles];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString (@"Analizando el ente %@", @""),nombreEnte]];
+            });
+            ente = [TBXML nextSiblingNamed:@"Ente" searchFromElement:ente];
+        }
+        
+        // entes parseados, parseamos noticias
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de las noticias", @"")];
+        });
+        tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/newsxml.php"]];
+        
+        TBXMLElement *noticia = [TBXML childElementNamed:@"Noticia" parentElement:tb.rootXMLElement];
+        
+        while (noticia!=nil) {
+            
+            
+            noticia = [TBXML nextSiblingNamed:@"Noticia" searchFromElement:noticia];
+        }
+        
+        // parseo finalizado
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onUpdateStatus:self:NSLocalizedString (@"Terminando el proceso de actualización", @"")];
+        });
         [tb release];
-        [updateHandler onFinishUpdate:self];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [updateHandler onFinishUpdate:self];
+        });
         [lock unlock];
     });        
 }
 
+
+- (Serie*)getSerieById:(int)codigo {
+    for (Serie *s in series) {
+        if (s.codigo == codigo)
+            return s;
+    }
+    return nil;
+}
 
 // functiones necesarias para singleton
 

@@ -36,7 +36,7 @@
     
 }
 - (void)onUpdateStatus:(AUnder*)aunder:(NSString*)withStatus {
-    NSLog(@"Estado actual de la actualizaci—n: %@",withStatus);
+    //NSLog(@"Estado actual de la actualizaci—n: %@",withStatus);
     [loadingText setText:withStatus];
 }
 - (void)onFinishUpdate:(AUnder*)aunder {

@@ -20,7 +20,7 @@
     NSString *bio;
     NSString *sexo;
     int edad;
-    NSArray *cargos;
+    NSMutableArray *cargos;
 }
 
 @property (nonatomic, assign) int codigo;
@@ -33,7 +33,7 @@
 @property (nonatomic, retain) NSString *bio;
 @property (nonatomic, retain) NSString *sexo;
 @property (nonatomic, assign) int edad;
-@property (nonatomic, retain) NSArray *cargos;
+@property (nonatomic, retain) NSMutableArray *cargos;
 
 
 

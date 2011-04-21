@@ -7,7 +7,8 @@
 //
 
 #import "CargoEnteSerie.h"
-
+#import "Serie.h"
+#import "Ente.h"
 
 @implementation CargoEnteSerie
 @synthesize ente;
@@ -27,6 +28,8 @@
         serie = [aSerie retain];
         cargo = [aCargo retain];
         capitulos = aCapitulos;
+        [[serie staff] addObject:self];
+        [[ente cargos] addObject:self];
     }
     return self;
 }

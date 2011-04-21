@@ -22,6 +22,10 @@
 static AUnder* sharedInstance = nil;
 static Foro* theForo = nil;
 
+@synthesize series;
+@synthesize entes;
+@synthesize noticias;
+
 +(AUnder*)sharedInstance {
     if (sharedInstance == nil) {
         sharedInstance = [[super allocWithZone:NULL]init];

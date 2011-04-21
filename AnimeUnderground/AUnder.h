@@ -19,6 +19,11 @@
     NSArray *noticias;
 }
 
+@property (nonatomic, retain) NSArray *series;
+@property (nonatomic, retain) NSArray *entes;
+@property (nonatomic, retain) NSArray *noticias;
+
+
 + (id)sharedInstance;
 - (void)update;
 - (void)setUpdateHandler:(id)delegate;

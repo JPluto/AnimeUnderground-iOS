@@ -7,6 +7,9 @@
 //
 
 #import "RootViewController.h"
+#import "Noticia.h"
+#import "Ente.h"
+#import "Serie.h"
 
 @implementation RootViewController
 @synthesize loadingView;
@@ -46,6 +49,7 @@
 - (void)onFinishUpdate:(AUnder*)aunder {
     NSLog(@"Actualizaci—n finalizada");    
     [loadingView removeFromSuperview];
+    [tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,7 +88,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [[[AUnder sharedInstance] noticias]count];
 }
 
 // Customize the appearance of table view cells.
@@ -97,6 +101,10 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
 
+    Noticia *noti = [[[AUnder sharedInstance]noticias] objectAtIndex:indexPath.row];
+    
+    cell.text = [noti titulo];
+    
     // Configure the cell.
     return cell;
 }

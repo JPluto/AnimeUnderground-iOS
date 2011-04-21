@@ -37,9 +37,7 @@ static Foro* theForo = nil;
     updateHandler = aDelegate; /// Not retained
 }
 
-- (void)update {
-    // TODO hacer el método asíncrono
-    
+- (void)update { // método asíncrono, usa callbacks    
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [lock lock];
@@ -59,10 +57,11 @@ static Foro* theForo = nil;
         
         TBXMLElement *serie = [TBXML childElementNamed:@"Serie" parentElement:root];
         
+        NSMutableDictionary *seriesConPrecuela = [[[NSMutableDictionary alloc]init]autorelease];
+        NSMutableDictionary *seriesConSecuela = [[[NSMutableDictionary alloc]init]autorelease];
+        
         while (serie!=nil) {
-            
-            // hay que comprobar la existencia de los que varían antes de convertirlos
-            
+                        
             NSString *ids = [TBXML textForElement:[TBXML childElementNamed:@"Id" parentElement:serie]];
             NSString *nombreSerie = [TBXML textForElement:[TBXML childElementNamed:@"Nombre" parentElement:serie]];
             NSString *sinopsisSerie = [TBXML textForElement:[TBXML childElementNamed:@"Sinopsis" parentElement:serie]];
@@ -99,7 +98,6 @@ static Foro* theForo = nil;
             s.capitulosActuales = [capitulosSerie intValue];
             s.imagen = imagenSerie;
             s.imagenBoton = imagenBotonSerie;
-            // TODO añadir precuelas y secuelas
             s.fuente = fuenteSerie;
             s.codecVideo = codecVideoSerie;
             s.codecAudio = codecAudioSerie;
@@ -113,19 +111,36 @@ static Foro* theForo = nil;
             
             [tmpSeries addObject:s];
             
+            int precuela = [precuelaSerie intValue];
+            int secuela = [secuelaSerie intValue];
+            if (precuela>0) 
+                [seriesConPrecuela setValue:s forKey:precuelaSerie];
+            if (secuela>0)
+                [seriesConSecuela setValue:s forKey:secuelaSerie];
+            
             [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString(@"Analizando la serie %@", @""),nombreSerie]];
-
-            NSLog(@"Analizada serie %@",nombreSerie);
             
             serie = [TBXML nextSiblingNamed:@"Serie" searchFromElement:serie];
         }
         
         series = [NSArray arrayWithArray:tmpSeries];
         
+        // ahora arreglamos las precuelas/secuelas ya que tenemos todas las series en memoria
+        
+        for (NSString *key in [seriesConPrecuela allKeys]) {
+            Serie *conPrecuela = [seriesConPrecuela valueForKey:key];
+            NSString *secKey = [NSString stringWithFormat:@"%d",[conPrecuela codigo]];
+            Serie *conSecuela = [seriesConSecuela valueForKey:secKey];
+            
+            [conPrecuela setSecuela:conPrecuela];
+            [conSecuela setPrecuela:conSecuela];
+            NSLog(@"Precuela %@ - Secuela %@",[conSecuela nombre],[conPrecuela nombre]);
+        }
+        
         // series parseadas
         
         [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de entes", @"")];
-
+        tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/entesxml.php"]];
         
         [tb release];
         [updateHandler onFinishUpdate:self];

@@ -31,10 +31,7 @@
 @synthesize recomendable;
 @synthesize cancelada;
 @synthesize terminada;
-@synthesize generos;
 @synthesize staff;
-
-
-
+@synthesize generos;
 
 @end

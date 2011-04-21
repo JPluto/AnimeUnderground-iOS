@@ -31,8 +31,8 @@
     BOOL cancelada;
     BOOL terminada;
     
-    NSArray *generos;
-    NSArray *staff;
+    NSMutableArray *generos;
+    NSMutableArray *staff;
 }
 
 @property (nonatomic, assign) int codigo;
@@ -55,8 +55,7 @@
 @property (nonatomic, assign, getter=isRecomendable) BOOL recomendable;
 @property (nonatomic, assign, getter=isCancelada) BOOL cancelada;
 @property (nonatomic, assign, getter=isTerminada) BOOL terminada;
-@property (nonatomic, retain) NSArray *generos;
-@property (nonatomic, retain) NSArray *staff;
-
+@property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) NSMutableArray *generos;
 
 @end

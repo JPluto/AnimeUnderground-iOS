@@ -134,7 +134,6 @@ static Foro* theForo = nil;
             
             [conPrecuela setSecuela:conPrecuela];
             [conSecuela setPrecuela:conSecuela];
-            NSLog(@"Precuela %@ - Secuela %@",[conSecuela nombre],[conPrecuela nombre]);
         }
         
         // series parseadas

@@ -14,6 +14,8 @@
 #import "Genero.h"
 #import "Foro.h"
 #import "CargoEnteSerie.h"
+#import "Descarga.h"
+#import "Imagen.h"
 
 @implementation AUnder
 
@@ -51,6 +53,8 @@ static Foro* theForo = nil;
         
         [Genero clearGeneros];
         NSMutableArray *tmpSeries = [[NSMutableArray alloc]init];
+        NSMutableArray *tmpEntes = [[NSMutableArray alloc]init];
+        NSMutableArray *tmpNoticias = [[NSMutableArray alloc]init];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de series", @"")];
@@ -194,11 +198,16 @@ static Foro* theForo = nil;
                 
                 seriesRoles = [TBXML nextSiblingNamed:@"Serie" searchFromElement:seriesRoles];
             }
+            
+            [tmpEntes addObject:e];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString (@"Analizando el ente %@", @""),nombreEnte]];
             });
             ente = [TBXML nextSiblingNamed:@"Ente" searchFromElement:ente];
         }
+        
+        entes = [NSArray arrayWithArray:tmpEntes];
         
         // entes parseados, parseamos noticias
         
@@ -221,13 +230,71 @@ static Foro* theForo = nil;
             
             // ahora tenemos que comprobar los que no son fijos
             
+            TBXMLElement *serieNotiElem = [TBXML childElementNamed:@"Serie" parentElement:noticia];
+            int serieId = 0;
+            if (serieNotiElem!=NULL)
+                serieId = [[TBXML textForElement:serieNotiElem]intValue];
+            NSMutableArray *descargas = [[NSMutableArray alloc]init];
+            
+            TBXMLElement *descargaDdElem = [TBXML childElementNamed:@"DescargaDirecta" parentElement:noticia];
+            if (descargaDdElem!=NULL) {
+                NSString *enlace = [TBXML textForElement:descargaDdElem];
+                Descarga *descargaDD = [[Descarga alloc]initWithEnlace:enlace tipo:@"DD"];
+                [descargas addObject:descargaDD];
+            }
+            
+            TBXMLElement *descargaEmuleElem = [TBXML childElementNamed:@"Emule" parentElement:noticia];
+            if (descargaEmuleElem!=NULL) {
+                NSString *enlace = [TBXML textForElement:descargaDdElem];
+                Descarga *descargaML = [[Descarga alloc]initWithEnlace:enlace tipo:@"ML"];
+                [descargas addObject:descargaML];            
+            }
+            
+            TBXMLElement *descargaTorrentElem = [TBXML childElementNamed:@"Torrent" parentElement:noticia];
+            while (descargaTorrentElem!=NULL) {
+                NSString *enlace = [TBXML textForElement:descargaTorrentElem];
+                NSString *version = [TBXML valueOfAttributeNamed:@"version" forElement:descargaTorrentElem];
+                
+                Descarga *descargaBT = [[Descarga alloc]initWithEnlace:enlace tipo:@"BT"];
+                descargaBT.version = version;
+                [descargas addObject:descargaBT];
+                
+                descargaTorrentElem = [TBXML nextSiblingNamed:@"Torrent" searchFromElement:noticia];
+            }
+            NSMutableArray *imagenes = [[NSMutableArray alloc]init];
+            TBXML *imagenesElem = [TBXML childElementNamed:@"Imagen" parentElement:noticia];
+            while (imagenesElem!=NULL) {
+                NSString *enlace = [TBXML textForElement:imagenesElem];
+                Imagen *img = [[Imagen alloc]initWithImagen:enlace];
+                [imagenes addObject:img];
+                
+                imagenesElem = [TBXML nextSiblingNamed:@"Imagen" searchFromElement:imagenesElem];
+            }
+            
             // construimos la noticia
+            
+            Noticia *n = [[Noticia alloc]init];
+            n.codigo = idn;
+            n.titulo = tituloNoticia;
+            n.autor = [self getEnteByName:autorNoticia];
+            n.fecha = fechaNoticia;
+            n.texto = textoNoticia;
+            n.enlace = enlaceNoticia;
+            n.tid = threadNoticia;
+            if (serieId>0)
+                n.serie = [self getSerieById:serieId];
+            n.descargas = [NSArray arrayWithArray:descargas];
+            n.imagenes = [NSArray arrayWithArray:imagenes];
+            
+            [tmpNoticias addObject:n];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [updateHandler onUpdateStatus:self:[NSString stringWithFormat:NSLocalizedString (@"Analizando la noticia %@", tituloNoticia),@""]];
             });
             noticia = [TBXML nextSiblingNamed:@"Noticia" searchFromElement:noticia];
         }
+        
+        noticias = [NSArray arrayWithArray:tmpNoticias];
         
         // parseo finalizado
         
@@ -248,6 +315,14 @@ static Foro* theForo = nil;
     for (Serie *s in series) {
         if (s.codigo == codigo)
             return s;
+    }
+    return nil;
+}
+
+- (Ente*)getEnteByName:(NSString*)nombre {
+    for (Ente *e in entes) {
+        if ([e.nick isEqualToString:nombre])
+            return e;
     }
     return nil;
 }

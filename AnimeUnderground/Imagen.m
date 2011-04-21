@@ -12,6 +12,20 @@
 @implementation Imagen
 @synthesize imagen;
 
+//=========================================================== 
+// - (id)initWith:
+//
+//=========================================================== 
+- (id)initWithImagen:(NSString*)anImagen  
+{
+    self = [super init];
+    if (self) {
+        imagen = [anImagen retain];
+    }
+    return self;
+}
+
+
 
 - (NSString*)getImageUrl {
     return imagen;

@@ -10,11 +10,15 @@
 @class Noticia;
 
 @interface Descarga : NSObject {
-    NSString *version;
+
     NSString *enlace;
     NSString *tipo;
     Noticia *noticia;
+    NSString *version;
 }
+
+@property (nonatomic,retain) Noticia *noticia;
+@property (nonatomic,retain) NSString *version;
 
 +(NSArray*)descargas;
 

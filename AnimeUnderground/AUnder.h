@@ -15,6 +15,8 @@
     id updateHandler;
     
     NSArray *series;
+    NSArray *entes;
+    NSArray *noticias;
 }
 
 + (id)sharedInstance;

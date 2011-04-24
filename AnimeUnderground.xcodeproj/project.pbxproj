@@ -10,6 +10,8 @@
 		1E019801135AECD00053A16C /* Foro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E019800135AECD00053A16C /* Foro.m */; };
 		1E019804135B13710053A16C /* icono.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E019803135B13710053A16C /* icono.png */; };
 		1E019806135B13AF0053A16C /* icono_peque.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E019805135B13AF0053A16C /* icono_peque.png */; };
+		1E040C7D136460010004B407 /* NoticiaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C7C136460010004B407 /* NoticiaCell.m */; };
+		1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E040C7E136460FB0004B407 /* NoticiaCell.xib */; };
 		1E16946713602070006DE80F /* Genero.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E16946613602070006DE80F /* Genero.m */; };
 		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
 		1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF0134CC30D00063CCE /* Foundation.framework */; };
@@ -37,6 +39,9 @@
 		1E019800135AECD00053A16C /* Foro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foro.m; sourceTree = "<group>"; };
 		1E019803135B13710053A16C /* icono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icono.png; sourceTree = "<group>"; };
 		1E019805135B13AF0053A16C /* icono_peque.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icono_peque.png; sourceTree = "<group>"; };
+		1E040C7B136460010004B407 /* NoticiaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiaCell.h; sourceTree = "<group>"; };
+		1E040C7C136460010004B407 /* NoticiaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiaCell.m; sourceTree = "<group>"; };
+		1E040C7E136460FB0004B407 /* NoticiaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaCell.xib; sourceTree = "<group>"; };
 		1E16946513602070006DE80F /* Genero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genero.h; sourceTree = "<group>"; };
 		1E16946613602070006DE80F /* Genero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genero.m; sourceTree = "<group>"; };
 		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E040C7913645F900004B407 /* Celdas */ = {
+			isa = PBXGroup;
+			children = (
+				1E040C7B136460010004B407 /* NoticiaCell.h */,
+				1E040C7C136460010004B407 /* NoticiaCell.m */,
+			);
+			name = Celdas;
+			sourceTree = "<group>";
+		};
 		1E25AEB2134F9C30007C68FF /* Logica */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +135,7 @@
 			children = (
 				1E7FE006134CC30E00063CCE /* RootViewController.xib */,
 				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
+				1E040C7E136460FB0004B407 /* NoticiaCell.xib */,
 			);
 			name = Presentacion;
 			sourceTree = "<group>";
@@ -168,6 +183,7 @@
 		1E7FDFF4134CC30D00063CCE /* AnimeUnderground */ = {
 			isa = PBXGroup;
 			children = (
+				1E040C7913645F900004B407 /* Celdas */,
 				1EB882C713549C3B001CE8ED /* TBXML */,
 				1E25AEB5134F9C8B007C68FF /* Controladores */,
 				1E25AEB4134F9C4F007C68FF /* Presentacion */,
@@ -251,6 +267,7 @@
 				1E7FE008134CC30E00063CCE /* RootViewController.xib in Resources */,
 				1E019804135B13710053A16C /* icono.png in Resources */,
 				1E019806135B13AF0053A16C /* icono_peque.png in Resources */,
+				1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +293,7 @@
 				1E019801135AECD00053A16C /* Foro.m in Sources */,
 				3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */,
 				1E16946713602070006DE80F /* Genero.m in Sources */,
+				1E040C7D136460010004B407 /* NoticiaCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

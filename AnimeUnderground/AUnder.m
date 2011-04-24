@@ -103,7 +103,7 @@ static Foro* theForo = nil;
             NSString *isCanceladaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Cancelada" parentElement:serie]];
             NSString *isTerminadaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Terminada" parentElement:serie]];
             
-            Serie *s = [[Serie alloc]init];
+            Serie *s = [[[Serie alloc]init]retain];
             
             int idserie = [ids intValue];
             s.codigo = idserie;            
@@ -142,7 +142,7 @@ static Foro* theForo = nil;
             serie = [TBXML nextSiblingNamed:@"Serie" searchFromElement:serie];
         }
         
-        series = [NSArray arrayWithArray:tmpSeries];
+        series = [[NSArray arrayWithArray:tmpSeries]retain];
         
         // ahora arreglamos las precuelas/secuelas ya que tenemos todas las series en memoria
         
@@ -181,7 +181,7 @@ static Foro* theForo = nil;
             BOOL activo = [activoEnte isEqualToString:@"1"];
             int edad = [edadEnte intValue];
             
-            Ente *e = [[Ente alloc] initWithCodigo:codigo nick:nombreEnte];
+            Ente *e = [[[Ente alloc] initWithCodigo:codigo nick:nombreEnte]retain];
             e.activo = activo;
             e.uid = uid;
             e.avatar = avatarEnte;
@@ -211,7 +211,7 @@ static Foro* theForo = nil;
             ente = [TBXML nextSiblingNamed:@"Ente" searchFromElement:ente];
         }
         
-        entes = [NSArray arrayWithArray:tmpEntes];
+        entes = [[NSArray arrayWithArray:tmpEntes]retain];
         
         // entes parseados, parseamos noticias
         
@@ -277,7 +277,7 @@ static Foro* theForo = nil;
             
             // construimos la noticia
             
-            Noticia *n = [[Noticia alloc]init];
+            Noticia *n = [[[Noticia alloc]init]retain];
             n.codigo = idn;
             n.titulo = tituloNoticia;
             n.autor = [self getEnteByName:autorNoticia];
@@ -298,7 +298,7 @@ static Foro* theForo = nil;
             noticia = [TBXML nextSiblingNamed:@"Noticia" searchFromElement:noticia];
         }
         
-        noticias = [NSArray arrayWithArray:tmpNoticias];
+        noticias = [[NSArray arrayWithArray:tmpNoticias]retain];
         
         // parseo finalizado
         

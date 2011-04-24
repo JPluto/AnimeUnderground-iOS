@@ -13,6 +13,7 @@
     IBOutlet UILabel *loadingText;
     IBOutlet UIActivityIndicatorView *loadingSpinner;
     IBOutlet UITableView *tableView;
+    NSMutableArray *downloads;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *loadingView;

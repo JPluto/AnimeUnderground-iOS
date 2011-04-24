@@ -12,6 +12,7 @@
 #import "Serie.h"
 #import "NoticiaCell.h"
 #import "DeviantDownload.h"
+#import "Imagen.h"
 
 @implementation RootViewController
 @synthesize loadingView;
@@ -50,6 +51,21 @@
 }
 - (void)onFinishUpdate:(AUnder*)aunder {
     NSLog(@"Actualizaci—n finalizada");    
+    
+    downloads = [[[NSMutableArray alloc]init]retain];
+    
+    for (Noticia *n in [[AUnder sharedInstance] noticias]) {
+        DeviantDownload *dd = [[DeviantDownload alloc]init];
+        NSString *def = @"http://www.aunder.org/templates/v3Theme/img/ico_news.png";
+        if ([[n imagenes]count]>0) {
+            Imagen *img = [[n imagenes]objectAtIndex:0];
+            def = [img getThumbUrl];
+        }
+        dd.urlString = [def retain];
+        [downloads addObject: [dd retain]];
+        
+    }
+    
     [loadingView removeFromSuperview];
     [tableView reloadData];
 }
@@ -118,13 +134,37 @@
     
     cell.titulo.tag = [noti codigo];
     
+    DeviantDownload *download = [downloads objectAtIndex:indexPath.row];
+    //cell.cellLabel.text = download.filename;
+    UIImage *cellImage = download.image;
+    if (cellImage == nil)
+    {
+        //[cell.loading startAnimating];
+        download.delegate = self;
+    }
+    else
+        [cell.loading stopAnimating];
+    
+    cell.imagen.image = cellImage;
+    
     // Configure the cell.
     return cell;
 }
 
+- (void)downloadDidFinishDownloading:(DeviantDownload *)download
+{
+    NSLog(@"Descarga finalizada %@",[download urlString]);
+    NSUInteger index = [downloads indexOfObject:download]; 
+    NSUInteger indices[] = {0, index};
+    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
+    [path release];
+    download.delegate = nil;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 45;
 }
 
 /*
@@ -204,6 +244,7 @@
     [loadingSpinner release];
     [loadingText release];
     [loadingView release];
+    [downloads release];
     [super dealloc];
 }
 

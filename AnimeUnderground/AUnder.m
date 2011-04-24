@@ -243,14 +243,14 @@ static Foro* theForo = nil;
             TBXMLElement *descargaDdElem = [TBXML childElementNamed:@"DescargaDirecta" parentElement:noticia];
             if (descargaDdElem!=NULL) {
                 NSString *enlace = [TBXML textForElement:descargaDdElem];
-                Descarga *descargaDD = [[Descarga alloc]initWithEnlace:enlace tipo:@"DD"];
+                Descarga *descargaDD = [[[Descarga alloc]initWithEnlace:enlace tipo:@"DD"]retain];
                 [descargas addObject:descargaDD];
             }
             
             TBXMLElement *descargaEmuleElem = [TBXML childElementNamed:@"Emule" parentElement:noticia];
             if (descargaEmuleElem!=NULL) {
                 NSString *enlace = [TBXML textForElement:descargaDdElem];
-                Descarga *descargaML = [[Descarga alloc]initWithEnlace:enlace tipo:@"ML"];
+                Descarga *descargaML = [[[Descarga alloc]initWithEnlace:enlace tipo:@"ML"]retain];
                 [descargas addObject:descargaML];            
             }
             
@@ -259,7 +259,7 @@ static Foro* theForo = nil;
                 NSString *enlace = [TBXML textForElement:descargaTorrentElem];
                 NSString *version = [TBXML valueOfAttributeNamed:@"version" forElement:descargaTorrentElem];
                 
-                Descarga *descargaBT = [[Descarga alloc]initWithEnlace:enlace tipo:@"BT"];
+                Descarga *descargaBT = [[[Descarga alloc]initWithEnlace:enlace tipo:@"BT"]retain];
                 descargaBT.version = version;
                 [descargas addObject:descargaBT];
                 
@@ -269,7 +269,7 @@ static Foro* theForo = nil;
             TBXML *imagenesElem = [TBXML childElementNamed:@"Imagen" parentElement:noticia];
             while (imagenesElem!=NULL) {
                 NSString *enlace = [TBXML textForElement:imagenesElem];
-                Imagen *img = [[Imagen alloc]initWithImagen:enlace];
+                Imagen *img = [[[Imagen alloc]initWithImagen:enlace]retain];
                 [imagenes addObject:img];
                 
                 imagenesElem = [TBXML nextSiblingNamed:@"Imagen" searchFromElement:imagenesElem];
@@ -287,8 +287,8 @@ static Foro* theForo = nil;
             n.tid = threadNoticia;
             if (serieId>0)
                 n.serie = [self getSerieById:serieId];
-            n.descargas = [NSArray arrayWithArray:descargas];
-            n.imagenes = [NSArray arrayWithArray:imagenes];
+            n.descargas = [[NSArray arrayWithArray:descargas]retain];
+            n.imagenes = [[NSArray arrayWithArray:imagenes]retain];
             
             [tmpNoticias addObject:n];
             

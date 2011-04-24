@@ -31,9 +31,9 @@
     return imagen;
 }
 - (NSString*)getThumbUrl {
-    return [NSString stringWithFormat:@"%@.thumb.jpg"];
+    return [NSString stringWithFormat:@"%@.thumb.jpg",imagen];
 }
 - (NSString*)getMiniUrl {
-    return [NSString stringWithFormat:@"%@.mini.jpg"];
+    return [NSString stringWithFormat:@"%@.mini.jpg",imagen];
 }
 @end

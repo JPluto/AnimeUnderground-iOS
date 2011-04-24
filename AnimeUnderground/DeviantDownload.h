@@ -13,7 +13,8 @@
 
 #define DeviantDownloadErrorDomain      @"Deviant Download Error Domain"
 enum 
-{   DeviantDownloadErrorNoConnection = 1000,
+{   
+    DeviantDownloadErrorNoConnection = 1000,
 };
 
 @class DeviantDownload;
@@ -24,17 +25,12 @@ enum
 
 
 @interface DeviantDownload : NSObject 
-{     NSString
-    
-    *urlString;   UIImage
-    
-    *image;      id <NSObject, DeviantDownloadDelegate>  delegate;
-    
-@private   NSMutableData
-    
-    *receivedData;   BOOL
-    
-    downloading;
+{   
+    NSString *urlString;   
+    UIImage *image;      
+    id <NSObject, DeviantDownloadDelegate>  delegate;    
+    @private NSMutableData *receivedData;   
+    BOOL downloading;
 }
 @property (nonatomic, retain) NSString *urlString;
 @property (nonatomic, retain) UIImage *image;

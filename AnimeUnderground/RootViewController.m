@@ -10,6 +10,7 @@
 #import "Noticia.h"
 #import "Ente.h"
 #import "Serie.h"
+#import "NoticiaCell.h"
 
 @implementation RootViewController
 @synthesize loadingView;
@@ -94,19 +95,35 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"NoticiaCell";
+    
+    NoticiaCell *cell = (NoticiaCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NoticiaCell" owner:nil options:nil];
+		for (id currentObject in topLevelObjects) {
+			if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+				cell = (NoticiaCell*) currentObject;
+				break;
+			}
+		}
+    }    
+    
     Noticia *noti = [[[AUnder sharedInstance]noticias] objectAtIndex:indexPath.row];
     
-    cell.text = [noti titulo];
+    cell.titulo.text = [noti titulo];
+    cell.autor.text = [[noti autor]nick];
+    cell.fecha.text = [noti fecha];
+    
+    cell.titulo.tag = [noti codigo];
     
     // Configure the cell.
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
 }
 
 /*

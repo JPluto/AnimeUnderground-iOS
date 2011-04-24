@@ -325,7 +325,7 @@ static Foro* theForo = nil;
 
 - (Ente*)getEnteByName:(NSString*)nombre {
     for (Ente *e in entes) {
-        if ([e.nick isEqualToString:nombre])
+        if ([[e.nick lowercaseString] isEqualToString:[nombre lowercaseString]])
             return e;
     }
     return nil;

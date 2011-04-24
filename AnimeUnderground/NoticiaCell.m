@@ -15,6 +15,7 @@
 @synthesize titulo;
 @synthesize autor;
 @synthesize fecha;
+@synthesize loading;
 
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

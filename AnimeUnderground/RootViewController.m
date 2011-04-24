@@ -11,6 +11,7 @@
 #import "Ente.h"
 #import "Serie.h"
 #import "NoticiaCell.h"
+#import "DeviantDownload.h"
 
 @implementation RootViewController
 @synthesize loadingView;

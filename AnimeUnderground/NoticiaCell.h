@@ -14,11 +14,12 @@
     IBOutlet UILabel *titulo;
     IBOutlet UILabel *autor;
     IBOutlet UILabel *fecha;
+    IBOutlet UIActivityIndicatorView *loading;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *imagen;
 @property (nonatomic, retain) IBOutlet UILabel *titulo;
 @property (nonatomic, retain) IBOutlet UILabel *autor;
 @property (nonatomic, retain) IBOutlet UILabel *fecha;
-
+@property (nonatomic,retain) IBOutlet UIActivityIndicatorView *loading;
 @end

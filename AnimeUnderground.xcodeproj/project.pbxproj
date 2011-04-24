@@ -12,6 +12,7 @@
 		1E019806135B13AF0053A16C /* icono_peque.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E019805135B13AF0053A16C /* icono_peque.png */; };
 		1E040C7D136460010004B407 /* NoticiaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C7C136460010004B407 /* NoticiaCell.m */; };
 		1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E040C7E136460FB0004B407 /* NoticiaCell.xib */; };
+		1E040C8313646EFA0004B407 /* DeviantDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C8213646EFA0004B407 /* DeviantDownload.m */; };
 		1E16946713602070006DE80F /* Genero.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E16946613602070006DE80F /* Genero.m */; };
 		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
 		1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFF0134CC30D00063CCE /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 		1E040C7B136460010004B407 /* NoticiaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiaCell.h; sourceTree = "<group>"; };
 		1E040C7C136460010004B407 /* NoticiaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiaCell.m; sourceTree = "<group>"; };
 		1E040C7E136460FB0004B407 /* NoticiaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaCell.xib; sourceTree = "<group>"; };
+		1E040C8113646EFA0004B407 /* DeviantDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviantDownload.h; sourceTree = "<group>"; };
+		1E040C8213646EFA0004B407 /* DeviantDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviantDownload.m; sourceTree = "<group>"; };
 		1E16946513602070006DE80F /* Genero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genero.h; sourceTree = "<group>"; };
 		1E16946613602070006DE80F /* Genero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genero.m; sourceTree = "<group>"; };
 		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +104,15 @@
 				1E040C7C136460010004B407 /* NoticiaCell.m */,
 			);
 			name = Celdas;
+			sourceTree = "<group>";
+		};
+		1E040C8013646EE70004B407 /* Utiles */ = {
+			isa = PBXGroup;
+			children = (
+				1E040C8113646EFA0004B407 /* DeviantDownload.h */,
+				1E040C8213646EFA0004B407 /* DeviantDownload.m */,
+			);
+			name = Utiles;
 			sourceTree = "<group>";
 		};
 		1E25AEB2134F9C30007C68FF /* Logica */ = {
@@ -183,6 +195,7 @@
 		1E7FDFF4134CC30D00063CCE /* AnimeUnderground */ = {
 			isa = PBXGroup;
 			children = (
+				1E040C8013646EE70004B407 /* Utiles */,
 				1E040C7913645F900004B407 /* Celdas */,
 				1EB882C713549C3B001CE8ED /* TBXML */,
 				1E25AEB5134F9C8B007C68FF /* Controladores */,
@@ -294,6 +307,7 @@
 				3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */,
 				1E16946713602070006DE80F /* Genero.m in Sources */,
 				1E040C7D136460010004B407 /* NoticiaCell.m in Sources */,
+				1E040C8313646EFA0004B407 /* DeviantDownload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

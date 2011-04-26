@@ -27,6 +27,7 @@ static NSLock *lock;
 
 +(void)addGenero:(NSString*)nombre:(Serie*)serie {
     [lock lock];
+    // hacer trim
     Genero *g = [self getGenero:nombre];
     if (g==nil) {
         NSLog(@"Añadiendo género %@",nombre);

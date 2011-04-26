@@ -27,6 +27,7 @@
     [super viewDidLoad];
 
     self.title = @"AnimeUnderground";
+    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
     //self.tableView = tableView;
     [[AUnder sharedInstance]setUpdateHandler:self];
     [[AUnder sharedInstance]update]; // el método es asíncrono
@@ -153,7 +154,6 @@
 
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download
 {
-    NSLog(@"Descarga finalizada %@",[download urlString]);
     NSUInteger index = [downloads indexOfObject:download]; 
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];

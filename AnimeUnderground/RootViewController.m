@@ -18,9 +18,8 @@
 @synthesize loadingView;
 @synthesize loadingText;
 @synthesize loadingSpinner;
-@synthesize tableView;
 
-@class AUnder;
+@class AUnder, NoticiasController;
 
 - (void)viewDidLoad
 {
@@ -28,12 +27,11 @@
 
     self.title = @"AnimeUnderground";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    [self.navigationController setNavigationBarHidden:YES];
     //self.tableView = tableView;
     [[AUnder sharedInstance]setUpdateHandler:self];
     [[AUnder sharedInstance]update]; // el mŽtodo es as’ncrono
     
-    [tableView setDataSource:self];
-	[tableView setDelegate:self];
 }
 
 // delegates
@@ -51,24 +49,15 @@
     [loadingText setText:withStatus];
 }
 - (void)onFinishUpdate:(AUnder*)aunder {
-    NSLog(@"Actualizaci—n finalizada");    
-    
-    downloads = [[[NSMutableArray alloc]init]retain];
-    
-    for (Noticia *n in [[AUnder sharedInstance] noticias]) {
-        DeviantDownload *dd = [[DeviantDownload alloc]init];
-        NSString *def = @"http://www.aunder.org/templates/v3Theme/img/ico_news.png";
-        if ([[n imagenes]count]>0) {
-            Imagen *img = [[n imagenes]objectAtIndex:0];
-            def = [img getThumbUrl];
-        }
-        dd.urlString = [def retain];
-        [downloads addObject: [dd retain]];
-        
-    }
-    
+    NSLog(@"Actualizaci—n finalizada");   
+    self.title = @"Menœ";
+    [self.navigationController setNavigationBarHidden:NO];
     [loadingView removeFromSuperview];
-    [tableView reloadData];
+}
+
+- (IBAction)showNoticias {
+    NoticiasController *nc = [[NoticiasController alloc]init];
+    [self.navigationController pushViewController:nc animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,74 +87,6 @@
 	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
  */
-
-// Customize the number of sections in the table view.
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [[[AUnder sharedInstance] noticias]count];
-}
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    static NSString *CellIdentifier = @"NoticiaCell";
-    
-    NoticiaCell *cell = (NoticiaCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NoticiaCell" owner:nil options:nil];
-		for (id currentObject in topLevelObjects) {
-			if ([currentObject isKindOfClass:[UITableViewCell class]]) {
-				cell = (NoticiaCell*) currentObject;
-				break;
-			}
-		}
-    }    
-    
-    Noticia *noti = [[[AUnder sharedInstance]noticias] objectAtIndex:indexPath.row];
-    
-    cell.titulo.text = [noti titulo];
-    cell.autor.text = [[noti autor]nick];
-    cell.fecha.text = [noti fecha];
-    
-    cell.titulo.tag = [noti codigo];
-    
-    DeviantDownload *download = [downloads objectAtIndex:indexPath.row];
-    //cell.cellLabel.text = download.filename;
-    UIImage *cellImage = download.image;
-    if (cellImage == nil)
-    {
-        //[cell.loading startAnimating];
-        download.delegate = self;
-    }
-    else
-        [cell.loading stopAnimating];
-    
-    cell.imagen.image = cellImage;
-    
-    // Configure the cell.
-    return cell;
-}
-
-- (void)downloadDidFinishDownloading:(DeviantDownload *)download
-{
-    NSUInteger index = [downloads indexOfObject:download]; 
-    NSUInteger indices[] = {0, index};
-    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
-    [path release];
-    download.delegate = nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 45;
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -208,17 +129,6 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	*/
-}
-
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -230,7 +140,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.tableView = nil;
     self.loadingText = nil;
     self.loadingView = nil;
     self.loadingSpinner = nil;
@@ -240,11 +149,9 @@
 
 - (void)dealloc
 {
-    [tableView release];
     [loadingSpinner release];
     [loadingText release];
     [loadingView release];
-    [downloads release];
     [super dealloc];
 }
 

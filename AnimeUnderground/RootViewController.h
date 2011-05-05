@@ -12,13 +12,13 @@
     IBOutlet UIView *loadingView;
     IBOutlet UILabel *loadingText;
     IBOutlet UIActivityIndicatorView *loadingSpinner;
-    IBOutlet UITableView *tableView;
     NSMutableArray *downloads;
 }
 
 @property (nonatomic, retain) IBOutlet UIView *loadingView;
 @property (nonatomic, retain) IBOutlet UILabel *loadingText;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingSpinner;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
+
+- (IBAction)showNoticias;
 
 @end

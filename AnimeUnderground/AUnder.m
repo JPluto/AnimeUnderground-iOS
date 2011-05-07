@@ -53,6 +53,8 @@ static Foro* theForo = nil;
             [updateHandler onBeginUpdate:self];
         });
         
+        @try {
+        
         // cargamos la información de las series
         
         [Genero clearGeneros];
@@ -310,7 +312,15 @@ static Foro* theForo = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
             [updateHandler onFinishUpdate:self];
         });
-        [lock unlock];
+        }
+        @catch (NSException *exception) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [updateHandler onUpdateError:self];
+            });
+        }
+        @finally {
+            [lock unlock];
+        }        
     });        
 }
 

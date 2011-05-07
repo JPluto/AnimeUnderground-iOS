@@ -48,11 +48,19 @@
     //NSLog(@"Estado actual de la actualizaci—n: %@",withStatus);
     [loadingText setText:withStatus];
 }
+
+- (void)onUpdateError:(AUnder*)aunder {
+    NSLog(@"Ha habido un error actualizando");
+}
+
 - (void)onFinishUpdate:(AUnder*)aunder {
     NSLog(@"Actualizaci—n finalizada");   
     self.title = @"Menœ";
     [self.navigationController setNavigationBarHidden:NO];
     [loadingView removeFromSuperview];
+    UIImage *image = [UIImage imageNamed: @"logo_barra_au.png"];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage: image];    
+	self.navigationItem.titleView = imageView;
 }
 
 - (IBAction)showNoticias {

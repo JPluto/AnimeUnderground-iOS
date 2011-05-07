@@ -36,6 +36,7 @@
 - (void)onBeginUpdate:(AUnder*)aunder;
 - (void)onUpdateStatus:(AUnder*)aunder:(NSString*)withStatus;
 - (void)onFinishUpdate:(AUnder*)aunder;
+- (void)onUpdateError:(AUnder*)aunder;
 @end
 
 

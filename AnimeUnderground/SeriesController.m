@@ -37,7 +37,7 @@
         [downloads addObject: [dd retain]];
     }
     
-    carousel.type = iCarouselTypeLinear;
+    carousel.type = iCarouselTypeCoverFlow;
     [carousel reloadData];
     
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
@@ -55,6 +55,18 @@
     return YES;
 }
 
+- (UIImage*)imageWithImage:(UIImage*)image 
+              scaledToSize:(CGSize)newSize;
+{
+    UIGraphicsBeginImageContext( newSize );
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     return [[[AUnder sharedInstance]series] count];
@@ -63,49 +75,46 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
 {
     //create a numbered view
+    
     DeviantDownload *download = [downloads objectAtIndex:index];
-    NSLog(@"%i Quiero cargar %@",downloads.count, download.urlString);
     
     UIImage *imagen = download.image;
     if (imagen == nil) {
-        NSLog(@"imagen = nil");
-        imagen = [UIImage imageNamed:@"page.png"]; 
+        imagen = [UIImage imageNamed:@"page.png"];
         download.delegate = self;
-    } else {
-        CGSize size = [imagen size];
-        int x = (size.width/2 ) - 50;
-        int y = (size.height/2 ) - 50;
-        CGImageRef tmp = CGImageCreateWithImageInRect(imagen, CGRectMake(x, y, 100, 100));
-        imagen = [UIImage imageWithCGImage:tmp];
     }
-    UIView *view = [[[UIImageView alloc] initWithImage:imagen] autorelease];
+    UIView *view = [[[UIImageView alloc] initWithImage:[self imageWithImage:imagen scaledToSize:CGSizeMake(200, 200)]] autorelease];
+     
+    
+    //UIView *view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]] autorelease];
 
     return view;
 }
 
+
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download {
     
     NSUInteger index = [downloads indexOfObject:download]; 
-    NSLog(@"Terminada descarga indice %i",index);
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
     
     //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
     [path release];
     download.delegate = nil;
-    [carousel reloadData];
 }
 
 - (void)carouselCurrentItemIndexUpdated:(iCarousel *)car {
     int index = carousel.currentItemIndex;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:index];
     nombreSerie.text = s.nombre;
+    [carousel reloadData];
+
 }
 
 - (float)carouselItemWidth:(iCarousel *)carousel
 {
     //slightly wider than item view
-    return 100;
+    return 200;
 }
 
 - (CATransform3D)carousel:(iCarousel *)carousel transformForItemView:(UIView *)view withOffset:(float)offset

@@ -28,7 +28,12 @@
             NSLog(@"Descargando %@",urlString);
             
             
-            NSString *cached = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
+            NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                 NSUserDomainMask,
+                                                                 YES);
+            
+            NSString *cached = [[paths lastObject] stringByAppendingPathComponent:tmp];
             if ([[NSFileManager defaultManager] fileExistsAtPath:cached]) {
                 self.image = [[UIImage alloc] initWithContentsOfFile:cached];
                 return self.image;
@@ -113,7 +118,9 @@
     
     NSData *png = UIImagePNGRepresentation(image);
     NSString *filename = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
-    [png writeToFile:filename atomically:YES];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
+	NSString *uniquePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:filename];
+    [png writeToFile:uniquePath atomically:YES];
     
     if ([delegate respondsToSelector:@selector(downloadDidFinishDownloading:)])
         [delegate downloadDidFinishDownloading:self];

@@ -409,42 +409,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showNoticias</string>
-						<reference key="source" ref="401220208"/>
-						<reference key="destination" ref="371349661"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">46</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showNoticias</string>
-						<reference key="source" ref="745007572"/>
-						<reference key="destination" ref="371349661"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">49</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showNoticias</string>
-						<reference key="source" ref="334996195"/>
-						<reference key="destination" ref="371349661"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">50</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">showNoticias</string>
-						<reference key="source" ref="711171058"/>
-						<reference key="destination" ref="371349661"/>
-						<int key="IBEventType">7</int>
-					</object>
-					<int key="connectionID">54</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showSeries</string>
 						<reference key="source" ref="401220208"/>
 						<reference key="destination" ref="841351856"/>

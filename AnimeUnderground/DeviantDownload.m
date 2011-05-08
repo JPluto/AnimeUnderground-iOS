@@ -5,7 +5,7 @@
 //  Created by Jeff Lamarche
 //  Copyright 2011 AUDev. All rights reserved.
 //
-
+#import <CommonCrypto/CommonDigest.h>
 #import "DeviantDownload.h"
 
 @interface DeviantDownload()
@@ -25,6 +25,15 @@
     {
         if (urlString != nil && [urlString length] > 0)
         {
+            NSLog(@"Descargando %@",urlString);
+            
+            
+            NSString *cached = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:cached]) {
+                self.image = [[UIImage alloc] initWithContentsOfFile:cached];
+                return self.image;
+            }
+            
             NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
             NSURLConnection *con = [[NSURLConnection alloc]
                                     initWithRequest:req
@@ -61,6 +70,18 @@
 {
     return [urlString lastPathComponent];
 }
+
+- (NSString *)md5Hash:(NSString *)clearText
+{
+	const char *cStr = [clearText UTF8String];
+	unsigned char result[CC_MD5_DIGEST_LENGTH];
+	CC_MD5( cStr, strlen(cStr), result );
+	return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+			result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
+			result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]
+            ];
+}
+
 - (void)dealloc 
 {
     [urlString release];
@@ -89,6 +110,11 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection 
 {
     self.image = [UIImage imageWithData:receivedData];
+    
+    NSData *png = UIImagePNGRepresentation(image);
+    NSString *filename = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
+    [png writeToFile:filename atomically:YES];
+    
     if ([delegate respondsToSelector:@selector(downloadDidFinishDownloading:)])
         [delegate downloadDidFinishDownloading:self];
     

@@ -22,6 +22,8 @@
 		1E474306137633F800E49025 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E474305137633F800E49025 /* iCarousel.m */; };
 		1E47430A1376353400E49025 /* SeriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4743081376353400E49025 /* SeriesController.m */; };
 		1E47430B1376353400E49025 /* SeriesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743091376353400E49025 /* SeriesController.xib */; };
+		1E47430D1376ADBA00E49025 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E47430C1376ADBA00E49025 /* QuartzCore.framework */; };
+		1E4743171376B69500E49025 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743161376B69500E49025 /* page.png */; };
 		1E61E6751375B7B9003BDBE9 /* logo_barra_au.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */; };
 		1E61E6761375B7B9003BDBE9 /* logo_barra_au@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */; };
 		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
@@ -71,6 +73,8 @@
 		1E4743071376353400E49025 /* SeriesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeriesController.h; sourceTree = "<group>"; };
 		1E4743081376353400E49025 /* SeriesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesController.m; sourceTree = "<group>"; };
 		1E4743091376353400E49025 /* SeriesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesController.xib; sourceTree = "<group>"; };
+		1E47430C1376ADBA00E49025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1E4743161376B69500E49025 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page.png; path = "../../Downloads/demosthenese-iCarousel-8ac382b/iCarouselExample/page.png"; sourceTree = "<group>"; };
 		1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_barra_au.png; sourceTree = "<group>"; };
 		1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_barra_au@2x.png"; sourceTree = "<group>"; };
 		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E47430D1376ADBA00E49025 /* QuartzCore.framework in Frameworks */,
 				1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */,
 				1E7FDFF1134CC30D00063CCE /* Foundation.framework in Frameworks */,
 				1E7FDFF3134CC30D00063CCE /* CoreGraphics.framework in Frameworks */,
@@ -231,6 +236,7 @@
 		1E7FDFED134CC30D00063CCE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E47430C1376ADBA00E49025 /* QuartzCore.framework */,
 				1E7FDFEE134CC30D00063CCE /* UIKit.framework */,
 				1E7FDFF0134CC30D00063CCE /* Foundation.framework */,
 				1E7FDFF2134CC30D00063CCE /* CoreGraphics.framework */,
@@ -268,6 +274,7 @@
 		1E83B7951373104A00AEAB73 /* Imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				1E4743161376B69500E49025 /* page.png */,
 				1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */,
 				1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */,
 				1E4742F413762D4300E49025 /* foro.png */,
@@ -357,6 +364,7 @@
 				1E47430013762FC500E49025 /* entes.png in Resources */,
 				1E4743021376306800E49025 /* logros.png in Resources */,
 				1E47430B1376353400E49025 /* SeriesController.xib in Resources */,
+				1E4743171376B69500E49025 /* page.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

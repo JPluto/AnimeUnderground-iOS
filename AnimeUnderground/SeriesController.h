@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iCarousel.h"
 
 
-@interface SeriesController : UIViewController {
+@interface SeriesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
+    NSMutableArray *downloads;
     
 }
 
+@property (nonatomic, retain) IBOutlet iCarousel *carousel;
+@property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
 @end

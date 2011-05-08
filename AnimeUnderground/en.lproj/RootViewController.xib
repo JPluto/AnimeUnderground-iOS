@@ -120,9 +120,8 @@
 						<string key="NSFrame">{{32, 0}, {110, 110}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="401220208"/>
+						<reference key="NSNextKeyView" ref="143043497"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -152,9 +151,8 @@
 						<string key="NSFrame">{{178, 0}, {110, 110}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="143043497"/>
+						<reference key="NSNextKeyView" ref="184117266"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -177,9 +175,8 @@
 						<string key="NSFrame">{{32, 135}, {110, 110}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="745007572"/>
+						<reference key="NSNextKeyView" ref="946796919"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -202,9 +199,8 @@
 						<string key="NSFrame">{{178, 135}, {110, 110}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="946796919"/>
+						<reference key="NSNextKeyView" ref="161252910"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -256,7 +252,6 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="169983760"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -299,7 +294,7 @@
 						<string key="NSFrame">{{32, 106}, {110, 21}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="184117266"/>
+						<reference key="NSNextKeyView" ref="401220208"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -339,7 +334,7 @@
 						<string key="NSFrame">{{32, 241}, {110, 21}}</string>
 						<reference key="NSSuperview" ref="902259667"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="161252910"/>
+						<reference key="NSNextKeyView" ref="745007572"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -500,11 +495,11 @@
 							<reference ref="143043497"/>
 							<reference ref="946796919"/>
 							<reference ref="184117266"/>
-							<reference ref="334996195"/>
 							<reference ref="745007572"/>
 							<reference ref="161252910"/>
 							<reference ref="711171058"/>
 							<reference ref="169983760"/>
+							<reference ref="334996195"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -723,11 +718,11 @@
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{215, 202}</string>
-				<string>{256, 256}</string>
-				<string>{256, 256}</string>
-				<string>{256, 256}</string>
-				<string>{256, 256}</string>
-				<string>{256, 256}</string>
+				<string>{420, 420}</string>
+				<string>{420, 420}</string>
+				<string>{420, 420}</string>
+				<string>{420, 420}</string>
+				<string>{420, 420}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>

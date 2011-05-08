@@ -19,7 +19,7 @@
 @synthesize loadingText;
 @synthesize loadingSpinner;
 
-@class AUnder, NoticiasController;
+@class AUnder, NoticiasController, SeriesController;
 
 - (void)viewDidLoad
 {
@@ -66,6 +66,12 @@
 - (IBAction)showNoticias {
     NoticiasController *nc = [[NoticiasController alloc]init];
     [self.navigationController pushViewController:nc animated:YES];
+}
+
+- (IBAction)showSeries {
+    SeriesController *sc = [[SeriesController alloc]init];
+    [self.navigationController pushViewController:sc animated:YES];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated

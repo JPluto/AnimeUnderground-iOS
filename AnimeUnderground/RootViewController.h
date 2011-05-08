@@ -20,5 +20,6 @@
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingSpinner;
 
 - (IBAction)showNoticias;
+- (IBAction)showSeries;
 
 @end

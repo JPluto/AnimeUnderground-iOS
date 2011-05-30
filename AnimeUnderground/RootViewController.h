@@ -22,5 +22,6 @@
 - (IBAction)showNoticias;
 - (IBAction)showSeries;
 - (IBAction)showEntes;
+- (IBAction)showForo;
 
 @end

@@ -20,7 +20,7 @@
 @synthesize loadingText;
 @synthesize loadingSpinner;
 
-@class AUnder, NoticiasController, SeriesController,EntesController;
+@class AUnder, NoticiasController, SeriesController,EntesController, ForoController;
 
 - (void)viewDidLoad
 {
@@ -79,6 +79,11 @@
     EntesController *ec = [[EntesController alloc]init];
     [self.navigationController pushViewController:ec animated:YES];
     
+}
+
+- (IBAction)showForo {
+    ForoController *fc = [[ForoController alloc]init];
+    [self.navigationController pushViewController:fc animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated

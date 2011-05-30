@@ -50,6 +50,8 @@
 		1EB882DC13573B31001CE8ED /* CargoEnteSerie.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB882DB13573B31001CE8ED /* CargoEnteSerie.m */; };
 		1EF9B80C1394074A00C42D76 /* EntesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80A1394074A00C42D76 /* EntesController.m */; };
 		1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B1394074A00C42D76 /* EntesController.xib */; };
+		1EF9B811139413A200C42D76 /* ForoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80F139413A200C42D76 /* ForoController.m */; };
+		1EF9B812139413A200C42D76 /* ForoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B810139413A200C42D76 /* ForoController.xib */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,9 @@
 		1EF9B8091394074A00C42D76 /* EntesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntesController.h; sourceTree = "<group>"; };
 		1EF9B80A1394074A00C42D76 /* EntesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntesController.m; sourceTree = "<group>"; };
 		1EF9B80B1394074A00C42D76 /* EntesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntesController.xib; sourceTree = "<group>"; };
+		1EF9B80E139413A200C42D76 /* ForoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForoController.h; sourceTree = "<group>"; };
+		1EF9B80F139413A200C42D76 /* ForoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForoController.m; sourceTree = "<group>"; };
+		1EF9B810139413A200C42D76 /* ForoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForoController.xib; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +191,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
+				1EF9B810139413A200C42D76 /* ForoController.xib */,
 				1E83B78D13730A0700AEAB73 /* NoticiasController.xib */,
 				1EF9B80B1394074A00C42D76 /* EntesController.xib */,
 				1E7FE006134CC30E00063CCE /* RootViewController.xib */,
@@ -209,6 +215,8 @@
 				1E4743081376353400E49025 /* SeriesController.m */,
 				1EF9B8091394074A00C42D76 /* EntesController.h */,
 				1EF9B80A1394074A00C42D76 /* EntesController.m */,
+				1EF9B80E139413A200C42D76 /* ForoController.h */,
+				1EF9B80F139413A200C42D76 /* ForoController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -374,6 +382,7 @@
 				1E47430B1376353400E49025 /* SeriesController.xib in Resources */,
 				1E4743171376B69500E49025 /* page.png in Resources */,
 				1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */,
+				1EF9B812139413A200C42D76 /* ForoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +414,7 @@
 				1E474306137633F800E49025 /* iCarousel.m in Sources */,
 				1E47430A1376353400E49025 /* SeriesController.m in Sources */,
 				1EF9B80C1394074A00C42D76 /* EntesController.m in Sources */,
+				1EF9B811139413A200C42D76 /* ForoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

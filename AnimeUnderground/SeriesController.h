@@ -12,9 +12,11 @@
 
 @interface SeriesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
     NSMutableArray *downloads;
-    
+    int currentSelection;
 }
 
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
+-(IBAction)showSerieDetails;
+
 @end

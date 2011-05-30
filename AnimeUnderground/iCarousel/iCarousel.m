@@ -566,6 +566,7 @@
 {
     UIView *itemView = [tapGesture.view.subviews objectAtIndex:0];
     NSInteger index = [itemViews indexOfObject:itemView];
+    NSLog(@"tap");
     if (index != NSNotFound)
     {
         [self scrollToItemAtIndex:index animated:YES];

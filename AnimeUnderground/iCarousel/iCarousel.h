@@ -64,7 +64,6 @@ iCarouselType;
 @protocol iCarouselDelegate <NSObject>
 
 @optional
-
 - (void)carouselDidScroll:(iCarousel *)carousel;
 - (void)carouselCurrentItemIndexUpdated:(iCarousel *)carousel;
 - (float)carouselItemWidth:(iCarousel *)carousel;

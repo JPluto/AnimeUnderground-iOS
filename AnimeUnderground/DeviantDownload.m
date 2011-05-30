@@ -24,10 +24,7 @@
     if (image == nil && !downloading)
     {
         if (urlString != nil && [urlString length] > 0)
-        {
-            NSLog(@"Descargando %@",urlString);
-            
-            
+        {            
             NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                  NSUserDomainMask,

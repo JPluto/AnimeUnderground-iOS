@@ -39,7 +39,7 @@
     
     carousel.type = iCarouselTypeCoverFlow;
     [carousel reloadData];
-    
+    currentSelection = 0;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
     nombreSerie.text = s.nombre;
 }
@@ -84,7 +84,8 @@
         download.delegate = self;
     }
     UIView *view = [[[UIImageView alloc] initWithImage:[self imageWithImage:imagen scaledToSize:CGSizeMake(200, 200)]] autorelease];
-     
+
+    currentSelection = index;
     
     //UIView *view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]] autorelease];
 
@@ -105,6 +106,7 @@
 
 - (void)carouselCurrentItemIndexUpdated:(iCarousel *)car {
     int index = carousel.currentItemIndex;
+    currentSelection = index;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:index];
     nombreSerie.text = s.nombre;
 }
@@ -133,6 +135,13 @@
 {
     //wrap all carousels
     return NO;
+}
+
+// reacción de la ui
+
+-(IBAction) showSerieDetails {
+    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:currentSelection];
+    NSLog(@"serie elegida = %@",s.nombre);
 }
 
 @end

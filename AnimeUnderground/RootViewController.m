@@ -20,7 +20,7 @@
 @synthesize loadingText;
 @synthesize loadingSpinner;
 
-@class AUnder, NoticiasController, SeriesController;
+@class AUnder, NoticiasController, SeriesController,EntesController;
 
 - (void)viewDidLoad
 {
@@ -72,6 +72,12 @@
 - (IBAction)showSeries {
     SeriesController *sc = [[SeriesController alloc]init];
     [self.navigationController pushViewController:sc animated:YES];
+    
+}
+
+- (IBAction)showEntes {
+    EntesController *ec = [[EntesController alloc]init];
+    [self.navigationController pushViewController:ec animated:YES];
     
 }
 

@@ -107,8 +107,6 @@
     int index = carousel.currentItemIndex;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:index];
     nombreSerie.text = s.nombre;
-    [carousel reloadData];
-
 }
 
 - (float)carouselItemWidth:(iCarousel *)carousel

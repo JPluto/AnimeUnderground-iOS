@@ -13,6 +13,7 @@
 #import "NoticiaCell.h"
 #import "DeviantDownload.h"
 #import "Imagen.h"
+#import "NoticiaDetailsController.h"
 
 @implementation NoticiasController
 
@@ -216,14 +217,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    NSLog(@"Index of the menu item currently clicked: %u", ([indexPath row]));
+	int codigo = [[[[AUnder sharedInstance] noticias] objectAtIndex: indexPath.row] codigo];
+	
+	NoticiaDetailsController *tmp = [[NoticiaDetailsController alloc]init];
+    tmp.codigoNoticia = codigo;
+	
+	[self.navigationController pushViewController:tmp animated:YES];
 }
 
 @end

@@ -341,6 +341,14 @@ static Foro* theForo = nil;
     return nil;
 }
 
+- (Noticia*)getNoticiaByCodigo:(int)codigo {
+    for (Noticia *n in noticias) {
+        if (n.codigo==codigo)
+            return n;
+    }
+    return nil;
+}
+
 // functiones necesarias para singleton
 
 + (id)allocWithZone:(NSZone*)zone {

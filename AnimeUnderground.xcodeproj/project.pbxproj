@@ -52,6 +52,8 @@
 		1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B1394074A00C42D76 /* EntesController.xib */; };
 		1EF9B811139413A200C42D76 /* ForoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80F139413A200C42D76 /* ForoController.m */; };
 		1EF9B812139413A200C42D76 /* ForoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B810139413A200C42D76 /* ForoController.xib */; };
+		1EF9B816139683DA00C42D76 /* NoticiaDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */; };
+		1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,9 @@
 		1EF9B80E139413A200C42D76 /* ForoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForoController.h; sourceTree = "<group>"; };
 		1EF9B80F139413A200C42D76 /* ForoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForoController.m; sourceTree = "<group>"; };
 		1EF9B810139413A200C42D76 /* ForoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForoController.xib; sourceTree = "<group>"; };
+		1EF9B813139683D900C42D76 /* NoticiaDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiaDetailsController.h; sourceTree = "<group>"; };
+		1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiaDetailsController.m; sourceTree = "<group>"; };
+		1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaDetailsController.xib; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +196,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
+				1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */,
 				1EF9B810139413A200C42D76 /* ForoController.xib */,
 				1E83B78D13730A0700AEAB73 /* NoticiasController.xib */,
 				1EF9B80B1394074A00C42D76 /* EntesController.xib */,
@@ -217,6 +223,8 @@
 				1EF9B80A1394074A00C42D76 /* EntesController.m */,
 				1EF9B80E139413A200C42D76 /* ForoController.h */,
 				1EF9B80F139413A200C42D76 /* ForoController.m */,
+				1EF9B813139683D900C42D76 /* NoticiaDetailsController.h */,
+				1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -383,6 +391,7 @@
 				1E4743171376B69500E49025 /* page.png in Resources */,
 				1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */,
 				1EF9B812139413A200C42D76 /* ForoController.xib in Resources */,
+				1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +424,7 @@
 				1E47430A1376353400E49025 /* SeriesController.m in Sources */,
 				1EF9B80C1394074A00C42D76 /* EntesController.m in Sources */,
 				1EF9B811139413A200C42D76 /* ForoController.m in Sources */,
+				1EF9B816139683DA00C42D76 /* NoticiaDetailsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

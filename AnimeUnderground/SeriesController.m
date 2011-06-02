@@ -38,6 +38,7 @@
     }
     
     carousel.type = iCarouselTypeCoverFlow;
+    // habrá que añadir un loading al estilo de rootviewcontroller
     [carousel reloadData];
     currentSelection = 0;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];

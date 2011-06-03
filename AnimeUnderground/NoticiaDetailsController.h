@@ -11,6 +11,8 @@
 
 @interface NoticiaDetailsController : UIViewController {
     int codigoNoticia;
+    NSMutableArray *downloads;
+    int totalImagenes;
 }
 
 @property int codigoNoticia;

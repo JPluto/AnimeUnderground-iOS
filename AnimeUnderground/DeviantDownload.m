@@ -25,6 +25,7 @@
     {
         if (urlString != nil && [urlString length] > 0)
         {            
+            NSLog(@"urlString = %@",urlString);	
             NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                  NSUserDomainMask,

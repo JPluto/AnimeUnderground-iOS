@@ -52,6 +52,10 @@
     
     Noticia *noti = [[AUnder sharedInstance]getNoticiaByCodigo:codigoNoticia];
     self.title = [noti titulo];
+    self.fechaNoticia.text = [noti fecha];
+    self.textoNoticia.text = [noti texto];
+    self.nombreNoticia.text = [noti titulo];
+    self.nombreAutor.text = [[noti autor]nick];
 }
 
 - (void)viewDidUnload

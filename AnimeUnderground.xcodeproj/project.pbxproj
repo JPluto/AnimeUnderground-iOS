@@ -56,6 +56,7 @@
 		1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */; };
 		1EF9B821139A55E900C42D76 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B820139A55E900C42D76 /* user.png */; };
 		1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B822139A56C100C42D76 /* calendar_view_day.png */; };
+		1EF9B825139A889800C42D76 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B824139A889800C42D76 /* comments.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaDetailsController.xib; sourceTree = "<group>"; };
 		1EF9B820139A55E900C42D76 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		1EF9B822139A56C100C42D76 /* calendar_view_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_view_day.png; sourceTree = "<group>"; };
+		1EF9B824139A889800C42D76 /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +304,7 @@
 		1E83B7951373104A00AEAB73 /* Imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				1EF9B824139A889800C42D76 /* comments.png */,
 				1E4743161376B69500E49025 /* page.png */,
 				1EF9B822139A56C100C42D76 /* calendar_view_day.png */,
 				1EF9B820139A55E900C42D76 /* user.png */,
@@ -400,6 +403,7 @@
 				1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */,
 				1EF9B821139A55E900C42D76 /* user.png in Resources */,
 				1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */,
+				1EF9B825139A889800C42D76 /* comments.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

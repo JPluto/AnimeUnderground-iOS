@@ -21,6 +21,7 @@
 @synthesize fechaNoticia;
 @synthesize textoNoticia;
 @synthesize imagenesNoticia;
+@synthesize scroll;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,6 +41,7 @@
     [self.fechaNoticia release];
     [self.textoNoticia release];
     [self.imagenesNoticia release];
+    [self.scroll release];
     [super dealloc];
 }
 
@@ -59,7 +61,7 @@
     // Do any additional setup after loading the view from its nib.
     
     Noticia *noti = [[AUnder sharedInstance]getNoticiaByCodigo:codigoNoticia];
-    self.title = [noti titulo];
+    self.title = [NSString stringWithFormat:@"Detalles de %@",[noti titulo]];
     self.fechaNoticia.text = [noti fecha];
     self.textoNoticia.text = [noti texto];
     self.textoNoticia.numberOfLines = 0;
@@ -78,6 +80,10 @@
     imagenesNoticia.type = iCarouselTypeCoverFlow;
     // habrá que añadir un loading al estilo de rootviewcontroller
     [imagenesNoticia reloadData];
+    
+    scroll.contentSize = CGSizeMake(scroll.frame.size.width, (textoNoticia.frame.origin.y+textoNoticia.frame.size.height));
+    
+    
 }
  
 - (void)viewDidUnload
@@ -90,6 +96,7 @@
     self.textoNoticia = nil;
     self.nombreNoticia = nil;
     self.nombreAutor = nil;
+    self.scroll = nil;
     
 
 }

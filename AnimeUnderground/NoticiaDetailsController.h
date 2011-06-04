@@ -22,5 +22,6 @@
 @property (nonatomic,retain) IBOutlet UILabel *fechaNoticia;
 @property (nonatomic,retain) IBOutlet UILabel *textoNoticia;
 @property (nonatomic,retain) IBOutlet iCarousel *imagenesNoticia;
+@property (nonatomic,retain) IBOutlet UIScrollView *scroll;
 
 @end

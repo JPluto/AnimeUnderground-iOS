@@ -54,6 +54,8 @@
 		1EF9B812139413A200C42D76 /* ForoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B810139413A200C42D76 /* ForoController.xib */; };
 		1EF9B816139683DA00C42D76 /* NoticiaDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */; };
 		1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */; };
+		1EF9B821139A55E900C42D76 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B820139A55E900C42D76 /* user.png */; };
+		1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B822139A56C100C42D76 /* calendar_view_day.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,8 @@
 		1EF9B813139683D900C42D76 /* NoticiaDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticiaDetailsController.h; sourceTree = "<group>"; };
 		1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticiaDetailsController.m; sourceTree = "<group>"; };
 		1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaDetailsController.xib; sourceTree = "<group>"; };
+		1EF9B820139A55E900C42D76 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		1EF9B822139A56C100C42D76 /* calendar_view_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar_view_day.png; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -299,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				1E4743161376B69500E49025 /* page.png */,
+				1EF9B822139A56C100C42D76 /* calendar_view_day.png */,
+				1EF9B820139A55E900C42D76 /* user.png */,
 				1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */,
 				1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */,
 				1E4742F413762D4300E49025 /* foro.png */,
@@ -392,6 +398,8 @@
 				1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */,
 				1EF9B812139413A200C42D76 /* ForoController.xib in Resources */,
 				1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */,
+				1EF9B821139A55E900C42D76 /* user.png in Resources */,
+				1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

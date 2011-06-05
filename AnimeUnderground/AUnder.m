@@ -88,8 +88,8 @@ static Foro* theForo = nil;
             
             NSString *generoSerie = [TBXML textForElement:[TBXML childElementNamed:@"Genero" parentElement:serie]];
             
-            NSString *capitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"Capitulos" parentElement:serie]];
-            NSString *capitulosTotales = [TBXML textForElement:[TBXML childElementNamed:@"CapituloActual" parentElement:serie]];
+            NSString *capitulosTotales = [TBXML textForElement:[TBXML childElementNamed:@"Capitulos" parentElement:serie]];
+            NSString *capitulosSerie = [TBXML textForElement:[TBXML childElementNamed:@"CapituloActual" parentElement:serie]];
             NSString *imagenSerie = [TBXML textForElement:[TBXML childElementNamed:@"Imagen" parentElement:serie]];
             NSString *imagenBotonSerie = [TBXML textForElement:[TBXML childElementNamed:@"ImagenBoton" parentElement:serie]];
             NSString *precuelaSerie = [TBXML textForElement:[TBXML childElementNamed:@"Precuela" parentElement:serie]];

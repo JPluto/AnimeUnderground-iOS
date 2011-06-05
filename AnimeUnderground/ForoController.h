@@ -11,9 +11,10 @@
 
 @interface ForoController : UIViewController {
     UIWebView *webView;
+    NSString *urlString;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
-
+@property (nonatomic, retain) NSString *urlString;
 
 @end

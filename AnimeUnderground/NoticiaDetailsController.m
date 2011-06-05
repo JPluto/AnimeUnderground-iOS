@@ -13,7 +13,7 @@
 
 @implementation NoticiaDetailsController
 
-@class AUnder,Noticia;
+@class AUnder,Noticia,ForoController;
 
 @synthesize codigoNoticia;
 @synthesize nombreNoticia;
@@ -69,6 +69,9 @@
     self.nombreNoticia.text = [noti titulo];
     self.nombreAutor.text = [[noti autor]nick];
     
+    tid = [[NSString alloc]initWithString:[noti tid]];
+    codigoEnte = [[noti autor]codigo];
+    
     downloads = [[[NSMutableArray alloc]init]retain];
     totalImagenes = [[noti imagenes]count];
     for (Imagen *s in [noti imagenes]) {
@@ -99,6 +102,16 @@
     self.scroll = nil;
     
 
+}
+
+-(IBAction)showEnteDetails {
+    NSLog(@"Click en ente %d",codigoEnte);
+}
+-(IBAction)showForumThread {
+    NSLog(@"Click en url %@",tid);
+    ForoController *fc = [[ForoController alloc]init];
+    [fc setUrlString:[NSString stringWithFormat:@"http://foro.aunder.org/showthread.php?tid=%@",tid]];
+    [self.navigationController pushViewController:fc animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

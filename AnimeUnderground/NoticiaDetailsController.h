@@ -13,9 +13,11 @@
     int codigoNoticia;
     NSMutableArray *downloads;
     int totalImagenes;
+    NSString *tid;
+    int codigoEnte;
 }
 
-@property int codigoNoticia;
+@property (nonatomic, assign) int codigoNoticia;
 
 @property (nonatomic,retain) IBOutlet UILabel *nombreNoticia;
 @property (nonatomic,retain) IBOutlet UILabel *nombreAutor;
@@ -23,5 +25,8 @@
 @property (nonatomic,retain) IBOutlet UILabel *textoNoticia;
 @property (nonatomic,retain) IBOutlet iCarousel *imagenesNoticia;
 @property (nonatomic,retain) IBOutlet UIScrollView *scroll;
+
+-(IBAction)showEnteDetails;
+-(IBAction)showForumThread;
 
 @end

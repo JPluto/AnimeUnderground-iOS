@@ -11,7 +11,7 @@
 
 @implementation ForoController
 
-@synthesize webView;
+@synthesize webView, urlString;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,6 +25,8 @@
 
 - (void)dealloc
 {
+    [urlString release];
+    [webView release];
     [super dealloc];
 }
 
@@ -45,6 +47,10 @@
     [self setTitle:@"Foro"];
     
     NSURL *url = [NSURL URLWithString:@"http://foro.aunder.org"];
+    if (urlString!=nil)
+        if (![urlString isEqualToString:@""])
+            url = [NSURL URLWithString:urlString];
+    
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:url];	
 	[request setHTTPMethod:@"GET"];
@@ -66,6 +72,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.webView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

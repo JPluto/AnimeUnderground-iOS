@@ -34,4 +34,16 @@
 @synthesize staff;
 @synthesize generos;
 
+@class Genero;
+
+-(NSString*) getGenerosString {
+    NSString *res = [[NSString alloc]initWithString:@""];
+    for (Genero *g in generos) {
+        res = [res stringByAppendingFormat:@"%@,",[g nombre]];
+    }
+    if (res.length>0)
+        res = [res substringToIndex:res.length-1];
+    return res;
+}
+
 @end

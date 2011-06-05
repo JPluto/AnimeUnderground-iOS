@@ -24,6 +24,8 @@
 		1E47430B1376353400E49025 /* SeriesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743091376353400E49025 /* SeriesController.xib */; };
 		1E47430D1376ADBA00E49025 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E47430C1376ADBA00E49025 /* QuartzCore.framework */; };
 		1E4743171376B69500E49025 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743161376B69500E49025 /* page.png */; };
+		1E503DA2139BE2D60010DF8D /* SerieDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */; };
+		1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */; };
 		1E61E6751375B7B9003BDBE9 /* logo_barra_au.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */; };
 		1E61E6761375B7B9003BDBE9 /* logo_barra_au@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */; };
 		1E7FDFEF134CC30D00063CCE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7FDFEE134CC30D00063CCE /* UIKit.framework */; };
@@ -84,6 +86,9 @@
 		1E4743091376353400E49025 /* SeriesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesController.xib; sourceTree = "<group>"; };
 		1E47430C1376ADBA00E49025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1E4743161376B69500E49025 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page.png; path = "../../Downloads/demosthenese-iCarousel-8ac382b/iCarouselExample/page.png"; sourceTree = "<group>"; };
+		1E503D9F139BE2D60010DF8D /* SerieDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerieDetailsController.h; sourceTree = "<group>"; };
+		1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerieDetailsController.m; sourceTree = "<group>"; };
+		1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerieDetailsController.xib; sourceTree = "<group>"; };
 		1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_barra_au.png; sourceTree = "<group>"; };
 		1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_barra_au@2x.png"; sourceTree = "<group>"; };
 		1E7FDFEA134CC30D00063CCE /* AnimeUnderground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeUnderground.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +207,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
+				1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */,
 				1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */,
 				1EF9B810139413A200C42D76 /* ForoController.xib */,
 				1E83B78D13730A0700AEAB73 /* NoticiasController.xib */,
@@ -231,6 +237,8 @@
 				1EF9B80F139413A200C42D76 /* ForoController.m */,
 				1EF9B813139683D900C42D76 /* NoticiaDetailsController.h */,
 				1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */,
+				1E503D9F139BE2D60010DF8D /* SerieDetailsController.h */,
+				1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 				1EF9B821139A55E900C42D76 /* user.png in Resources */,
 				1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */,
 				1EF9B825139A889800C42D76 /* comments.png in Resources */,
+				1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +446,7 @@
 				1EF9B80C1394074A00C42D76 /* EntesController.m in Sources */,
 				1EF9B811139413A200C42D76 /* ForoController.m in Sources */,
 				1EF9B816139683DA00C42D76 /* NoticiaDetailsController.m in Sources */,
+				1E503DA2139BE2D60010DF8D /* SerieDetailsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

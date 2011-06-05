@@ -12,7 +12,7 @@
 #import "DeviantDownload.h"
 
 @implementation SeriesController
-@class AUnder;
+@class AUnder,SerieDetailsController;
 @synthesize carousel, nombreSerie;
 
 - (void)dealloc
@@ -30,16 +30,21 @@
     self.title = @"Series";
     
     downloads = [[[NSMutableArray alloc]init]retain];
-    
-    for (Serie *s in [[AUnder sharedInstance] series]) {
-        DeviantDownload *dd = [[DeviantDownload alloc]init];
-        dd.urlString = [[s imagen] retain];
-        [downloads addObject: [dd retain]];
-    }
-    
-    carousel.type = iCarouselTypeCoverFlow;
-    // habrá que añadir un loading al estilo de rootviewcontroller
-    [carousel reloadData];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (Serie *s in [[AUnder sharedInstance] series]) {
+            DeviantDownload *dd = [[DeviantDownload alloc]init];
+            dd.urlString = [[s imagen] retain];
+            [downloads addObject: [dd retain]];
+        }
+        
+        carousel.type = iCarouselTypeCoverFlow;
+        
+        // habrá que añadir un loading al estilo de rootviewcontroller
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [carousel reloadData];
+        });       
+    });
+
     currentSelection = 0;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
     nombreSerie.text = s.nombre;
@@ -143,6 +148,9 @@
 -(IBAction) showSerieDetails {
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:currentSelection];
     NSLog(@"serie elegida = %@",s.nombre);
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
 }
 
 @end

@@ -58,4 +58,6 @@
 @property (nonatomic, retain) NSMutableArray *staff;
 @property (nonatomic, retain) NSMutableArray *generos;
 
+-(NSString*) getGenerosString;
+
 @end

@@ -9,6 +9,8 @@
 #import "SerieDetailsController.h"
 #import "DeviantDownload.h"
 #import "Serie.h"
+#import "Ente.h"
+#import "CargoEnteSerie.h"
 
 @implementation SerieDetailsController
 
@@ -67,6 +69,10 @@
     DeviantDownload *dd = [[DeviantDownload alloc]init];
     dd.urlString = [serie imagen];
     self.imagen.image = [dd image];
+    
+    for (CargoEnteSerie *ces in serie.staff) {
+        NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
+    }
     
     [self.sinopsis sizeToFit];
     scroll.contentSize = CGSizeMake(scroll.frame.size.width, (sinopsis.frame.origin.y+sinopsis.frame.size.height));

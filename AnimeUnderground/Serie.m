@@ -39,10 +39,9 @@
 @class Genero;
 
 -(NSString*) getGenerosString {
-    NSLog(@"generos que veo yo: %d",[[Genero getGeneros]count]);
     NSString *res = [[NSString alloc]initWithString:@""];
     for (Genero *g in generos) {
-        res = [res stringByAppendingFormat:@"%@,",[g nombre]];
+        res = [res stringByAppendingFormat:@" %@,",[g nombre]];
     }
     if (res.length>0)
         res = [res substringToIndex:res.length-1];

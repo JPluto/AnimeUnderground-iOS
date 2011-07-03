@@ -126,9 +126,11 @@ static Foro* theForo = nil;
             s.recomendable = [recomendableSerie isEqualToString:@"1"];
             s.cancelada = [isCanceladaSerie isEqualToString:@"1"];
             s.terminada = [isTerminadaSerie isEqualToString:@"1"];
+            s.generos = [[NSMutableArray alloc]init];
+            s.staff = [[NSMutableArray alloc]init];
             
             [Genero addGeneros:generoSerie:s];
-            
+                        
             [tmpSeries addObject:s];
                         
             int precuela = [precuelaSerie intValue];
@@ -145,7 +147,7 @@ static Foro* theForo = nil;
         }
         
         series = [[NSArray arrayWithArray:tmpSeries]retain];
-        
+                    
         // ahora arreglamos las precuelas/secuelas ya que tenemos todas las series en memoria
         
         for (NSString *key in [seriesConPrecuela allKeys]) {

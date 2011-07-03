@@ -13,7 +13,7 @@
 @synthesize nombre;
 @synthesize series;
 
-static NSMutableArray *generos;
+static NSMutableArray *generos = nil;
 static NSLock *lock;
 
 - (id)initWithNombre:(NSString*)aNombre
@@ -25,17 +25,26 @@ static NSLock *lock;
     return self;
 }
 
++(NSMutableArray*) generos {
+    static NSMutableArray* arr = nil;
+    if (!arr)
+        arr = [[NSMutableArray alloc]init];
+    
+    return arr;
+}
+
 +(void)addGenero:(NSString*)nombre:(Serie*)serie {
     [lock lock];
     // hacer trim
+    
     Genero *g = [self getGenero:nombre];
     if (g==nil) {
         NSLog(@"Añadiendo género %@",nombre);
         g = [[Genero alloc]initWithNombre:nombre];
-        [generos addObject:g];
+        [generos addObject:[g retain]];
     }
-    [[g series] addObject:serie];
-    [[serie generos] addObject:g];
+    [[g series] addObject:[serie retain]];
+    [[serie generos] addObject:[g retain]];
     [lock unlock];
 }
 
@@ -47,8 +56,9 @@ static NSLock *lock;
     NSArray *matches = [generos componentsSeparatedByCharactersInSet:set];
     
     for (NSString *genero in matches) {
-        if (![genero isEqualToString:@""])
-            [self addGenero:genero:serie];
+        if (![genero isEqualToString:@""]) {
+            [self addGenero:[genero stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]:serie];
+        }
     }
     
     [lock unlock];

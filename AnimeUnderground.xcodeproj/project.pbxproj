@@ -14,6 +14,7 @@
 		1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E040C7E136460FB0004B407 /* NoticiaCell.xib */; };
 		1E040C8313646EFA0004B407 /* DeviantDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C8213646EFA0004B407 /* DeviantDownload.m */; };
 		1E16946713602070006DE80F /* Genero.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E16946613602070006DE80F /* Genero.m */; };
+		1E35EED013AE75620016CD18 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E35EECF13AE75620016CD18 /* page.png */; };
 		1E4742F513762D4300E49025 /* foro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742F413762D4300E49025 /* foro.png */; };
 		1E4742FA13762D9F00E49025 /* noticia.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742F913762D9F00E49025 /* noticia.png */; };
 		1E4742FC13762F4500E49025 /* series.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742FB13762F4500E49025 /* series.png */; };
@@ -23,7 +24,6 @@
 		1E47430A1376353400E49025 /* SeriesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4743081376353400E49025 /* SeriesController.m */; };
 		1E47430B1376353400E49025 /* SeriesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743091376353400E49025 /* SeriesController.xib */; };
 		1E47430D1376ADBA00E49025 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E47430C1376ADBA00E49025 /* QuartzCore.framework */; };
-		1E4743171376B69500E49025 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4743161376B69500E49025 /* page.png */; };
 		1E503DA2139BE2D60010DF8D /* SerieDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */; };
 		1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */; };
 		1E61E6751375B7B9003BDBE9 /* logo_barra_au.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */; };
@@ -74,6 +74,7 @@
 		1E040C8213646EFA0004B407 /* DeviantDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviantDownload.m; sourceTree = "<group>"; };
 		1E16946513602070006DE80F /* Genero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genero.h; sourceTree = "<group>"; };
 		1E16946613602070006DE80F /* Genero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genero.m; sourceTree = "<group>"; };
+		1E35EECF13AE75620016CD18 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		1E4742F413762D4300E49025 /* foro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foro.png; sourceTree = "<group>"; };
 		1E4742F913762D9F00E49025 /* noticia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticia.png; sourceTree = "<group>"; };
 		1E4742FB13762F4500E49025 /* series.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = series.png; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		1E4743081376353400E49025 /* SeriesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeriesController.m; sourceTree = "<group>"; };
 		1E4743091376353400E49025 /* SeriesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeriesController.xib; sourceTree = "<group>"; };
 		1E47430C1376ADBA00E49025 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1E4743161376B69500E49025 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = page.png; path = "../../Downloads/demosthenese-iCarousel-8ac382b/iCarouselExample/page.png"; sourceTree = "<group>"; };
 		1E503D9F139BE2D60010DF8D /* SerieDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerieDetailsController.h; sourceTree = "<group>"; };
 		1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerieDetailsController.m; sourceTree = "<group>"; };
 		1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerieDetailsController.xib; sourceTree = "<group>"; };
@@ -313,7 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				1EF9B824139A889800C42D76 /* comments.png */,
-				1E4743161376B69500E49025 /* page.png */,
+				1E35EECF13AE75620016CD18 /* page.png */,
 				1EF9B822139A56C100C42D76 /* calendar_view_day.png */,
 				1EF9B820139A55E900C42D76 /* user.png */,
 				1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */,
@@ -405,7 +405,6 @@
 				1E47430013762FC500E49025 /* entes.png in Resources */,
 				1E4743021376306800E49025 /* logros.png in Resources */,
 				1E47430B1376353400E49025 /* SeriesController.xib in Resources */,
-				1E4743171376B69500E49025 /* page.png in Resources */,
 				1EF9B80D1394074A00C42D76 /* EntesController.xib in Resources */,
 				1EF9B812139413A200C42D76 /* ForoController.xib in Resources */,
 				1EF9B817139683DA00C42D76 /* NoticiaDetailsController.xib in Resources */,
@@ -413,6 +412,7 @@
 				1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */,
 				1EF9B825139A889800C42D76 /* comments.png in Resources */,
 				1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */,
+				1E35EED013AE75620016CD18 /* page.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,6 +42,7 @@
         // habrá que añadir un loading al estilo de rootviewcontroller
         dispatch_async(dispatch_get_main_queue(), ^{
            [carousel reloadData];
+            currentSelection = 0;
         });       
     });
 

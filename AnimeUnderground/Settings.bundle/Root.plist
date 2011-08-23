@@ -24,7 +24,7 @@
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>Title</key>
-			<string>usuario</string>
+			<string>Usuario</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>
@@ -32,7 +32,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>password</string>
+			<string>Contraseña</string>
 			<key>IsSecure</key>
 			<true/>
 			<key>Key</key>

@@ -13,10 +13,12 @@
 
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
-@synthesize carousel, nombreSerie;
+@synthesize carousel, nombreSerie, loadingView, loadingSpinner;
 
 - (void)dealloc
 {
+    [loadingSpinner release];
+    [loadingView release];
     [carousel release];
     [super dealloc];
 }
@@ -29,6 +31,11 @@
     [super viewDidLoad];
     self.title = @"Series";
     
+    // en teoría esto carga la pantalla de carga, pero no se muestra
+    [self.view addSubview:loadingView];
+    loadingView.center = self.view.center;
+    [loadingSpinner startAnimating];
+    
     downloads = [[[NSMutableArray alloc]init]retain];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (Serie *s in [[AUnder sharedInstance] series]) {
@@ -38,14 +45,13 @@
         }
         
         carousel.type = iCarouselTypeCoverFlow;
-        
         // habrá que añadir un loading al estilo de rootviewcontroller
         dispatch_async(dispatch_get_main_queue(), ^{
-           [carousel reloadData];
+            [carousel reloadData];
             currentSelection = 0;
+            [loadingView removeFromSuperview];
         });       
     });
-
     currentSelection = 0;
     Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
     nombreSerie.text = s.nombre;
@@ -55,6 +61,8 @@
 {
     [super viewDidUnload];
     self.carousel = nil;
+    self.loadingView = nil;
+    self.loadingSpinner = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -105,6 +113,8 @@
     NSUInteger index = [downloads indexOfObject:download]; 
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
+    
+    NSLog(@"Terminada descarga de %@",[download urlString]);
     
     //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
     [path release];

@@ -60,7 +60,7 @@
 		1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B822139A56C100C42D76 /* calendar_view_day.png */; };
 		1EF9B825139A889800C42D76 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B824139A889800C42D76 /* comments.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
-		569D2490140406A2000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D248F140406A2000E7665 /* Settings.bundle */; };
+		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,7 +143,7 @@
 		1EF9B824139A889800C42D76 /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
-		569D248F140406A2000E7665 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		569D24AD14041500000E7665 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,11 +303,11 @@
 		1E7FDFF5134CC30D00063CCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				569D248F140406A2000E7665 /* Settings.bundle */,
 				1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */,
 				1E7FDFF7134CC30D00063CCE /* InfoPlist.strings */,
 				1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */,
 				1E7FDFFB134CC30D00063CCE /* main.m */,
+				569D24AD14041500000E7665 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				1EF9B825139A889800C42D76 /* comments.png in Resources */,
 				1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */,
 				1E35EED013AE75620016CD18 /* page.png in Resources */,
-				569D2490140406A2000E7665 /* Settings.bundle in Resources */,
+				569D24AE14041500000E7665 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,14 +11,10 @@
 
 
 @interface SeriesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
-    IBOutlet UIView *loadingView;
-    IBOutlet UIActivityIndicatorView *loadingSpinner;
     NSMutableArray *downloads;
     int currentSelection;
 }
 
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingSpinner;
-@property (nonatomic, retain) IBOutlet UIView *loadingView;
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
 -(IBAction)showSerieDetails;

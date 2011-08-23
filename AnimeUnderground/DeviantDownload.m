@@ -25,7 +25,7 @@
     {
         if (urlString != nil && [urlString length] > 0)
         {            
-            //NSLog(@"urlString = %@",urlString);	
+            NSLog(@"urlString = %@",urlString);	
             NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                  NSUserDomainMask,
@@ -34,8 +34,6 @@
             NSString *cached = [[paths lastObject] stringByAppendingPathComponent:tmp];
             if ([[NSFileManager defaultManager] fileExistsAtPath:cached]) {
                 self.image = [[UIImage alloc] initWithContentsOfFile:cached];
-                if ([delegate respondsToSelector:@selector(downloadDidFinishDownloading:)])
-                    [delegate downloadDidFinishDownloading:self];
                 return self.image;
             }
             

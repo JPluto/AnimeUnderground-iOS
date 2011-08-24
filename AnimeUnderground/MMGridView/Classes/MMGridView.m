@@ -186,6 +186,15 @@
     [self setNeedsDisplay];
 }
 
+- (void)moveToPage:(int)index { // añadido 
+    // TODO implementar
+    CGFloat pageWidth = scrollView.frame.size.width;
+    // hay que descifrar esto
+    NSUInteger cpi = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
+    //self.currentPageIndex = cpi;
+    
+}
 
 - (void)cellWasSelected:(MMGridViewCell *)cell
 {

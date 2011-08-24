@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iCarousel.h"
+#import "MMGridView.h"
 
 
-@interface SeriesController : UIViewController <iCarouselDataSource, iCarouselDelegate> {
+@interface SeriesController : UIViewController <MMGridViewDataSource, MMGridViewDelegate> {
     NSMutableArray *downloads;
     int currentSelection;
 }
 
-@property (nonatomic, retain) IBOutlet iCarousel *carousel;
+@property (nonatomic, retain) IBOutlet MMGridView *gridView;
+@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
 -(IBAction)showSerieDetails;
+-(void)setupGridPages;
 
 @end

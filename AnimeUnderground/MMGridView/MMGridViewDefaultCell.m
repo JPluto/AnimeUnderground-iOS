@@ -76,7 +76,7 @@
     
     // Layout label
     self.textLabelBackgroundView.frame = CGRectMake(0, 
-                                                    self.bounds.size.height - labelHeight - inset, 
+                                                    self.bounds.size.height - labelHeight /*- inset*/, 
                                                     self.bounds.size.width, 
                                                     labelHeight);
     self.textLabelBackgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

@@ -10,14 +10,17 @@
 #import "Serie.h"
 #import "Imagen.h"
 #import "DeviantDownload.h"
+#import "MMGridViewDefaultCell.h"
+#import "UIImage+Resize.h"
 
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
-@synthesize carousel, nombreSerie;
+@synthesize gridView, pageControl, nombreSerie;
 
 - (void)dealloc
 {
-    [carousel release];
+    [gridView release];
+    [pageControl release];
     [super dealloc];
 }
 
@@ -36,25 +39,30 @@
             dd.urlString = [[s imagen] retain];
             [downloads addObject: [dd retain]];
         }
-        
-        carousel.type = iCarouselTypeCoverFlow;
-        
+                
         // habrá que añadir un loading al estilo de rootviewcontroller
         dispatch_async(dispatch_get_main_queue(), ^{
-           [carousel reloadData];
+           //[carousel reloadData];
             currentSelection = 0;
         });       
     });
 
-    currentSelection = 0;
-    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
-    nombreSerie.text = s.nombre;
+    //currentSelection = 0;
+    //Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
+    //nombreSerie.text = s.nombre;
+    [self setupGridPages];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.carousel = nil;
+    self.pageControl = nil;
+    self.gridView = nil;
+}
+
+- (void)setupGridPages {
+    pageControl.numberOfPages = gridView.numberOfPages;
+    pageControl.currentPage = gridView.currentPageIndex;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -65,6 +73,8 @@
 - (UIImage*)imageWithImage:(UIImage*)image 
               scaledToSize:(CGSize)newSize;
 {
+    
+    
     UIGraphicsBeginImageContext( newSize );
     [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -73,6 +83,85 @@
     return newImage;
 }
 
+// ----------------------------------------------------------------------------------
+
+#pragma - MMGridViewDataSource
+
+- (NSInteger)numberOfCellsInGridView:(MMGridView *)gridView
+{
+    return [[[AUnder sharedInstance]series] count];
+}
+
+
+- (MMGridViewCell *)gridView:(MMGridView *)gridView cellAtIndex:(NSUInteger)index
+{
+    MMGridViewDefaultCell *cell = [[[MMGridViewDefaultCell alloc] initWithFrame:CGRectNull] autorelease];
+    Serie *s = [[[AUnder sharedInstance]series]objectAtIndex:index];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", s.nombre];
+    
+    DeviantDownload *download = [downloads objectAtIndex:index];
+    
+    UIImage *imagen = download.image;
+    if (imagen == nil) {
+        imagen = [UIImage imageNamed:@"icono.png"];
+        download.delegate = self;
+    }
+    
+    // creamos el thumb de tamaño adecuado
+    
+    UIImage *tmp = [self imageWithImage:imagen scaledToSize:CGSizeMake(155, 105)];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 155, 105)];
+    [imgView setImage: tmp];
+    
+    //cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
+    [cell.backgroundView addSubview:imgView];
+    return cell;
+}
+
+// ----------------------------------------------------------------------------------
+
+#pragma - MMGridViewDelegate
+
+- (void)gridView:(MMGridView *)gridView didSelectCell:(MMGridViewCell *)cell atIndex:(NSUInteger)index
+{
+    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:index];
+    NSLog(@"serie elegida = %@",s.nombre);
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
+    [sdc release];
+}
+
+
+- (void)gridView:(MMGridView *)theGridView changedPageToIndex:(NSUInteger)index
+{
+    NSLog(@"Cambio de página a %d",index);
+    [self setupGridPages];
+}
+
+- (void)downloadDidFinishDownloading:(DeviantDownload *)download {
+    
+    NSUInteger index = [downloads indexOfObject:download]; 
+    NSUInteger indices[] = {0, index};
+    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
+    
+    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
+    [path release];
+    download.delegate = nil;
+}
+
+/*
+// reacción de la ui
+
+-(IBAction) showSerieDetails {
+    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:currentSelection];
+    NSLog(@"serie elegida = %@",s.nombre);
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
+}
+
+// -- a partir de aquí sobra
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
@@ -97,18 +186,6 @@
     //UIView *view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]] autorelease];
 
     return view;
-}
-
-
-- (void)downloadDidFinishDownloading:(DeviantDownload *)download {
-    
-    NSUInteger index = [downloads indexOfObject:download]; 
-    NSUInteger indices[] = {0, index};
-    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
-    
-    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
-    [path release];
-    download.delegate = nil;
 }
 
 - (void)carouselCurrentItemIndexUpdated:(iCarousel *)car {
@@ -144,14 +221,6 @@
     return NO;
 }
 
-// reacción de la ui
-
--(IBAction) showSerieDetails {
-    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:currentSelection];
-    NSLog(@"serie elegida = %@",s.nombre);
-    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
-    [sdc setCodigoSerie:[s codigo]];
-    [self.navigationController pushViewController:sdc animated:YES];
-}
+*/
 
 @end

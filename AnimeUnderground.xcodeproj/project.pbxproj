@@ -27,6 +27,9 @@
 		1E492E931404D2A100F47504 /* MMGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E8D1404D2A100F47504 /* MMGridView.m */; };
 		1E492E941404D2A100F47504 /* MMGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E8F1404D2A100F47504 /* MMGridViewCell.m */; };
 		1E492E951404D2A100F47504 /* MMGridViewDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E921404D2A100F47504 /* MMGridViewDefaultCell.m */; };
+		1E492E99140503D000F47504 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E97140503D000F47504 /* UIImage+Resize.m */; };
+		1E492E9E140503FC00F47504 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E9A140503FC00F47504 /* UIImage+Alpha.m */; };
+		1E492E9F140503FC00F47504 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E492E9C140503FC00F47504 /* UIImage+RoundedCorner.m */; };
 		1E503DA2139BE2D60010DF8D /* SerieDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */; };
 		1E503DA3139BE2D60010DF8D /* SerieDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */; };
 		1E61E6751375B7B9003BDBE9 /* logo_barra_au.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */; };
@@ -97,6 +100,12 @@
 		1E492E901404D2A100F47504 /* MMGridView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMGridView-Prefix.pch"; sourceTree = "<group>"; };
 		1E492E911404D2A100F47504 /* MMGridViewDefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGridViewDefaultCell.h; sourceTree = "<group>"; };
 		1E492E921404D2A100F47504 /* MMGridViewDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMGridViewDefaultCell.m; sourceTree = "<group>"; };
+		1E492E97140503D000F47504 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		1E492E98140503D000F47504 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		1E492E9A140503FC00F47504 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		1E492E9B140503FC00F47504 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		1E492E9C140503FC00F47504 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		1E492E9D140503FC00F47504 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		1E503D9F139BE2D60010DF8D /* SerieDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerieDetailsController.h; sourceTree = "<group>"; };
 		1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerieDetailsController.m; sourceTree = "<group>"; };
 		1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerieDetailsController.xib; sourceTree = "<group>"; };
@@ -183,6 +192,12 @@
 		1E040C8013646EE70004B407 /* Utiles */ = {
 			isa = PBXGroup;
 			children = (
+				1E492E9A140503FC00F47504 /* UIImage+Alpha.m */,
+				1E492E9B140503FC00F47504 /* UIImage+Alpha.h */,
+				1E492E9C140503FC00F47504 /* UIImage+RoundedCorner.m */,
+				1E492E9D140503FC00F47504 /* UIImage+RoundedCorner.h */,
+				1E492E97140503D000F47504 /* UIImage+Resize.m */,
+				1E492E98140503D000F47504 /* UIImage+Resize.h */,
 				1E040C8113646EFA0004B407 /* DeviantDownload.h */,
 				1E040C8213646EFA0004B407 /* DeviantDownload.m */,
 			);
@@ -487,6 +502,9 @@
 				1E492E931404D2A100F47504 /* MMGridView.m in Sources */,
 				1E492E941404D2A100F47504 /* MMGridViewCell.m in Sources */,
 				1E492E951404D2A100F47504 /* MMGridViewDefaultCell.m in Sources */,
+				1E492E99140503D000F47504 /* UIImage+Resize.m in Sources */,
+				1E492E9E140503FC00F47504 /* UIImage+Alpha.m in Sources */,
+				1E492E9F140503FC00F47504 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

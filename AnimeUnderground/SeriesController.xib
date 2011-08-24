@@ -41,7 +41,7 @@
 					<object class="IBUIView" id="485381462">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrameSize">{320, 420}</string>
+						<string key="NSFrameSize">{320, 360}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -138,6 +138,9 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
 						<reference key="object" ref="485381462"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -177,7 +180,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">16</int>
+			<int key="maxID">18</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -242,13 +245,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>gridView</string>
 							<string>nombreSerie</string>
-							<string>pageControl</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>MMGridView</string>
 							<string>UILabel</string>
-							<string>UIPageControl</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -257,7 +258,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>gridView</string>
 							<string>nombreSerie</string>
-							<string>pageControl</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -268,10 +268,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">nombreSerie</string>
 								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">pageControl</string>
-								<string key="candidateClassName">UIPageControl</string>
 							</object>
 						</object>
 					</object>

@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MMGridView.h"
-
+#import "SliderPageControl.h"
 
 @interface SeriesController : UIViewController <MMGridViewDataSource, MMGridViewDelegate> {
     NSMutableArray *downloads;
     int currentSelection;
+    SliderPageControl *sliderPageControl;
+	BOOL pageControlUsed;
 }
 
 @property (nonatomic, retain) IBOutlet MMGridView *gridView;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
+@property (nonatomic, retain) SliderPageControl *sliderPageControl;
+
 -(IBAction)showSerieDetails;
 -(void)setupGridPages;
 

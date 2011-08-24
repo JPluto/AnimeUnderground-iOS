@@ -12,10 +12,11 @@
 #import "DeviantDownload.h"
 #import "MMGridViewDefaultCell.h"
 #import "UIImage+Resize.h"
+#import "SliderPageControl.h"
 
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
-@synthesize gridView, nombreSerie;
+@synthesize gridView, nombreSerie, sliderPageControl;
 
 - (void)dealloc
 {
@@ -46,6 +47,16 @@
         });       
     });
 
+    
+    self.sliderPageControl = [[SliderPageControl alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height-20,[self.view bounds].size.width,20)];
+    [self.sliderPageControl addTarget:self action:@selector(onPageChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.sliderPageControl setDelegate:self];
+    [self.sliderPageControl setShowsHint:YES];
+    [self.view addSubview:self.sliderPageControl];
+    [self.sliderPageControl release];
+    [self.sliderPageControl setNumberOfPages:[[[AUnder sharedInstance]series] count]];
+    [self.sliderPageControl setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    
     //currentSelection = 0;
     //Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
     //nombreSerie.text = s.nombre;
@@ -59,8 +70,18 @@
 }
 
 - (void)setupGridPages {
+    [sliderPageControl setNumberOfPages:gridView.numberOfPages];
+    [sliderPageControl setCurrentPage:gridView.currentPageIndex animated:YES];
+    
     //pageControl.numberOfPages = gridView.numberOfPages;
     //pageControl.currentPage = gridView.currentPageIndex;
+}
+
+- (void)onPageChanged:(id)sender
+{
+	pageControlUsed = YES;
+    NSLog(@"Intento cambiar a la página %d",sliderPageControl.currentPage);
+    [gridView.currentPageIndex: sliderPageControl.currentPage];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

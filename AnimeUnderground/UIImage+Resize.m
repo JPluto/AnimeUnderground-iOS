@@ -4,8 +4,8 @@
 // No warranty is expressed or implied.
 
 #import "UIImage+Resize.h"
-#import "UIImage+RoundedCorner.h"
-#import "UIImage+Alpha.h"
+//#import "UIImage+RoundedCorner.h"
+//#import "UIImage+Alpha.h"
 
 // Private helper methods
 @interface UIImage ()
@@ -32,7 +32,6 @@
 // If transparentBorder is non-zero, a transparent border of the given size will be added around the edges of the thumbnail. (Adding a transparent border of at least one pixel in size has the side-effect of antialiasing the edges of the image when rotating it using Core Animation.)
 - (UIImage *)thumbnailImage:(NSInteger)thumbnailSize
           transparentBorder:(NSUInteger)borderSize
-               cornerRadius:(NSUInteger)cornerRadius
        interpolationQuality:(CGInterpolationQuality)quality {
     UIImage *resizedImage = [self resizedImageWithContentMode:UIViewContentModeScaleAspectFill
                                                        bounds:CGSizeMake(thumbnailSize, thumbnailSize)
@@ -49,7 +48,7 @@
     
     UIImage *transparentBorderImage = borderSize ? [croppedImage transparentBorderImage:borderSize] : croppedImage;
 
-    return [transparentBorderImage roundedCornerImage:cornerRadius borderSize:borderSize];
+    return transparentBorderImage;//[transparentBorderImage roundedCornerImage:cornerRadius borderSize:borderSize];
 }
 
 // Returns a rescaled copy of the image, taking into account its orientation
@@ -116,6 +115,8 @@
     CGImageRef imageRef = self.CGImage;
     
     // Build a context that's the same dimensions as the new size
+    // fix: para el alpha
+    /*
     CGContextRef bitmap = CGBitmapContextCreate(NULL,
                                                 newRect.size.width,
                                                 newRect.size.height,
@@ -123,6 +124,14 @@
                                                 0,
                                                 CGImageGetColorSpace(imageRef),
                                                 CGImageGetBitmapInfo(imageRef));
+     */
+    CGContextRef bitmap = CGBitmapContextCreate(NULL,
+                                                newRect.size.width,
+                                                newRect.size.height,
+                                                CGImageGetBitsPerComponent(imageRef),
+                                                0,
+                                                CGImageGetColorSpace(imageRef),
+                                                kCGImageAlphaNoneSkipLast);
     
     // Rotate and/or flip the image if required by its orientation
     CGContextConcatCTM(bitmap, transform);

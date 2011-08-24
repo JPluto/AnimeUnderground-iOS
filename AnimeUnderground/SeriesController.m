@@ -15,12 +15,11 @@
 
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
-@synthesize gridView, pageControl, nombreSerie;
+@synthesize gridView, nombreSerie;
 
 - (void)dealloc
 {
     [gridView release];
-    [pageControl release];
     [super dealloc];
 }
 
@@ -56,13 +55,12 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    self.pageControl = nil;
     self.gridView = nil;
 }
 
 - (void)setupGridPages {
-    pageControl.numberOfPages = gridView.numberOfPages;
-    pageControl.currentPage = gridView.currentPageIndex;
+    //pageControl.numberOfPages = gridView.numberOfPages;
+    //pageControl.currentPage = gridView.currentPageIndex;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -109,12 +107,12 @@
     
     // creamos el thumb de tamaño adecuado
     
-    UIImage *tmp = [self imageWithImage:imagen scaledToSize:CGSizeMake(155, 105)];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 155, 105)];
-    [imgView setImage: tmp];
+    UIImage *tmp2 = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
-    //cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
-    [cell.backgroundView addSubview:imgView];
+    
+    
+    cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp2];
+    //[cell.backgroundView addSubview:imgView];
     return cell;
 }
 

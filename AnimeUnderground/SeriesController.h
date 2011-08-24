@@ -16,7 +16,6 @@
 }
 
 @property (nonatomic, retain) IBOutlet MMGridView *gridView;
-@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
 -(IBAction)showSerieDetails;
 -(void)setupGridPages;

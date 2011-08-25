@@ -12,7 +12,7 @@
 
 @implementation LoginViewController
 
-@synthesize usuario,pass;
+@synthesize usuario,pass,loginB,registroB;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,8 @@
     UIImage *image = [UIImage imageNamed: @"logo_barra_au.png"];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage: image];    
 	self.navigationItem.titleView = imageView;
+    [loginB setColor:[UIColor orangeColor]];
+    [registroB setColor:[UIColor orangeColor]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -60,9 +62,14 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
+-(IBAction) preLogin {
+    [loginB setColor: [UIColor redColor]];
+}
+-(IBAction) preRegistro {
+    [registroB setColor: [UIColor redColor]];
+}
 -(IBAction) login {
-    
+    [loginB setColor: [UIColor orangeColor]];
     AUnder *aunder = [AUnder sharedInstance];
     Foro *foro = aunder.foro;
     if (usuario.text != nil) {
@@ -89,6 +96,7 @@
     
 }
 -(IBAction) registrarse{
+    [registroB setColor: [UIColor orangeColor]];
     //TODO
 }
 @end

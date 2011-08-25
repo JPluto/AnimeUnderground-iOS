@@ -71,6 +71,7 @@
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
 		56C340B8140693F50011DBDB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340B6140693F40011DBDB /* LoginViewController.m */; };
 		56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340B7140693F40011DBDB /* LoginViewController.xib */; };
+		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		56C340B5140693F40011DBDB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		56C340B6140693F40011DBDB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		56C340B7140693F40011DBDB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		56C340CF1406B7520011DBDB /* GlossyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlossyButton.h; sourceTree = "<group>"; };
+		56C340D01406B7520011DBDB /* GlossyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlossyButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,7 @@
 		1E7FDFF4134CC30D00063CCE /* AnimeUnderground */ = {
 			isa = PBXGroup;
 			children = (
+				56C340D21406CDC60011DBDB /* GlossyButton */,
 				1E492EA814051FA600F47504 /* SliderPageControl */,
 				1E492E8A1404D2A100F47504 /* MMGridView */,
 				1E474303137633F800E49025 /* iCarousel */,
@@ -414,6 +418,15 @@
 				1EB882CB13549C3B001CE8ED /* TBXML.m */,
 			);
 			path = TBXML;
+			sourceTree = "<group>";
+		};
+		56C340D21406CDC60011DBDB /* GlossyButton */ = {
+			isa = PBXGroup;
+			children = (
+				56C340CF1406B7520011DBDB /* GlossyButton.h */,
+				56C340D01406B7520011DBDB /* GlossyButton.m */,
+			);
+			name = GlossyButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +546,7 @@
 				1E492EA21405178E00F47504 /* UIImage+Resize.m in Sources */,
 				1E492EAD14051FA700F47504 /* SliderPageControl.m in Sources */,
 				56C340B8140693F50011DBDB /* LoginViewController.m in Sources */,
+				56C340D11406B7520011DBDB /* GlossyButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,13 +14,20 @@
 #import "UIImage+Resize.h"
 #import "SliderPageControl.h"
 
+
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
 @synthesize gridView, nombreSerie, sliderPageControl, datosSerie, imagenSerie;
 
 - (void)dealloc
 {
+    [nombreSerie release];
+    [sliderPageControl release];
+    [datosSerie release];
+    [imagenSerie release];
     [gridView release];
+    [downloads release];
+    [forLazyLoading release];
     [super dealloc];
 }
 
@@ -33,6 +40,11 @@
     self.title = @"Series";
     
     downloads = [[[NSMutableArray alloc]init]retain];
+    int size = [[[AUnder sharedInstance]series]count];
+    forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:size]retain];
+    
+    
+    // iniciamos lazy loading de imágenes
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         for (Serie *s in [[AUnder sharedInstance] series]) {
             DeviantDownload *dd = [[DeviantDownload alloc]init];
@@ -41,7 +53,7 @@
         }
         Serie *rndSerie = nil;
         do {
-            int randomSerie = arc4random() % [[[AUnder sharedInstance]series]count];
+            int randomSerie = arc4random() % size;
             rndSerie = [[[[AUnder sharedInstance] series]objectAtIndex:randomSerie]retain];
             randomSerieIndex = randomSerie;
         } while (![rndSerie isRecomendable]);
@@ -59,7 +71,7 @@
                             
     });
 
-    
+    // iniciar el slider
     self.sliderPageControl = [[SliderPageControl alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height-20,[self.view bounds].size.width,20)];
     [self.sliderPageControl addTarget:self action:@selector(onPageChanged:) forControlEvents:UIControlEventValueChanged];
     [self.sliderPageControl setDelegate:self];
@@ -84,6 +96,10 @@
 {
     [super viewDidUnload];
     self.gridView = nil;
+    self.nombreSerie = nil;
+    self.sliderPageControl = nil;
+    self.datosSerie = nil;
+    self.imagenSerie = nil;
 }
 
 - (void)setupGridPages {
@@ -126,11 +142,14 @@
         download.delegate = self;
     }
     
+    [forLazyLoading insertObject:cell.backgroundView atIndex:index];
+    
     // creamos el thumb de tamaño adecuado
     
-    UIImage *tmp2 = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    UIImage *tmp = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
-    cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp2];
+    
+    cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
     return cell;
 }
 
@@ -161,7 +180,14 @@
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
     
-    [[self gridView:gridView cellAtIndex:index] reloadInputViews];
+    UIView *vista = [forLazyLoading objectAtIndex:index];
+    
+    UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        vista.backgroundColor = [UIColor colorWithPatternImage:tmp];
+
+    });
     
     [path release];
     download.delegate = nil;

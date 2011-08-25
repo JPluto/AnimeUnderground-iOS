@@ -187,9 +187,7 @@
 }
 
 - (void)moveToPage:(int)index { // añadido 
-    
-    //self.currentPageIndex = cpi;
-    
+        
     CGRect frame;
     frame.origin.x = self.scrollView.frame.size.width * index;
     frame.origin.y = 0;

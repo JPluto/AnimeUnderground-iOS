@@ -47,6 +47,10 @@
 	self.navigationItem.titleView = imageView;
     [loginB setColor:[UIColor orangeColor]];
     [registroB setColor:[UIColor orangeColor]];
+    AUnder *aunder = [AUnder sharedInstance];
+    Foro *foro = aunder.foro;
+    usuario.text = foro.user;
+    pass.text = foro.pass;
     // Do any additional setup after loading the view from its nib.
 }
 

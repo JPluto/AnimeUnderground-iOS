@@ -29,24 +29,24 @@
 			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
-			<key>Title</key>
-			<string>Contraseña</string>
 			<key>IsSecure</key>
 			<true/>
 			<key>Key</key>
 			<string>passwordLogin_preference</string>
+			<key>Title</key>
+			<string>Contraseña</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
 		</dict>
 		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Login automatico</string>
+			<key>DefaultValue</key>
+			<true/>
 			<key>Key</key>
 			<string>autoLogin_preference</string>
-			<key>DefaultValue</key>
-			<false/>
+			<key>Title</key>
+			<string>Login automatico</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

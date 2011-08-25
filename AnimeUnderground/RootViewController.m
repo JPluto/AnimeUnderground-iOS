@@ -40,13 +40,13 @@
     
     foro.user = [[NSUserDefaults standardUserDefaults] stringForKey:@"usuarioLogin_preference"];
     foro.pass = [[NSUserDefaults standardUserDefaults] stringForKey:@"passwordLogin_preference"];
-    
-    BOOL isOK = [foro doLogin];
-    if (!isOK) {
-        LoginViewController *lvc = [[LoginViewController alloc]init];
-        [self.navigationController pushViewController:lvc animated:YES];
-    } 
-    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"autoLogin_preference"]) {
+        BOOL isOK = [foro doLogin];
+        if (!isOK) {
+            LoginViewController *lvc = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:lvc animated:YES];
+        } 
+    }
     [[AUnder sharedInstance]update]; // el método es asíncrono
 
 }

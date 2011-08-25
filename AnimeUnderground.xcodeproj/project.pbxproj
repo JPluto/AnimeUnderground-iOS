@@ -72,6 +72,8 @@
 		56C340B8140693F50011DBDB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340B6140693F40011DBDB /* LoginViewController.m */; };
 		56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340B7140693F40011DBDB /* LoginViewController.xib */; };
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
+		56C340D61406F0120011DBDB /* RegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D41406F0120011DBDB /* RegistroController.m */; };
+		56C340D71406F0120011DBDB /* RegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340D51406F0120011DBDB /* RegistroController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +178,9 @@
 		56C340B7140693F40011DBDB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		56C340CF1406B7520011DBDB /* GlossyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlossyButton.h; sourceTree = "<group>"; };
 		56C340D01406B7520011DBDB /* GlossyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlossyButton.m; sourceTree = "<group>"; };
+		56C340D31406F0120011DBDB /* RegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistroController.h; sourceTree = "<group>"; };
+		56C340D41406F0120011DBDB /* RegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistroController.m; sourceTree = "<group>"; };
+		56C340D51406F0120011DBDB /* RegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistroController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +252,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
+				56C340D51406F0120011DBDB /* RegistroController.xib */,
 				56C340B7140693F40011DBDB /* LoginViewController.xib */,
 				1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */,
 				1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */,
@@ -282,6 +288,8 @@
 				1EF9B814139683D900C42D76 /* NoticiaDetailsController.m */,
 				1E503D9F139BE2D60010DF8D /* SerieDetailsController.h */,
 				1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */,
+				56C340D31406F0120011DBDB /* RegistroController.h */,
+				56C340D41406F0120011DBDB /* RegistroController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -504,6 +512,7 @@
 				569D24AE14041500000E7665 /* Settings.bundle in Resources */,
 				1E492EAC14051FA700F47504 /* SliderPageControl.bundle in Resources */,
 				56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */,
+				56C340D71406F0120011DBDB /* RegistroController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +556,7 @@
 				1E492EAD14051FA700F47504 /* SliderPageControl.m in Sources */,
 				56C340B8140693F50011DBDB /* LoginViewController.m in Sources */,
 				56C340D11406B7520011DBDB /* GlossyButton.m in Sources */,
+				56C340D61406F0120011DBDB /* RegistroController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "Foro.h"
 #import "AUnder.h"
+#import "RegistroController.h"
 
 @implementation LoginViewController
 
@@ -51,6 +52,7 @@
     Foro *foro = aunder.foro;
     usuario.text = foro.user;
     pass.text = foro.pass;
+    self.title = @"Login";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -101,6 +103,8 @@
 }
 -(IBAction) registrarse{
     [registroB setColor: [UIColor orangeColor]];
-    //TODO
+    RegistroController *rc = [[RegistroController alloc] init];
+    [self.navigationController pushViewController: rc animated:YES];
+    [rc release];
 }
 @end

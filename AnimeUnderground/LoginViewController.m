@@ -77,7 +77,7 @@
     if (!isOK) {
         UIAlertView *alert =
         [[UIAlertView alloc] initWithTitle: @"Error"
-                                   message: @"Usuario/contraseña invalido, no se ha podido hacer login."
+                                   message: @"El par usuario/contraseña es invalido,\nno se ha podido hacer login."
                                   delegate: self
                          cancelButtonTitle: @"OK"
                          otherButtonTitles: nil];

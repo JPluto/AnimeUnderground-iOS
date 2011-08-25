@@ -16,7 +16,7 @@
 
 @implementation SeriesController
 @class AUnder,SerieDetailsController;
-@synthesize gridView, nombreSerie, sliderPageControl;
+@synthesize gridView, nombreSerie, sliderPageControl, datosSerie, imagenSerie;
 
 - (void)dealloc
 {
@@ -39,12 +39,24 @@
             dd.urlString = [[s imagen] retain];
             [downloads addObject: [dd retain]];
         }
+        Serie *rndSerie = nil;
+        do {
+            int randomSerie = arc4random() % [[[AUnder sharedInstance]series]count];
+            rndSerie = [[[[AUnder sharedInstance] series]objectAtIndex:randomSerie]retain];
+            randomSerieIndex = randomSerie;
+        } while (![rndSerie isRecomendable]);
+        
+        NSURL *url = [NSURL URLWithString: [[rndSerie imagenBoton]retain]]; 
+        UIImage *image = [[UIImage imageWithData: [NSData dataWithContentsOfURL: url]] retain];
                 
-        // habrá que añadir un loading al estilo de rootviewcontroller
         dispatch_async(dispatch_get_main_queue(), ^{
-           //[carousel reloadData];
-            currentSelection = 0;
-        });       
+            [nombreSerie setText:[[rndSerie nombre]retain]];
+            [imagenSerie setImage:image];
+            [datosSerie setText:[[NSString alloc] initWithFormat:@"%@ - %d eps - %@",[rndSerie getGenerosString],[rndSerie capitulosTotales],[rndSerie estudio]]];
+        });
+        
+        
+                            
     });
 
     
@@ -57,11 +69,16 @@
     [self.sliderPageControl setNumberOfPages:[[[AUnder sharedInstance]series] count]];
     [self.sliderPageControl setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
     
-    //currentSelection = 0;
-    //Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:0];
-    //nombreSerie.text = s.nombre;
     [self setupGridPages];
 }
+
+-(IBAction) showRandomSerieDetails {
+    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:randomSerieIndex];
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
+}
+
 
 - (void)viewDidUnload
 {
@@ -72,9 +89,6 @@
 - (void)setupGridPages {
     [sliderPageControl setNumberOfPages:gridView.numberOfPages];
     [sliderPageControl setCurrentPage:gridView.currentPageIndex animated:YES];
-    
-    //pageControl.numberOfPages = gridView.numberOfPages;
-    //pageControl.currentPage = gridView.currentPageIndex;
 }
 
 - (void)onPageChanged:(id)sender
@@ -117,7 +131,6 @@
     UIImage *tmp2 = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
     cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp2];
-    //[cell.backgroundView addSubview:imgView];
     return cell;
 }
 
@@ -148,82 +161,10 @@
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
     
-    //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
+    [[self gridView:gridView cellAtIndex:index] reloadInputViews];
+    
     [path release];
     download.delegate = nil;
 }
-
-/*
-// reacción de la ui
-
--(IBAction) showSerieDetails {
-    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:currentSelection];
-    NSLog(@"serie elegida = %@",s.nombre);
-    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
-    [sdc setCodigoSerie:[s codigo]];
-    [self.navigationController pushViewController:sdc animated:YES];
-}
-
-// -- a partir de aquí sobra
-
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
-    return [[[AUnder sharedInstance]series] count];
-}
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
-{
-    //create a numbered view
-    
-    DeviantDownload *download = [downloads objectAtIndex:index];
-    
-    UIImage *imagen = download.image;
-    if (imagen == nil) {
-        imagen = [UIImage imageNamed:@"page.png"];
-        download.delegate = self;
-    }
-    UIView *view = [[[UIImageView alloc] initWithImage:[self imageWithImage:imagen scaledToSize:CGSizeMake(200, 200)]] autorelease];
-
-    currentSelection = index;
-    
-    //UIView *view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]] autorelease];
-
-    return view;
-}
-
-- (void)carouselCurrentItemIndexUpdated:(iCarousel *)car {
-    int index = carousel.currentItemIndex;
-    currentSelection = index;
-    Serie *s = [[[AUnder sharedInstance]series] objectAtIndex:index];
-    nombreSerie.text = s.nombre;
-}
-
-- (float)carouselItemWidth:(iCarousel *)carousel
-{
-    //slightly wider than item view
-    return 200;
-}
-
-- (CATransform3D)carousel:(iCarousel *)carousel transformForItemView:(UIView *)view withOffset:(float)offset
-{
-    //implement 'flip3D' style carousel
-    
-    //set opacity based on distance from camera
-    view.alpha = 1.0 - fminf(fmaxf(offset, 0.0), 1.0);
-    
-    //do 3d transform
-    CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = self.carousel.perspective;
-    transform = CATransform3DRotate(transform, M_PI / 8.0, 0, 1.0, 0);
-    return CATransform3DTranslate(transform, 0.0, 0.0, offset * self.carousel.itemWidth);
-}
-
-- (BOOL)carouselShouldWrap:(iCarousel *)car
-{
-    //wrap all carousels
-    return NO;
-}
-
-*/
 
 @end

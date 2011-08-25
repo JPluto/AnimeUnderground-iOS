@@ -12,16 +12,18 @@
 
 @interface SeriesController : UIViewController <MMGridViewDataSource, MMGridViewDelegate> {
     NSMutableArray *downloads;
-    int currentSelection;
     SliderPageControl *sliderPageControl;
+    int randomSerieIndex;
 	BOOL pageControlUsed;
 }
 
 @property (nonatomic, retain) IBOutlet MMGridView *gridView;
 @property (nonatomic, retain) IBOutlet UILabel *nombreSerie;
+@property (nonatomic, retain) IBOutlet UIImageView *imagenSerie;
+@property (nonatomic, retain) IBOutlet UILabel *datosSerie;
 @property (nonatomic, retain) SliderPageControl *sliderPageControl;
 
--(IBAction)showSerieDetails;
+-(IBAction)showRandomSerieDetails;
 -(void)setupGridPages;
 
 @end

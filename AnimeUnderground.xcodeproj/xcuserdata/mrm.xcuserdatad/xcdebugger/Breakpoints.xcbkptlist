@@ -9,21 +9,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AnimeUnderground/SeriesController.m"
-         timestampString = "335881740.208836"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
-         landmarkName = "-setupGridPages"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "AnimeUnderground/SeriesController.m"
-         timestampString = "335882582.813167"
+         timestampString = "335957583.979756"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "123"

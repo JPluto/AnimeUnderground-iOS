@@ -187,12 +187,14 @@
 }
 
 - (void)moveToPage:(int)index { // añadido 
-    // TODO implementar
-    CGFloat pageWidth = scrollView.frame.size.width;
-    // hay que descifrar esto
-    NSUInteger cpi = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     
     //self.currentPageIndex = cpi;
+    
+    CGRect frame;
+    frame.origin.x = self.scrollView.frame.size.width * index;
+    frame.origin.y = 0;
+    frame.size = self.scrollView.frame.size;
+    [self.scrollView scrollRectToVisible:frame animated:YES];
     
 }
 

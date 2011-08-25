@@ -80,26 +80,12 @@
 - (void)onPageChanged:(id)sender
 {
 	pageControlUsed = YES;
-    NSLog(@"Intento cambiar a la página %d",sliderPageControl.currentPage);
-    [gridView.currentPageIndex: sliderPageControl.currentPage];
+    [gridView moveToPage:sliderPageControl.currentPage];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
-}
-
-- (UIImage*)imageWithImage:(UIImage*)image 
-              scaledToSize:(CGSize)newSize;
-{
-    
-    
-    UIGraphicsBeginImageContext( newSize );
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
 }
 
 // ----------------------------------------------------------------------------------
@@ -129,8 +115,6 @@
     // creamos el thumb de tamaño adecuado
     
     UIImage *tmp2 = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
-    
-    
     
     cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp2];
     //[cell.backgroundView addSubview:imgView];

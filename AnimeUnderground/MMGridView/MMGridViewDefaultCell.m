@@ -27,6 +27,7 @@
 @synthesize textLabel;
 @synthesize textLabelBackgroundView;
 @synthesize backgroundView;
+@synthesize loadingView;
 
 - (void)dealloc
 {
@@ -45,6 +46,12 @@
         self.backgroundView.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:self.backgroundView];
         
+        self.loadingView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]autorelease];
+        self.loadingView.center = self.center;
+        self.loadingView.hidesWhenStopped = YES;
+        [self addSubview:loadingView];
+
+        
         // Label
         self.textLabelBackgroundView = [[[UIView alloc] initWithFrame:CGRectNull] autorelease];
         self.textLabelBackgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
@@ -54,7 +61,7 @@
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textColor = [UIColor whiteColor];
         self.textLabel.font = [UIFont systemFontOfSize:12];
-        
+       
         [self.textLabelBackgroundView addSubview:self.textLabel];
         [self addSubview:self.textLabelBackgroundView];
     }
@@ -73,6 +80,10 @@
     // Background view
     self.backgroundView.frame = self.bounds;
     self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    // loading
+    self.loadingView.frame = CGRectMake(0, 0, 30, 30);
+    self.loadingView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
     
     // Layout label
     self.textLabelBackgroundView.frame = CGRectMake(0, 

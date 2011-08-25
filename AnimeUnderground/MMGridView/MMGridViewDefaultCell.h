@@ -28,10 +28,12 @@
     UILabel *textLabel;
     UIView *textLabelBackgroundView;
     UIView *backgroundView;
+    UIActivityIndicatorView *loadingView;
 }
 
 @property (nonatomic, retain) UILabel *textLabel;
 @property (nonatomic, retain) UIView *textLabelBackgroundView;
 @property (nonatomic, retain) UIView *backgroundView;
+@property (nonatomic, retain) UIActivityIndicatorView *loadingView;
 
 @end

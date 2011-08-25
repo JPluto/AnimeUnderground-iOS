@@ -16,6 +16,7 @@
     int randomSerieIndex;
 	BOOL pageControlUsed;
     NSMutableArray *forLazyLoading;
+    NSMutableArray *forLazySpinners;
 }
 
 @property (nonatomic, retain) IBOutlet MMGridView *gridView;

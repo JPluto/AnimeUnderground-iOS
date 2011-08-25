@@ -28,6 +28,7 @@
     [gridView release];
     [downloads release];
     [forLazyLoading release];
+    [forLazySpinners release];
     [super dealloc];
 }
 
@@ -42,6 +43,7 @@
     downloads = [[[NSMutableArray alloc]init]retain];
     int size = [[[AUnder sharedInstance]series]count];
     forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:size]retain];
+    forLazySpinners = [[[NSMutableArray alloc]initWithCapacity:size]retain];
     
     
     // iniciamos lazy loading de imágenes
@@ -138,11 +140,13 @@
     
     UIImage *imagen = download.image;
     if (imagen == nil) {
-        imagen = [UIImage imageNamed:@"reloj_carga.png"];
+        [cell.loadingView startAnimating];
+        imagen = [UIImage imageNamed:@"logro_barra_au.png"];
         download.delegate = self;
     }
     
     [forLazyLoading insertObject:cell.backgroundView atIndex:index];
+    [forLazySpinners insertObject:cell.loadingView atIndex:index];
     
     // creamos el thumb de tamaño adecuado
     
@@ -177,11 +181,12 @@
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download {
     
     NSUInteger index = [downloads indexOfObject:download]; 
-    NSUInteger indices[] = {0, index};
-    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
     
     UIView *vista = [forLazyLoading objectAtIndex:index];
-    
+    UIActivityIndicatorView *spinner = [forLazySpinners objectAtIndex:index];
+    [spinner stopAnimating];
+    [spinner release];
+
     UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -189,7 +194,6 @@
 
     });
     
-    [path release];
     download.delegate = nil;
 }
 

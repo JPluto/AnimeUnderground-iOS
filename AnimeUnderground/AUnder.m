@@ -25,6 +25,7 @@ static Foro* theForo = nil;
 @synthesize series;
 @synthesize entes;
 @synthesize noticias;
+@synthesize foro;
 
 +(AUnder*)sharedInstance {
     if (sharedInstance == nil) {

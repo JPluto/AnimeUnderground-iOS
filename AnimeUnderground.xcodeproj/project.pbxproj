@@ -69,6 +69,8 @@
 		1EF9B825139A889800C42D76 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B824139A889800C42D76 /* comments.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
+		56C340B8140693F50011DBDB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340B6140693F40011DBDB /* LoginViewController.m */; };
+		56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340B7140693F40011DBDB /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +170,9 @@
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		569D24AD14041500000E7665 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		56C340B5140693F40011DBDB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		56C340B6140693F40011DBDB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		56C340B7140693F40011DBDB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +244,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
+				56C340B7140693F40011DBDB /* LoginViewController.xib */,
 				1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */,
 				1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */,
 				1EF9B810139413A200C42D76 /* ForoController.xib */,
@@ -257,6 +263,8 @@
 			children = (
 				1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */,
 				1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */,
+				56C340B5140693F40011DBDB /* LoginViewController.h */,
+				56C340B6140693F40011DBDB /* LoginViewController.m */,
 				1E7FE003134CC30E00063CCE /* RootViewController.h */,
 				1E7FE004134CC30E00063CCE /* RootViewController.m */,
 				1E83B78B13730A0700AEAB73 /* NoticiasController.h */,
@@ -482,6 +490,7 @@
 				1E35EED013AE75620016CD18 /* page.png in Resources */,
 				569D24AE14041500000E7665 /* Settings.bundle in Resources */,
 				1E492EAC14051FA700F47504 /* SliderPageControl.bundle in Resources */,
+				56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +532,7 @@
 				1E492E9F140503FC00F47504 /* UIImage+RoundedCorner.m in Sources */,
 				1E492EA21405178E00F47504 /* UIImage+Resize.m in Sources */,
 				1E492EAD14051FA700F47504 /* SliderPageControl.m in Sources */,
+				56C340B8140693F50011DBDB /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@
 		}
 		
 	}
-	
+
 	if (user==nil || pass==nil) {
 		NSLog(@"doLogin ERROR: user o pass nulos");
 		return NO;
@@ -37,15 +37,13 @@
 		NSLog(@"doLogin ERROR: user o pass vacios");
 		return NO;
 	}
-	/*
-	NSString *sanitizedPass = [[[pass uppercaseString] stringByReplacingOccurrencesOfString:@"√ë" withString:@"N"] stringByAppendingString:@"10"];
-	NSString *md5pass = [[self md5: sanitizedPass] lowercaseString];
+
 	
-	NSString *post =[NSString stringWithFormat:@"Web_id=inated&Usuario=%@&Password=%@&numero=%@&cifrado=%@",user, pass, @"10", md5pass];
+	NSString *post =[NSString stringWithFormat:@"action=do_login&username=%@&password=%@",user, pass];
 	NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
 	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
 	
-	NSURL *url = [NSURL URLWithString:@"http://www.ich.es/aula/EvalUser.php"];
+	NSURL *url = [NSURL URLWithString:@"http://foro.aunder.org/member.php"];
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     
 	[request setURL:url];	
@@ -64,7 +62,7 @@
 	
 	for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
 	{	
-		if (([[cookie domain] isEqual:@"www.ich.es"]) && ([[cookie name] isEqual: @"PHPSESSID"])) {
+		if (([[cookie domain] isEqual:@".aunder.org"]) && [[cookie name] isEqual:@"mybbuser"]) {
 			NSLog(@"name: '%@'\n",   [cookie name]);
 			NSLog(@"value: '%@'\n",  [cookie value]);
 			NSLog(@"domain: '%@'\n", [cookie domain]);
@@ -81,7 +79,7 @@
 	}
 	
 	[authCookie retain];
-	*/
+
 	return YES;
 }
 

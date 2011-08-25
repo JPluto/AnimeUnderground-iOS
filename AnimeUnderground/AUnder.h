@@ -20,6 +20,7 @@
 }
 
 @property (nonatomic, retain) NSArray *series;
+@property (nonatomic, retain) Foro *foro;
 @property (nonatomic, retain) NSArray *entes;
 @property (nonatomic, retain) NSArray *noticias;
 

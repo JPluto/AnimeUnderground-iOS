@@ -14,6 +14,7 @@
 		1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E040C7E136460FB0004B407 /* NoticiaCell.xib */; };
 		1E040C8313646EFA0004B407 /* DeviantDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C8213646EFA0004B407 /* DeviantDownload.m */; };
 		1E16946713602070006DE80F /* Genero.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E16946613602070006DE80F /* Genero.m */; };
+		1E33BBE51406608200EC7FD8 /* reloj_carga.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E33BBE41406608200EC7FD8 /* reloj_carga.png */; };
 		1E35EED013AE75620016CD18 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E35EECF13AE75620016CD18 /* page.png */; };
 		1E4742F513762D4300E49025 /* foro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742F413762D4300E49025 /* foro.png */; };
 		1E4742FA13762D9F00E49025 /* noticia.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742F913762D9F00E49025 /* noticia.png */; };
@@ -83,6 +84,7 @@
 		1E040C8213646EFA0004B407 /* DeviantDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviantDownload.m; sourceTree = "<group>"; };
 		1E16946513602070006DE80F /* Genero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genero.h; sourceTree = "<group>"; };
 		1E16946613602070006DE80F /* Genero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genero.m; sourceTree = "<group>"; };
+		1E33BBE41406608200EC7FD8 /* reloj_carga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reloj_carga.png; sourceTree = "<group>"; };
 		1E35EECF13AE75620016CD18 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		1E4742F413762D4300E49025 /* foro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foro.png; sourceTree = "<group>"; };
 		1E4742F913762D9F00E49025 /* noticia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noticia.png; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				1EF9B824139A889800C42D76 /* comments.png */,
 				1E35EECF13AE75620016CD18 /* page.png */,
 				1EF9B822139A56C100C42D76 /* calendar_view_day.png */,
+				1E33BBE41406608200EC7FD8 /* reloj_carga.png */,
 				1EF9B820139A55E900C42D76 /* user.png */,
 				1E61E6731375B7B9003BDBE9 /* logo_barra_au.png */,
 				1E61E6741375B7B9003BDBE9 /* logo_barra_au@2x.png */,
@@ -482,6 +485,7 @@
 				1E35EED013AE75620016CD18 /* page.png in Resources */,
 				569D24AE14041500000E7665 /* Settings.bundle in Resources */,
 				1E492EAC14051FA700F47504 /* SliderPageControl.bundle in Resources */,
+				1E33BBE51406608200EC7FD8 /* reloj_carga.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

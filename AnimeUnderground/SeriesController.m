@@ -138,7 +138,7 @@
     
     UIImage *imagen = download.image;
     if (imagen == nil) {
-        imagen = [UIImage imageNamed:@"icono.png"];
+        imagen = [UIImage imageNamed:@"reloj_carga.png"];
         download.delegate = self;
     }
     

@@ -178,6 +178,12 @@
     [self setupGridPages];
 }
 
+- (NSString *)sliderPageController:(id)controller hintTitleForPage:(NSInteger)page
+{
+	NSString *hintTitle = [[NSString alloc]initWithFormat:@"Página %d",page];
+	return hintTitle;
+}
+
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download {
     
     NSUInteger index = [downloads indexOfObject:download]; 

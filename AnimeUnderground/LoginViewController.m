@@ -75,7 +75,14 @@
     }
     BOOL isOK = [foro doLogin];
     if (!isOK) {
-        //TODO
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle: @"Error"
+                                   message: @"Usuario/contraseña invalido, no se ha podido hacer login."
+                                  delegate: self
+                         cancelButtonTitle: @"OK"
+                         otherButtonTitles: nil];
+        [alert show];
+        [alert release];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }

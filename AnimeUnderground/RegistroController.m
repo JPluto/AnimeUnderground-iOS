@@ -61,6 +61,10 @@
     [registrarseB setColor: [UIColor redColor]];
 }
 
+-(IBAction) postRegistrarse {
+    [registrarseB setColor: [UIColor orangeColor]];
+}
+
 -(IBAction) registrarse {
     [registrarseB setColor: [UIColor orangeColor]];
     //TODO mandar registro a AU accion do_login y que sea lo que dios quiera.

@@ -73,6 +73,12 @@
 -(IBAction) preRegistro {
     [registroB setColor: [UIColor redColor]];
 }
+-(IBAction) postLogin {
+    [loginB setColor: [UIColor orangeColor]];
+}
+-(IBAction) postRegistro {
+    [registroB setColor: [UIColor orangeColor]];
+}
 -(IBAction) login {
     NSString *user = usuario.text;
     NSString *password = pass.text;

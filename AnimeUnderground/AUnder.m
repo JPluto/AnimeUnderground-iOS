@@ -67,7 +67,14 @@ static Foro* theForo = nil;
             [updateHandler onUpdateStatus:self :NSLocalizedString(@"Descargando información de series", @"")];
         });
         
-        TBXML *tb = [[TBXML alloc] initWithXMLString:[[self foro] webGet:@"http://www.aunder.org/xml/seriesxml.php"]];
+        NSString *loadString = [[self foro] webGet:@"http://www.aunder.org/xml/seriesxml.php"];    
+        
+        if ([loadString isEqualToString:@""]) {
+            NSLog(@"Error cargando la información");
+            [updateHandler onUpdateError:self];
+        }
+            
+        TBXML *tb = [[TBXML alloc] initWithXMLString:loadString];
                        
         dispatch_async(dispatch_get_main_queue(), ^{
             [updateHandler onUpdateStatus:self :NSLocalizedString(@"Parseando información de series", @"")];

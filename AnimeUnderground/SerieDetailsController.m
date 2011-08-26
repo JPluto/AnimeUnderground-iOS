@@ -29,6 +29,8 @@
 @synthesize secuelaView;
 @synthesize secuelaTitulo;
 @synthesize secuelaImagen;
+@synthesize pageControl;
+@synthesize enteScroll;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +43,8 @@
 
 - (void)dealloc
 {
+    [enteScroll release];
+    [pageControl release];
     
     [precuelaView release];
     [precuelaTitulo release];
@@ -84,12 +88,37 @@
     dd.urlString = [serie imagen];
     self.imagen.image = [dd image];
     
+    // formateo de entes
+    
+    //self.pageControl.numberOfPages = [serie.staff count];
+    
+    self.enteScroll.contentSize = CGSizeMake(self.enteScroll.bounds.size.width*[serie.staff count], 70);
+    
+    self.enteScroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
+    int idx = 0;
+    
     for (CargoEnteSerie *ces in serie.staff) {
         NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
+        
+        CGRect rect = CGRectMake(self.enteScroll.bounds.size.width*idx, 0, self.enteScroll.bounds.size.width, self.enteScroll.bounds.size.width);
+        
+        UILabel *test = [[[UILabel alloc]initWithFrame:rect]retain];
+    
+        
+        //UIView *enteView = [[[UIView alloc]initWithFrame:CGRectMake(self.enteScroll.bounds.size.width*idx, 0, self.enteScroll.bounds.size.width, self.enteScroll.bounds.size.height)]retain];
+        //if (!(idx%2)) enteView.backgroundColor = [UIColor darkGrayColor];
+        [test setBackgroundColor:[UIColor darkGrayColor]];
+        [test setText:[NSString stringWithFormat:@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos]];
+        
+        [self.enteScroll addSubview:test];
+        idx++;
     }
     
-    [self.sinopsis sizeToFit];
+    // reorganización de la ventana
     
+    [self.sinopsis sizeToFit];
+        
     if (serie.precuela!=nil && serie.secuela!=nil) {
         // tiene precuela y secuela
         
@@ -194,6 +223,8 @@
     self.secuelaView = nil;
     self.secuelaTitulo = nil;
     self.secuelaImagen = nil;
+    self.enteScroll = nil;
+    self.pageControl = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

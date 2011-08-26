@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Serie.h"
 
-@interface SerieDetailsController : UIViewController {
+@interface SerieDetailsController : UIViewController <UIScrollViewDelegate> {
     int codigoSerie;
     Serie *serie;
     IBOutlet UILabel *numeroCapitulos;
@@ -26,6 +26,9 @@
     IBOutlet UILabel *secuelaTitulo;
     IBOutlet UIButton *secuelaImagen;
     
+    IBOutlet UIPageControl *pageControl;
+    IBOutlet UIScrollView *enteScroll;
+    
 }
 @property (nonatomic, assign) int codigoSerie;
 @property (nonatomic, retain) IBOutlet UILabel *numeroCapitulos;
@@ -41,6 +44,9 @@
 @property (nonatomic, retain) IBOutlet UIView *secuelaView;
 @property (nonatomic, retain) IBOutlet UILabel *secuelaTitulo;
 @property (nonatomic, retain) IBOutlet UIButton *secuelaImagen;
+
+@property (nonatomic, retain) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, retain) IBOutlet UIScrollView *enteScroll;
 
 - (IBAction) showPrecuela:(id)sender;
 - (IBAction) showSecuela:(id)sender;

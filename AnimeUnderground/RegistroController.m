@@ -40,9 +40,7 @@
 {
     [super viewDidLoad];
     [registrarseB setColor: [UIColor orangeColor]];
-    UIImage *image = [UIImage imageNamed: @"logo_barra_au.png"];
-	UIImageView *imageView = [[UIImageView alloc] initWithImage: image];    
-	self.navigationItem.titleView = imageView;
+    [self setTitle:@"Registro"];
     // TODO llamar a la pagina de registro con accion login para que devuelva la direccion del CATCHA
 }
 

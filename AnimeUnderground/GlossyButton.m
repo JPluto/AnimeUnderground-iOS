@@ -33,7 +33,7 @@ const float VALOR_SATURADO = 0.28f;
     [[self layer] insertSublayer:gradientLayer atIndex:0];
     
     // Set the layer's corner radius
-    [[self layer] setCornerRadius:12.0f];
+    [[self layer] setCornerRadius:7.0f];
     // Turn on masking
     [[self layer] setMasksToBounds:YES];
     // Display a border around the button 

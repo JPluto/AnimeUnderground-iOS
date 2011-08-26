@@ -43,11 +43,10 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
-    UIImage *image = [UIImage imageNamed: @"logo_barra_au.png"];
-	UIImageView *imageView = [[UIImageView alloc] initWithImage: image];    
-	self.navigationItem.titleView = imageView;
-    [loginB setColor:[UIColor orangeColor]];
+    
+    [loginB setColor:[UIColor colorWithRed:204 green:85 blue:0 alpha:100]];
     [registroB setColor:[UIColor orangeColor]];
+    
     AUnder *aunder = [AUnder sharedInstance];
     Foro *foro = aunder.foro;
     usuario.text = foro.user;
@@ -78,11 +77,11 @@
     [loginB setColor: [UIColor orangeColor]];
     AUnder *aunder = [AUnder sharedInstance];
     Foro *foro = aunder.foro;
-    if (usuario.text != nil) {
+    if ([usuario.text length] == 0) { // comprueba vacío y nil
         foro.user = usuario.text;
         [[NSUserDefaults standardUserDefaults] setValue:foro.user forKey:@"usuarioLogin_preference"];
     }
-    if (pass.text != nil) {
+    if ([pass.text length] == 0) {
         foro.pass = pass.text;
         [[NSUserDefaults standardUserDefaults] setValue:foro.pass forKey:@"passwordLogin_preference"];
     }
@@ -101,7 +100,7 @@
     }
     
 }
--(IBAction) registrarse{
+-(IBAction) registrarse {
     [registroB setColor: [UIColor orangeColor]];
     RegistroController *rc = [[RegistroController alloc] init];
     [self.navigationController pushViewController: rc animated:YES];

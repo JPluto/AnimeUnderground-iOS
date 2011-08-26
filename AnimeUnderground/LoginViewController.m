@@ -44,7 +44,7 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO];
     
-    [loginB setColor:[UIColor colorWithRed:204 green:85 blue:0 alpha:100]];
+    [loginB setColor:[UIColor orangeColor]];
     [registroB setColor:[UIColor orangeColor]];
     
     AUnder *aunder = [AUnder sharedInstance];

@@ -74,14 +74,15 @@
     [registroB setColor: [UIColor redColor]];
 }
 -(IBAction) login {
-    [loginB setColor: [UIColor orangeColor]];
+    NSString *user = usuario.text;
+    NSString *password = pass.text;
     AUnder *aunder = [AUnder sharedInstance];
     Foro *foro = aunder.foro;
-    if ([usuario.text length] == 0) { // comprueba vacío y nil
+    if ([user length] != 0) { // comprueba vacío y nil
         foro.user = usuario.text;
         [[NSUserDefaults standardUserDefaults] setValue:foro.user forKey:@"usuarioLogin_preference"];
     }
-    if ([pass.text length] == 0) {
+    if ([password length] != 0) {
         foro.pass = pass.text;
         [[NSUserDefaults standardUserDefaults] setValue:foro.pass forKey:@"passwordLogin_preference"];
     }
@@ -98,7 +99,7 @@
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
-    
+    [loginB setColor: [UIColor orangeColor]];    
 }
 -(IBAction) registrarse {
     [registroB setColor: [UIColor orangeColor]];

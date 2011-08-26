@@ -56,10 +56,18 @@
     // http://foro.aunder.org/member.php?action=register&step=agreement&agree=Estoy%20de%20acuerdo
     NSString *imageURL = @"http://foro.aunder.org/captcha.php?action=regimage&";
     imageURL = [imageURL stringByAppendingString:imagehash];
-    NSData *mydata = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
-    UIImage *myimage = [[UIImage alloc] initWithData:mydata];
-    catcha.image = myimage;
-    [myimage release];
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSData *mydata = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+        UIImage *myimage = [[UIImage alloc] initWithData:mydata];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            catcha.image = myimage;
+            [myimage release];
+        });
+        
+    });
+
+
 
     // TODO llamar a la pagina de registro con accion login para que devuelva la direccion del CATCHA
 }

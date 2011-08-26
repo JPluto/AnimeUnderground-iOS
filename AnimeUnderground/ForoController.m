@@ -11,7 +11,7 @@
 
 @implementation ForoController
 
-@synthesize webView, urlString;
+@synthesize webView, urlString, loadSpinner;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,6 +26,7 @@
 - (void)dealloc
 {
     [urlString release];
+    [loadSpinner release];
     [webView release];
     [super dealloc];
 }
@@ -55,7 +56,6 @@
     [request setURL:url];	
 	[request setHTTPMethod:@"GET"];
 	[request setTimeoutInterval:30];
-    
     [webView loadRequest:request];
     
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Anterior" style:UIBarButtonItemStyleBordered target:nil action:@selector(goBack)];
@@ -67,11 +67,19 @@
     [webView goBack];
 }
 
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [loadSpinner startAnimating];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [loadSpinner stopAnimating];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.loadSpinner = nil;
     self.webView = nil;
 }
 

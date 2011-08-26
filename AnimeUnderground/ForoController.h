@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ForoController : UIViewController {
+@interface ForoController : UIViewController <UIWebViewDelegate>{
     UIWebView *webView;
     NSString *urlString;
+    IBOutlet UIActivityIndicatorView *loadSpinner;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) NSString *urlString;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadSpinner;
 
 @end

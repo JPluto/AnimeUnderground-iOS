@@ -18,6 +18,14 @@
     IBOutlet UILabel *sinopsis;
     IBOutlet UIImageView *imagen;
     IBOutlet UIScrollView *scroll;
+    
+    IBOutlet UIView *precuelaView;
+    IBOutlet UILabel *precuelaTitulo;
+    IBOutlet UIImageView *precuelaImagen;
+    IBOutlet UIView *secuelaView;
+    IBOutlet UILabel *secuelaTitulo;
+    IBOutlet UIImageView *secuelaImagen;
+    
 }
 @property (nonatomic, assign) int codigoSerie;
 @property (nonatomic, retain) IBOutlet UILabel *numeroCapitulos;
@@ -26,4 +34,14 @@
 @property (nonatomic, retain) IBOutlet UILabel *sinopsis;
 @property (nonatomic, retain) IBOutlet UIImageView *imagen;
 @property (nonatomic, retain) IBOutlet UIScrollView *scroll;
+
+@property (nonatomic, retain) IBOutlet UIView *precuelaView;
+@property (nonatomic, retain) IBOutlet UILabel *precuelaTitulo;
+@property (nonatomic, retain) IBOutlet UIImageView *precuelaImagen;
+@property (nonatomic, retain) IBOutlet UIView *secuelaView;
+@property (nonatomic, retain) IBOutlet UILabel *secuelaTitulo;
+@property (nonatomic, retain) IBOutlet UIImageView *secuelaImagen;
+
+- (IBAction) showPrecuela:(id)sender;
+- (IBAction) showSecuela:(id)sender;
 @end

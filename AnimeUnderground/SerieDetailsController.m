@@ -23,6 +23,12 @@
 @synthesize sinopsis;
 @synthesize imagen;
 @synthesize scroll;
+@synthesize precuelaView;
+@synthesize precuelaTitulo;
+@synthesize precuelaImagen;
+@synthesize secuelaView;
+@synthesize secuelaTitulo;
+@synthesize secuelaImagen;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +41,14 @@
 
 - (void)dealloc
 {
+    
+    [precuelaView release];
+    [precuelaTitulo release];
+    [precuelaImagen release];
+    [secuelaView release];
+    [secuelaTitulo release];
+    [secuelaImagen release];
+    
     [scroll release];
     [imagen release];
     [numeroCapitulos release];
@@ -75,7 +89,62 @@
     }
     
     [self.sinopsis sizeToFit];
-    scroll.contentSize = CGSizeMake(scroll.frame.size.width, (sinopsis.frame.origin.y+sinopsis.frame.size.height));
+    
+    if (serie.precuela!=nil && serie.secuela!=nil) {
+        // tiene precuela y secuela
+        
+        [precuelaView setFrame:CGRectMake(0, (sinopsis.frame.origin.y+sinopsis.frame.size.height)+5, precuelaView.frame.size.width, precuelaView.frame.size.height)];
+        [secuelaView setFrame:CGRectMake(0, (precuelaView.frame.origin.y+precuelaView.frame.size.height)+5, secuelaView.frame.size.width, secuelaView.frame.size.height)];
+        scroll.contentSize = CGSizeMake(scroll.frame.size.width, (secuelaView.frame.origin.y+sinopsis.frame.size.height));
+        
+        precuelaTitulo.text = [[serie precuela]nombre];
+        secuelaTitulo.text = [[serie secuela]nombre];
+        
+        NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
+        UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
+
+        
+        precuelaImagen.image = imagePrecuela;
+        
+        NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
+        UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
+        
+        secuelaImagen.image = imageSecuela;
+        
+    } else if (serie.precuela!=nil) {
+        // tiene solo precuela
+        [secuelaView removeFromSuperview];
+        [precuelaView setFrame:CGRectMake(0, (sinopsis.frame.origin.y+sinopsis.frame.size.height)+5, precuelaView.frame.size.width, precuelaView.frame.size.height)];
+        scroll.contentSize = CGSizeMake(scroll.frame.size.width, (precuelaView.frame.origin.y+precuelaView.frame.size.height));
+        precuelaTitulo.text = [[serie precuela]nombre];
+        
+        NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
+        UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
+        
+        
+        precuelaImagen.image = imagePrecuela;
+
+    } else if (serie.secuela!=nil) {
+        // tiene solo secuela
+        [precuelaView removeFromSuperview];
+        [secuelaView setFrame:CGRectMake(0, (sinopsis.frame.origin.y+sinopsis.frame.size.height)+5, secuelaView.frame.size.width, secuelaView.frame.size.height)];
+        scroll.contentSize = CGSizeMake(scroll.frame.size.width, (secuelaView.frame.origin.y+secuelaView.frame.size.height));
+        secuelaTitulo.text = [[serie secuela]nombre];
+        
+        NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
+        UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
+        
+        secuelaImagen.image = imageSecuela;
+        
+    } else {
+        // forever alone
+        scroll.contentSize = CGSizeMake(scroll.frame.size.width, (sinopsis.frame.origin.y+sinopsis.frame.size.height));
+        [precuelaView removeFromSuperview];
+        [secuelaView removeFromSuperview];
+    }
+    
+    
+    
 
 }
 
@@ -90,6 +159,12 @@
     self.sinopsis = nil;
     self.imagen = nil;
     self.scroll = nil;
+    self.precuelaView = nil;
+    self.precuelaTitulo = nil;
+    self.precuelaImagen = nil;
+    self.secuelaView = nil;
+    self.secuelaTitulo = nil;
+    self.secuelaImagen = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

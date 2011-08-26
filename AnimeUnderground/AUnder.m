@@ -156,8 +156,8 @@ static Foro* theForo = nil;
             NSString *secKey = [NSString stringWithFormat:@"%d",[conPrecuela codigo]];
             Serie *conSecuela = [seriesConSecuela valueForKey:secKey];
             
-            [conPrecuela setSecuela:conPrecuela];
-            [conSecuela setPrecuela:conSecuela];
+            [conPrecuela setSecuela:conSecuela];
+            [conSecuela setPrecuela:conPrecuela];
         }
         
         // series parseadas, parseamos entes

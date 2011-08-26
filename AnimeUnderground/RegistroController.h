@@ -11,10 +11,11 @@
 
 @interface RegistroController : UIViewController {
     UIButton *registrarseB;
+    UIImageView *catcha;
 }
 
 @property (nonatomic,retain) IBOutlet UIButton *registrarseB;
-
+@property (nonatomic,retain) IBOutlet UIImageView *catcha;
 
 -(IBAction) preRegistrarse;
 -(IBAction) registrarse;

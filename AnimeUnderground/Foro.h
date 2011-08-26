@@ -20,5 +20,4 @@
 
 - (BOOL)doLogin;
 
-
 @end

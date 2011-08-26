@@ -86,6 +86,7 @@
 - (NSString*) webPost: (NSString*) urlString:(NSString*) datosPost {
 	
 	NSData *postData = [datosPost dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    NSLog(datosPost);
 	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
 	
 	NSURL *url = [NSURL URLWithString:urlString];

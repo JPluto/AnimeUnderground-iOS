@@ -69,6 +69,8 @@
 		1EF9B825139A889800C42D76 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B824139A889800C42D76 /* comments.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
+		56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */; };
+		56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */; };
 		56C340B8140693F50011DBDB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340B6140693F40011DBDB /* LoginViewController.m */; };
 		56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340B7140693F40011DBDB /* LoginViewController.xib */; };
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
@@ -173,6 +175,9 @@
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		569D24AD14041500000E7665 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		56A6FB4C1407F6A8006B34E0 /* PreRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreRegistroController.h; sourceTree = "<group>"; };
+		56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreRegistroController.m; sourceTree = "<group>"; };
+		56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreRegistroController.xib; sourceTree = "<group>"; };
 		56C340B5140693F40011DBDB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		56C340B6140693F40011DBDB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		56C340B7140693F40011DBDB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -253,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				56C340D51406F0120011DBDB /* RegistroController.xib */,
+				56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */,
 				56C340B7140693F40011DBDB /* LoginViewController.xib */,
 				1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */,
 				1EF9B815139683D900C42D76 /* NoticiaDetailsController.xib */,
@@ -290,6 +296,8 @@
 				1E503DA0139BE2D60010DF8D /* SerieDetailsController.m */,
 				56C340D31406F0120011DBDB /* RegistroController.h */,
 				56C340D41406F0120011DBDB /* RegistroController.m */,
+				56A6FB4C1407F6A8006B34E0 /* PreRegistroController.h */,
+				56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -513,6 +521,7 @@
 				1E492EAC14051FA700F47504 /* SliderPageControl.bundle in Resources */,
 				56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */,
 				56C340D71406F0120011DBDB /* RegistroController.xib in Resources */,
+				56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +566,7 @@
 				56C340B8140693F50011DBDB /* LoginViewController.m in Sources */,
 				56C340D11406B7520011DBDB /* GlossyButton.m in Sources */,
 				56C340D61406F0120011DBDB /* RegistroController.m in Sources */,
+				56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

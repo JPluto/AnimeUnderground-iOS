@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "Foro.h"
 #import "AUnder.h"
-#import "RegistroController.h"
+#import "PreRegistroController.h"
 
 @implementation LoginViewController
 
@@ -109,7 +109,7 @@
 }
 -(IBAction) registrarse {
     [registroB setColor: [UIColor orangeColor]];
-    RegistroController *rc = [[RegistroController alloc] init];
+    PreRegistroController *rc = [[PreRegistroController alloc] init];
     [self.navigationController pushViewController: rc animated:YES];
     [rc release];
 }

@@ -100,16 +100,20 @@
         precuelaTitulo.text = [[serie precuela]nombre];
         secuelaTitulo.text = [[serie secuela]nombre];
         
-        NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
-        UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
+            UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
+            
+            
+            NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
+            UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [precuelaImagen setImage:imagePrecuela forState:UIControlStateNormal];
+                [secuelaImagen setImage:imageSecuela forState:UIControlStateNormal];
+            });
 
-        
-        precuelaImagen.image = imagePrecuela;
-        
-        NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
-        UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
-        
-        secuelaImagen.image = imageSecuela;
+        });
+
         
     } else if (serie.precuela!=nil) {
         // tiene solo precuela
@@ -118,11 +122,16 @@
         scroll.contentSize = CGSizeMake(scroll.frame.size.width, (precuelaView.frame.origin.y+precuelaView.frame.size.height));
         precuelaTitulo.text = [[serie precuela]nombre];
         
-        NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
-        UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
-        
-        
-        precuelaImagen.image = imagePrecuela;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSURL *urlPrecuela = [NSURL URLWithString: [[[serie precuela] imagen]retain]]; 
+            UIImage *imagePrecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlPrecuela]] retain];
+            
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [precuelaImagen setImage:imagePrecuela forState:UIControlStateNormal];
+            });
+            
+        });
 
     } else if (serie.secuela!=nil) {
         // tiene solo secuela
@@ -131,10 +140,15 @@
         scroll.contentSize = CGSizeMake(scroll.frame.size.width, (secuelaView.frame.origin.y+secuelaView.frame.size.height));
         secuelaTitulo.text = [[serie secuela]nombre];
         
-        NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
-        UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
-        
-        secuelaImagen.image = imageSecuela;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+
+            NSURL *urlSecuela = [NSURL URLWithString: [[[serie secuela] imagen]retain]]; 
+            UIImage *imageSecuela = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlSecuela]] retain];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [secuelaImagen setImage:imageSecuela forState:UIControlStateNormal];
+            });
+            
+        });
         
     } else {
         // forever alone
@@ -146,6 +160,21 @@
     
     
 
+}
+- (IBAction)showPrecuela:(id)sender {
+    Serie *s = [serie precuela];
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
+    [sdc release];
+}
+
+- (IBAction)showSecuela:(id)sender {
+    Serie *s = [serie secuela];
+    SerieDetailsController *sdc = [[SerieDetailsController alloc]init];
+    [sdc setCodigoSerie:[s codigo]];
+    [self.navigationController pushViewController:sdc animated:YES];
+    [sdc release];
 }
 
 - (void)viewDidUnload

@@ -21,10 +21,10 @@
     
     IBOutlet UIView *precuelaView;
     IBOutlet UILabel *precuelaTitulo;
-    IBOutlet UIImageView *precuelaImagen;
+    IBOutlet UIButton *precuelaImagen;
     IBOutlet UIView *secuelaView;
     IBOutlet UILabel *secuelaTitulo;
-    IBOutlet UIImageView *secuelaImagen;
+    IBOutlet UIButton *secuelaImagen;
     
 }
 @property (nonatomic, assign) int codigoSerie;
@@ -37,10 +37,10 @@
 
 @property (nonatomic, retain) IBOutlet UIView *precuelaView;
 @property (nonatomic, retain) IBOutlet UILabel *precuelaTitulo;
-@property (nonatomic, retain) IBOutlet UIImageView *precuelaImagen;
+@property (nonatomic, retain) IBOutlet UIButton *precuelaImagen;
 @property (nonatomic, retain) IBOutlet UIView *secuelaView;
 @property (nonatomic, retain) IBOutlet UILabel *secuelaTitulo;
-@property (nonatomic, retain) IBOutlet UIImageView *secuelaImagen;
+@property (nonatomic, retain) IBOutlet UIButton *secuelaImagen;
 
 - (IBAction) showPrecuela:(id)sender;
 - (IBAction) showSecuela:(id)sender;

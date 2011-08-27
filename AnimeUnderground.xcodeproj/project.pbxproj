@@ -76,6 +76,7 @@
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
 		56C340D61406F0120011DBDB /* RegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D41406F0120011DBDB /* RegistroController.m */; };
 		56C340D71406F0120011DBDB /* RegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340D51406F0120011DBDB /* RegistroController.xib */; };
+		AC2702A91408F510008DBE73 /* CargoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2702A81408F510008DBE73 /* CargoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +187,8 @@
 		56C340D31406F0120011DBDB /* RegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistroController.h; sourceTree = "<group>"; };
 		56C340D41406F0120011DBDB /* RegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistroController.m; sourceTree = "<group>"; };
 		56C340D51406F0120011DBDB /* RegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistroController.xib; sourceTree = "<group>"; };
+		AC2702A71408F510008DBE73 /* CargoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CargoCell.h; sourceTree = "<group>"; };
+		AC2702A81408F510008DBE73 /* CargoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CargoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,8 @@
 			children = (
 				1E040C7B136460010004B407 /* NoticiaCell.h */,
 				1E040C7C136460010004B407 /* NoticiaCell.m */,
+				AC2702A71408F510008DBE73 /* CargoCell.h */,
+				AC2702A81408F510008DBE73 /* CargoCell.m */,
 			);
 			name = Celdas;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				56C340D11406B7520011DBDB /* GlossyButton.m in Sources */,
 				56C340D61406F0120011DBDB /* RegistroController.m in Sources */,
 				56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */,
+				AC2702A91408F510008DBE73 /* CargoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

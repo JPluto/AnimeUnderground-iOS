@@ -11,6 +11,7 @@
 #import "Serie.h"
 #import "Ente.h"
 #import "CargoEnteSerie.h"
+#import "CargoCell.h"
 
 @implementation SerieDetailsController
 
@@ -91,27 +92,30 @@
     // formateo de entes
     
     //self.pageControl.numberOfPages = [serie.staff count];
-    
-    self.enteScroll.contentSize = CGSizeMake(self.enteScroll.bounds.size.width*[serie.staff count], 70);
-    
-    self.enteScroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        
+    //self.enteScroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     int idx = 0;
     
+    CGFloat contentOffset = 0.0f;
+
     for (CargoEnteSerie *ces in serie.staff) {
         NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
+
+        CGRect rect = CGRectMake(contentOffset, 0, self.enteScroll.frame.size.width, self.enteScroll.frame.size.height);
+
         
-        CGRect rect = CGRectMake(self.enteScroll.bounds.size.width*idx, 0, self.enteScroll.bounds.size.width, self.enteScroll.bounds.size.width);
+        CargoCell *cargo = [[[CargoCell alloc]initWithFrame:rect]retain];
+        cargo.scrollView = self.enteScroll;
         
-        UILabel *test = [[[UILabel alloc]initWithFrame:rect]retain];
-    
+        cargo.nombreLabel.text = ces.ente.nick;//[[NSString stringWithFormat:@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos] retain];
+
         
-        //UIView *enteView = [[[UIView alloc]initWithFrame:CGRectMake(self.enteScroll.bounds.size.width*idx, 0, self.enteScroll.bounds.size.width, self.enteScroll.bounds.size.height)]retain];
-        //if (!(idx%2)) enteView.backgroundColor = [UIColor darkGrayColor];
-        [test setBackgroundColor:[UIColor darkGrayColor]];
-        [test setText:[NSString stringWithFormat:@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos]];
+        [self.enteScroll addSubview:cargo];
         
-        [self.enteScroll addSubview:test];
+        contentOffset += rect.size.width;
+        self.enteScroll.contentSize = CGSizeMake(contentOffset,self.enteScroll.frame.size.height);
+
         idx++;
     }
     

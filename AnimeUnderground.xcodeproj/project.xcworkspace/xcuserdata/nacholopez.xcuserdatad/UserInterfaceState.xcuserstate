@@ -2440,8 +2440,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336141697.940337</real>
-		<string>{6834, 1897}</string>
+		<real>336141771.36244202</real>
+		<string>{6834, 2197}</string>
 		<string>{8277, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -4657,7 +4657,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>15</integer>
+					<integer>168</integer>
 				</dict>
 			</array>
 		</dict>
@@ -5253,8 +5253,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336141697.94075602</real>
-		<string>{6834, 1897}</string>
+		<real>336141771.36297601</real>
+		<string>{6834, 2197}</string>
 		<string>{8277, 0}</string>
 		<string>-showSecuela:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
@@ -5290,7 +5290,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {1400, 767}}</string>
+		<string>{{0, 0}, {1400, 904}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

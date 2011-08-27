@@ -15,6 +15,8 @@
 @synthesize avatarImage;
 @synthesize backgroundView;
 @synthesize cargoLabel;
+@synthesize detailsController;
+@synthesize theIndex;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -54,7 +56,6 @@
 {
     [super layoutSubviews];
     
-    //int labelHeight = 30;
     int inset = 5;
     
     self.backgroundView.frame = CGRectInset(self.bounds, inset, inset);
@@ -72,10 +73,13 @@
 
 #pragma - Touch event handling
 
+// TODO adaptar esto pra que funcione con mi controller
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *aTouch = [touches anyObject];
+    
     if (aTouch.tapCount == 2) {
-        [NSObject cancelPreviousPerformRequestsWithTarget:scrollView];
+        [NSObject cancelPreviousPerformRequestsWithTarget:detailsController];
     }
 }
 
@@ -90,11 +94,13 @@
         switch ([touch tapCount]) 
         {
             case 1:
-                [scrollView performSelector:singleTapSelector withObject:self afterDelay:.3];
+                //[scrollView performSelector:singleTapSelector withObject:self afterDelay:.3];
+                [detailsController performSelector:singleTapSelector withObject:self];
                 break;
                 
             case 2:
-                [scrollView performSelector:doubleTapSelector withObject:self];
+                //[scrollView performSelector:doubleTapSelector withObject:self];
+                [detailsController performSelector:doubleTapSelector withObject:self];
                 break;
                 
             default:

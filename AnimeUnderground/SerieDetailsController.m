@@ -91,9 +91,7 @@
     
     // formateo de entes
     
-    //self.pageControl.numberOfPages = [serie.staff count];
-        
-    //self.enteScroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.enteScroll.delegate = self;
     
     int idx = 0;
     
@@ -107,6 +105,8 @@
         
         CargoCell *cargo = [[[CargoCell alloc]initWithFrame:rect]retain];
         cargo.scrollView = self.enteScroll;
+        cargo.detailsController = self;
+        cargo.theIndex = idx;
         
         cargo.nombreLabel.text = ces.ente.nick;
         cargo.cargoLabel.text = [NSString stringWithFormat:@"%d capítulos como:\n%@",ces.capitulos,ces.cargo];
@@ -198,11 +198,23 @@
         [precuelaView removeFromSuperview];
         [secuelaView removeFromSuperview];
     }
-    
-    
-    
+}
+
+- (void)cellWasSelected:(CargoCell *)cell {
+    NSLog(@"Celda seleccionada");
+    CargoEnteSerie *ces = [serie.staff objectAtIndex:cell.theIndex];
+    NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
 
 }
+
+
+- (void)cellWasDoubleTapped:(CargoCell *)cell {
+    NSLog(@"Celda doble tap");
+    CargoEnteSerie *ces = [serie.staff objectAtIndex:cell.theIndex];
+    NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
+
+}
+
 - (IBAction)showPrecuela:(id)sender {
     Serie *s = [serie precuela];
     SerieDetailsController *sdc = [[SerieDetailsController alloc]init];

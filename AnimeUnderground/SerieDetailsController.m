@@ -12,6 +12,7 @@
 #import "Ente.h"
 #import "CargoEnteSerie.h"
 #import "CargoCell.h"
+#import "EnteDetailsController.h"
 
 @implementation SerieDetailsController
 
@@ -204,7 +205,9 @@
     NSLog(@"Celda seleccionada");
     CargoEnteSerie *ces = [serie.staff objectAtIndex:cell.theIndex];
     NSLog(@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos);
-
+    
+    EnteDetailsController *edc = [[[EnteDetailsController alloc] initWithEnteId:ces.ente.codigo]autorelease];
+    [self.navigationController pushViewController:edc animated:YES];
 }
 
 

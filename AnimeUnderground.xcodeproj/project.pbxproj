@@ -76,6 +76,8 @@
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
 		56C340D61406F0120011DBDB /* RegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D41406F0120011DBDB /* RegistroController.m */; };
 		56C340D71406F0120011DBDB /* RegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340D51406F0120011DBDB /* RegistroController.xib */; };
+		AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E3970140946C600C90206 /* EnteDetailsController.m */; };
+		AC1E3973140946C600C90206 /* EnteDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1E3971140946C600C90206 /* EnteDetailsController.xib */; };
 		AC2702A91408F510008DBE73 /* CargoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2702A81408F510008DBE73 /* CargoCell.m */; };
 /* End PBXBuildFile section */
 
@@ -187,6 +189,9 @@
 		56C340D31406F0120011DBDB /* RegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistroController.h; sourceTree = "<group>"; };
 		56C340D41406F0120011DBDB /* RegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistroController.m; sourceTree = "<group>"; };
 		56C340D51406F0120011DBDB /* RegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistroController.xib; sourceTree = "<group>"; };
+		AC1E396F140946C600C90206 /* EnteDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnteDetailsController.h; sourceTree = "<group>"; };
+		AC1E3970140946C600C90206 /* EnteDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnteDetailsController.m; sourceTree = "<group>"; };
+		AC1E3971140946C600C90206 /* EnteDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnteDetailsController.xib; sourceTree = "<group>"; };
 		AC2702A71408F510008DBE73 /* CargoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CargoCell.h; sourceTree = "<group>"; };
 		AC2702A81408F510008DBE73 /* CargoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CargoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				56C340D51406F0120011DBDB /* RegistroController.xib */,
+				AC1E3971140946C600C90206 /* EnteDetailsController.xib */,
 				56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */,
 				56C340B7140693F40011DBDB /* LoginViewController.xib */,
 				1E503DA1139BE2D60010DF8D /* SerieDetailsController.xib */,
@@ -303,6 +309,8 @@
 				56C340D41406F0120011DBDB /* RegistroController.m */,
 				56A6FB4C1407F6A8006B34E0 /* PreRegistroController.h */,
 				56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */,
+				AC1E396F140946C600C90206 /* EnteDetailsController.h */,
+				AC1E3970140946C600C90206 /* EnteDetailsController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -527,6 +535,7 @@
 				56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */,
 				56C340D71406F0120011DBDB /* RegistroController.xib in Resources */,
 				56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */,
+				AC1E3973140946C600C90206 /* EnteDetailsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +582,7 @@
 				56C340D61406F0120011DBDB /* RegistroController.m in Sources */,
 				56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */,
 				AC2702A91408F510008DBE73 /* CargoCell.m in Sources */,
+				AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

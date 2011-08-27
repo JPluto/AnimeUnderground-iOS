@@ -351,6 +351,14 @@ static Foro* theForo = nil;
     return nil;
 }
 
+- (Ente*)getEnteById:(int)enteId {
+    for (Ente *e in entes) {
+        if (e.codigo == enteId)
+            return e;
+    }
+    return nil;
+}
+
 - (Noticia*)getNoticiaByCodigo:(int)codigo {
     for (Noticia *n in noticias) {
         if (n.codigo==codigo)

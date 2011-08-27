@@ -8,7 +8,7 @@
 
 #import "EntesController.h"
 #import "DeviantDownload.h"
-
+#import "EnteDetailsController.h"
 @implementation EntesController
 @class Ente,AUnder;
 
@@ -145,6 +145,8 @@
     NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
     Ente* ente = [array objectAtIndex:indexPath.row];
     NSLog(@"Ente seleccionado %@",[ente nick]);
+    EnteDetailsController *edc = [[EnteDetailsController alloc]initWithEnteId:ente.codigo];
+    [self.navigationController pushViewController:edc animated:YES];
 }
 
 @end

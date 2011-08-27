@@ -23,22 +23,29 @@
         // Initialization code
         
         self.backgroundView = [[[UIView alloc]initWithFrame:CGRectNull] autorelease];
-        self.backgroundView.backgroundColor = [UIColor lightGrayColor];
         
         [self addSubview: self.backgroundView];
         
         self.avatarImage = [[[UIImageView alloc]initWithFrame:CGRectNull]autorelease];
         
+        [self.backgroundView addSubview:self.avatarImage];
+
+        self.cargoLabel = [[[UILabel alloc]initWithFrame:CGRectNull] autorelease];
+        self.cargoLabel.textAlignment = UITextAlignmentCenter;
+        self.cargoLabel.backgroundColor = [UIColor clearColor];
+        self.cargoLabel.textColor = [UIColor blackColor];
+        self.cargoLabel.font = [UIFont systemFontOfSize:10];
+        self.cargoLabel.numberOfLines = 2;
+        
+        [self.backgroundView addSubview:self.cargoLabel];
         
         self.nombreLabel = [[[UILabel alloc] initWithFrame:CGRectNull] autorelease];
         self.nombreLabel.textAlignment = UITextAlignmentCenter;
         self.nombreLabel.backgroundColor = [UIColor clearColor];
         self.nombreLabel.textColor = [UIColor blackColor];
-        self.nombreLabel.font = [UIFont systemFontOfSize:12];
+        self.nombreLabel.font = [UIFont systemFontOfSize:15];
                 
         [self.backgroundView addSubview:self.nombreLabel];
-
-        
     }
     return self;
 }
@@ -53,8 +60,13 @@
     self.backgroundView.frame = CGRectInset(self.bounds, inset, inset);
     self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
+    self.avatarImage.frame = CGRectMake(5, 5, 50, 50);
+    
     self.nombreLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.nombreLabel.frame = CGRectInset(CGRectMake(0,0,backgroundView.bounds.size.width,backgroundView.bounds.size.height),inset,inset);
+    self.nombreLabel.frame = CGRectInset(CGRectMake(0,0,backgroundView.bounds.size.width,backgroundView.bounds.size.height/2),inset,inset);
+    
+    self.cargoLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.cargoLabel.frame = CGRectMake(0,20,backgroundView.bounds.size.width,40);
 }
 
 

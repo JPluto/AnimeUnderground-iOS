@@ -108,10 +108,19 @@
         CargoCell *cargo = [[[CargoCell alloc]initWithFrame:rect]retain];
         cargo.scrollView = self.enteScroll;
         
-        cargo.nombreLabel.text = ces.ente.nick;//[[NSString stringWithFormat:@"Cargo: %@ Ente %@ Capitulos %d",ces.cargo,ces.ente.nick,ces.capitulos] retain];
-
+        cargo.nombreLabel.text = ces.ente.nick;
+        cargo.cargoLabel.text = [NSString stringWithFormat:@"%d capítulos como:\n%@",ces.capitulos,ces.cargo];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSURL *urlAvatar = [NSURL URLWithString: [[ces.ente avatar]retain]]; 
+            UIImage *imageAvatar = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlAvatar]] retain];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cargo.avatarImage.image = imageAvatar; 
+            });
+        });
         
         [self.enteScroll addSubview:cargo];
+        
+        // TODO añadir soporte al tap en la celda para mostrar la información del ente
         
         contentOffset += rect.size.width;
         self.enteScroll.contentSize = CGSizeMake(contentOffset,self.enteScroll.frame.size.height);

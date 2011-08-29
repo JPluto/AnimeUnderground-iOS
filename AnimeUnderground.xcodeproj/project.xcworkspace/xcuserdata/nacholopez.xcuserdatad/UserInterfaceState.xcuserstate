@@ -3694,8 +3694,8 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>336327007.50142199</real>
-		<string>{1618, 1338}</string>
+		<real>336327124.36077899</real>
+		<string>{1618, 1695}</string>
 		<string>{2498, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -5923,7 +5923,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>15</integer>
+					<integer>236</integer>
 				</dict>
 			</array>
 		</dict>
@@ -6522,8 +6522,8 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336327007.50180501</real>
-		<string>{1618, 1338}</string>
+		<real>336327124.36114597</real>
+		<string>{1618, 1695}</string>
 		<string>{2498, 0}</string>
 		<string>-tableView:numberOfRowsInSection:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
@@ -6559,7 +6559,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {1400, 767}}</string>
+		<string>{{0, 0}, {1400, 904}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7124,7 +7124,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>570</integer>
+					<integer>567</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -7212,7 +7212,7 @@
 		<string>IDESCMStatusFilteringEnabled</string>
 		<string>IDESelectedObjects</string>
 		<string>IDEExpandedItemsSet</string>
-		<string>{{0, 295}, {244, 860}}</string>
+		<string>{{0, 155}, {244, 860}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

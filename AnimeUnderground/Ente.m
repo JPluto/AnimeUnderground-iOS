@@ -29,6 +29,7 @@
     if (self) {
         codigo = aCodigo;
         nick = [aNick retain];
+        cargos = [[NSMutableArray alloc]init];
     }
     return self;
 }

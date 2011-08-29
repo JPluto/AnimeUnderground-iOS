@@ -42,6 +42,9 @@
 
 - (void)dealloc
 {
+    [forLazySpinners release];
+    [forLazyLoading release];
+    [imagenes release];
     [datosExtra release];
     [subnick release];
     [estado release];
@@ -73,8 +76,21 @@
     self.subnick.text = ente.titulo;
     self.datosExtra.text = [NSString stringWithFormat:@"%@ - %d años - %@",ente.sexo,ente.edad,ente.ciudad];
     
+    imagenes = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+    
+    forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+    forLazySpinners = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+    
+    // iniciamos lazy loading de imágenes
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+        // carga de lazyloading
+        for (CargoEnteSerie *s in ente.cargos) {
+            DeviantDownload *dd = [[DeviantDownload alloc]init];
+            dd.urlString = [[s.serie imagen] retain];
+            [imagenes addObject: [dd retain]];
+        }
+        // lazyloading adhoc para avatar
         NSURL *urlAvatar = [NSURL URLWithString: ente.avatar]; 
         UIImage *imageAvatar = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlAvatar]] retain];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -116,17 +132,29 @@
     MMGridViewDefaultCell *cell = [[[MMGridViewDefaultCell alloc] initWithFrame:CGRectNull] autorelease];
     
     CargoEnteSerie *s = [[ente cargos]objectAtIndex:index];
-    cell.textLabel.text = s.cargo;
-        
-    //[forLazyLoading insertObject:cell.backgroundView atIndex:index];
-    //[forLazySpinners insertObject:cell.loadingView atIndex:index];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d cap.)",s.cargo,s.capitulos];
+    
+    NSLog(@"Intento mostrar ente %d",s.ente.codigo);
+    
+    DeviantDownload *download = [imagenes objectAtIndex:index];
+    
+    UIImage *imagen = download.image;
+    if (imagen == nil) {
+        [cell.loadingView startAnimating];
+        imagen = [UIImage imageNamed:@"logro_barra_au.png"];
+        download.delegate = self;
+    }
+
+    
+    [forLazyLoading insertObject:cell.backgroundView atIndex:index];
+    [forLazySpinners insertObject:cell.loadingView atIndex:index];
     
     // creamos el thumb de tamaño adecuado
     
-    //UIImage *tmp = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    UIImage *tmp = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
     
-    //cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
+    cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
     return cell;
 }
 
@@ -150,5 +178,23 @@
     //[self setupGridPages];
 }
 
+- (void)downloadDidFinishDownloading:(DeviantDownload *)download {
+    
+    NSUInteger index = [imagenes indexOfObject:download]; 
+    
+    UIView *vista = [forLazyLoading objectAtIndex:index];
+    UIActivityIndicatorView *spinner = [forLazySpinners objectAtIndex:index];
+    [spinner stopAnimating];
+    [spinner release];
+    
+    UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        vista.backgroundColor = [UIColor colorWithPatternImage:tmp];
+        
+    });
+    
+    download.delegate = nil;
+}
 
 @end

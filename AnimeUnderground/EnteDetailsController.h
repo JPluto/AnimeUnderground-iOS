@@ -16,6 +16,9 @@
     IBOutlet UIImageView *avatar;
     IBOutlet UILabel *subnick;
     IBOutlet UILabel *datosExtra;
+    NSMutableArray *imagenes;
+    NSMutableArray *forLazyLoading;
+    NSMutableArray *forLazySpinners;
 }
 
 @property (nonatomic, retain) IBOutlet MMGridView *gridView;

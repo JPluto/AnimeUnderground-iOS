@@ -21,6 +21,8 @@
 @synthesize subnick;
 @synthesize datosExtra;
 @synthesize gridView;
+@synthesize rolFavorito;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +44,7 @@
 
 - (void)dealloc
 {
+    [rolFavorito release];
     [forLazySpinners release];
     [forLazyLoading release];
     [imagenes release];
@@ -81,6 +84,8 @@
     forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
     forLazySpinners = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
     
+    NSMutableDictionary *roles = [[[NSMutableDictionary alloc]init]autorelease];
+    
     // iniciamos lazy loading de imágenes
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
@@ -89,11 +94,39 @@
             DeviantDownload *dd = [[DeviantDownload alloc]init];
             dd.urlString = [[s.serie imagen] retain];
             [imagenes addObject: [dd retain]];
+            
+            // aprovechamos para hacer un piggyback de la seleccion de rol favorito            
+            NSNumber *num = [roles objectForKey:s.cargo];
+            if (num==nil) {
+                num = [NSNumber numberWithInt:1];
+                [roles setValue:num forKey:s.cargo];
+            } else {
+                NSNumber *anotherNum = [NSNumber numberWithInt:[num intValue]+1];
+                [roles setValue: anotherNum forKey:s.cargo];
+            }
         }
+        
+        // obtenemos el cargo más repetido
+        NSEnumerator *enumerator = [roles keyEnumerator];
+        id key;
+        NSString *cargoMax = [[NSString alloc]init];
+        int numMax = 0;
+        
+        while ((key = [enumerator nextObject])) {
+            NSNumber *tmp = [roles objectForKey:key];
+            NSString *tmpStr = key;
+            if ([tmp intValue]>numMax) {
+                cargoMax = tmpStr;
+                numMax = [tmp intValue];
+            }
+        }
+        
         // lazyloading adhoc para avatar
         NSURL *urlAvatar = [NSURL URLWithString: ente.avatar]; 
         UIImage *imageAvatar = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlAvatar]] retain];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.rolFavorito setText: [[NSString alloc] initWithFormat:@"%@ (%d veces)",cargoMax,numMax]];
+            [cargoMax release];
             [self.avatar setImage:imageAvatar];
             [imageAvatar release];
         });
@@ -110,6 +143,7 @@
     self.estado = nil;
     self.subnick = nil;
     self.datosExtra = nil;
+    self.rolFavorito = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -133,9 +167,7 @@
     
     CargoEnteSerie *s = [[ente cargos]objectAtIndex:index];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ (%d cap.)",s.cargo,s.capitulos];
-    
-    NSLog(@"Intento mostrar ente %d",s.ente.codigo);
-    
+        
     DeviantDownload *download = [imagenes objectAtIndex:index];
     
     UIImage *imagen = download.image;
@@ -151,7 +183,7 @@
     
     // creamos el thumb de tamaño adecuado
     
-    UIImage *tmp = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    UIImage *tmp = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 55) interpolationQuality:kCGInterpolationMedium];
     
     
     cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:tmp];
@@ -187,7 +219,7 @@
     [spinner stopAnimating];
     [spinner release];
     
-    UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
+    UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 55) interpolationQuality:kCGInterpolationMedium];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         vista.backgroundColor = [UIColor colorWithPatternImage:tmp];

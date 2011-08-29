@@ -51,12 +51,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AnimeUnderground/EnteDetailsController.m"
-         timestampString = "336296469.418962"
+         timestampString = "336302964.498942"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "160"
+         endingLineNumber = "160"
          landmarkName = "-numberOfCellsInGridView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "AnimeUnderground/EnteDetailsController.m"
+         timestampString = "336302964.498942"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -16,6 +16,7 @@
     IBOutlet UIImageView *avatar;
     IBOutlet UILabel *subnick;
     IBOutlet UILabel *datosExtra;
+    IBOutlet UILabel *rolFavorito;
     NSMutableArray *imagenes;
     NSMutableArray *forLazyLoading;
     NSMutableArray *forLazySpinners;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *avatar;
 @property (nonatomic, retain) IBOutlet UILabel *subnick;
 @property (nonatomic, retain) IBOutlet UILabel *datosExtra;
+@property (nonatomic, retain) IBOutlet UILabel *rolFavorito;
 
 - (id)initWithEnteId:(int)enteId;
 

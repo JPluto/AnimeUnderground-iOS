@@ -13,6 +13,8 @@
 		1E040C7D136460010004B407 /* NoticiaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C7C136460010004B407 /* NoticiaCell.m */; };
 		1E040C7F136460FB0004B407 /* NoticiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E040C7E136460FB0004B407 /* NoticiaCell.xib */; };
 		1E040C8313646EFA0004B407 /* DeviantDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E040C8213646EFA0004B407 /* DeviantDownload.m */; };
+		1E09C712140B9EDE00AEDF72 /* EnteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E09C711140B9EDE00AEDF72 /* EnteCell.m */; };
+		1E09C715140BA11E00AEDF72 /* EnteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E09C714140BA11E00AEDF72 /* EnteCell.xib */; };
 		1E16946713602070006DE80F /* Genero.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E16946613602070006DE80F /* Genero.m */; };
 		1E35EED013AE75620016CD18 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E35EECF13AE75620016CD18 /* page.png */; };
 		1E4742F513762D4300E49025 /* foro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4742F413762D4300E49025 /* foro.png */; };
@@ -91,6 +93,9 @@
 		1E040C7E136460FB0004B407 /* NoticiaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticiaCell.xib; sourceTree = "<group>"; };
 		1E040C8113646EFA0004B407 /* DeviantDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviantDownload.h; sourceTree = "<group>"; };
 		1E040C8213646EFA0004B407 /* DeviantDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviantDownload.m; sourceTree = "<group>"; };
+		1E09C710140B9EDE00AEDF72 /* EnteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnteCell.h; sourceTree = "<group>"; };
+		1E09C711140B9EDE00AEDF72 /* EnteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnteCell.m; sourceTree = "<group>"; };
+		1E09C714140BA11E00AEDF72 /* EnteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnteCell.xib; sourceTree = "<group>"; };
 		1E16946513602070006DE80F /* Genero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Genero.h; sourceTree = "<group>"; };
 		1E16946613602070006DE80F /* Genero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Genero.m; sourceTree = "<group>"; };
 		1E35EECF13AE75620016CD18 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
@@ -218,6 +223,8 @@
 				1E040C7C136460010004B407 /* NoticiaCell.m */,
 				AC2702A71408F510008DBE73 /* CargoCell.h */,
 				AC2702A81408F510008DBE73 /* CargoCell.m */,
+				1E09C710140B9EDE00AEDF72 /* EnteCell.h */,
+				1E09C711140B9EDE00AEDF72 /* EnteCell.m */,
 			);
 			name = Celdas;
 			sourceTree = "<group>";
@@ -280,6 +287,7 @@
 				1E4743091376353400E49025 /* SeriesController.xib */,
 				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
 				1E040C7E136460FB0004B407 /* NoticiaCell.xib */,
+				1E09C714140BA11E00AEDF72 /* EnteCell.xib */,
 			);
 			name = Presentacion;
 			sourceTree = "<group>";
@@ -536,6 +544,7 @@
 				56C340D71406F0120011DBDB /* RegistroController.xib in Resources */,
 				56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */,
 				AC1E3973140946C600C90206 /* EnteDetailsController.xib in Resources */,
+				1E09C715140BA11E00AEDF72 /* EnteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +592,7 @@
 				56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */,
 				AC2702A91408F510008DBE73 /* CargoCell.m in Sources */,
 				AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */,
+				1E09C712140B9EDE00AEDF72 /* EnteCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,11 @@
 #import "EntesController.h"
 #import "DeviantDownload.h"
 #import "EnteDetailsController.h"
+#import "EnteCell.h"
+#import "Ente.h"
+
 @implementation EntesController
-@class Ente,AUnder;
+@class AUnder;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,23 +49,13 @@
     [self setTitle:@"Entes"];
     
     downloads = [[[NSMutableArray alloc]init]retain];
-    activos = [[[NSMutableArray alloc]init]retain];
-    inactivos = [[[NSMutableArray alloc]init]retain];
-    listas = [[[NSMutableArray alloc]init]retain];
     
     for (Ente *n in [[AUnder sharedInstance] entes]) {
         DeviantDownload *dd = [[DeviantDownload alloc]init];
         dd.urlString = [n avatar];
         
-        if ([n isActivo]) 
-            [activos addObject:n];
-        else
-            [inactivos addObject:n];
-        
         [downloads addObject: [dd retain]];
     }
-    [listas addObject:activos];
-    [listas addObject:inactivos];
     
     [self.tableView reloadData];
 }
@@ -102,34 +95,66 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [listas count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:section]];
-    return [array count];
+    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:section]];
+    //return [array count];
+    return [[[AUnder sharedInstance]entes]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+{ 
+    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]]; 
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"EnteCell";
+    
+    EnteCell *cell = (EnteCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"EnteCell" owner:nil options:nil];
+		for (id currentObject in topLevelObjects) {
+			if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+				cell = (EnteCell*) currentObject;
+				break;
+			}
+		}
+    }    
     
     // Configure the cell...
     
-    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
-    Ente* ente = [array objectAtIndex:indexPath.row];
+    //Ente* ente = [array objectAtIndex:indexPath.row];
     
-    cell.text = [ente nick];
+    Ente *ente = [[[AUnder sharedInstance]entes] objectAtIndex:indexPath.row];
+    cell.nickEnte.text = [ente nick];
+    
+    DeviantDownload *download = [downloads objectAtIndex:indexPath.row];
+    //cell.cellLabel.text = download.filename;
+    UIImage *cellImage = download.image;
+    if (cellImage == nil)
+    {
+        //[cell.loading startAnimating];
+        download.delegate = self;
+    }
+    else
+        [cell.loading stopAnimating];
+    
+    cell.imagenAvatar.image = cellImage;
     
     return cell;
 }
 
+- (void)downloadDidFinishDownloading:(DeviantDownload *)download
+{
+    NSUInteger index = [downloads indexOfObject:download]; 
+    NSUInteger indices[] = {0, index};
+    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
+    [path release];
+    download.delegate = nil;
+}
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if(section == 0)
@@ -137,13 +162,20 @@
     else
         return @"Inactivos o ex-miembros";
 }
+*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
-    Ente* ente = [array objectAtIndex:indexPath.row];
+    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
+    //Ente* ente = [array objectAtIndex:indexPath.row];
+    Ente* ente = [[[AUnder sharedInstance]entes] objectAtIndex:indexPath.row];
     NSLog(@"Ente seleccionado %@",[ente nick]);
     EnteDetailsController *edc = [[EnteDetailsController alloc]initWithEnteId:ente.codigo];
     [self.navigationController pushViewController:edc animated:YES];

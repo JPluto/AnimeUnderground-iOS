@@ -29,15 +29,13 @@
     [activos release];
     [inactivos release];
     [listas release];
+    [downloads release];
     [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -49,13 +47,23 @@
     [self setTitle:@"Entes"];
     
     downloads = [[[NSMutableArray alloc]init]retain];
+    activos = [[[NSMutableArray alloc]init]retain];
+    inactivos = [[[NSMutableArray alloc]init]retain];
+    listas = [[[NSMutableArray alloc]init]retain];
     
     for (Ente *n in [[AUnder sharedInstance] entes]) {
         DeviantDownload *dd = [[DeviantDownload alloc]init];
         dd.urlString = [n avatar];
         
         [downloads addObject: [dd retain]];
+        if ([n isActivo]) 
+            [activos addObject:[n retain]];
+        else
+            [inactivos addObject:[n retain]];
     }
+    
+    [listas addObject:activos];
+    [listas addObject:inactivos];
     
     [self.tableView reloadData];
 }
@@ -87,7 +95,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
@@ -95,19 +102,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:section]];
-    //return [array count];
-    return [[[AUnder sharedInstance]entes]count];
+    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:section]];
+    return [array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 { 
-    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]]; 
+    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]]; 
     
     static NSString *CellIdentifier = @"EnteCell";
     
@@ -121,20 +127,16 @@
 			}
 		}
     }    
+
+    Ente* ente = [array objectAtIndex:indexPath.row];
     
-    // Configure the cell...
-    
-    //Ente* ente = [array objectAtIndex:indexPath.row];
-    
-    Ente *ente = [[[AUnder sharedInstance]entes] objectAtIndex:indexPath.row];
     cell.nickEnte.text = [ente nick];
     
     DeviantDownload *download = [downloads objectAtIndex:indexPath.row];
-    //cell.cellLabel.text = download.filename;
     UIImage *cellImage = download.image;
     if (cellImage == nil)
     {
-        //[cell.loading startAnimating];
+        [cell.loading startAnimating];
         download.delegate = self;
     }
     else
@@ -154,7 +156,7 @@
     [path release];
     download.delegate = nil;
 }
-/*
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if(section == 0)
@@ -162,7 +164,7 @@
     else
         return @"Inactivos o ex-miembros";
 }
-*/
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -173,9 +175,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
-    //Ente* ente = [array objectAtIndex:indexPath.row];
-    Ente* ente = [[[AUnder sharedInstance]entes] objectAtIndex:indexPath.row];
+    NSArray *array = [NSArray arrayWithArray:[listas objectAtIndex:indexPath.section]];
+    Ente* ente = [array objectAtIndex:indexPath.row];
     NSLog(@"Ente seleccionado %@",[ente nick]);
     EnteDetailsController *edc = [[EnteDetailsController alloc]initWithEnteId:ente.codigo];
     [self.navigationController pushViewController:edc animated:YES];

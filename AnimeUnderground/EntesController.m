@@ -156,6 +156,7 @@
     NSUInteger index = [downloads indexOfObject:download]; 
     NSUInteger indices[] = {0, index};
     NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
+    // TODO arreglar esto para quitar el spinner y refrescar el que toca
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
     [path release];
     download.delegate = nil;

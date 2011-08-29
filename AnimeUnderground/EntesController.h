@@ -15,6 +15,7 @@
     NSMutableArray *listas;
     NSMutableArray *activos;
     NSMutableArray *inactivos;
+    NSMutableArray *imageViews;
 }
 
 @end

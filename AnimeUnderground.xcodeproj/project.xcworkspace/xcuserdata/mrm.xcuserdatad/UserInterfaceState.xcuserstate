@@ -4794,9 +4794,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336314338.235183</real>
-		<string>{1058, 1404}</string>
-		<string>{1145, 1192}</string>
+		<real>336315144.19577998</real>
+		<string>{3928, 1205}</string>
+		<string>{2046, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5219,9 +5219,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336314435.66252601</real>
-		<string>{3690, 980}</string>
-		<string>{4177, 0}</string>
+		<real>336315360.30593097</real>
+		<string>{2962, 953}</string>
+		<string>{3279, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5792,9 +5792,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336314182.87665498</real>
-		<string>{0, 352}</string>
-		<string>{344, 0}</string>
+		<real>336314911.811391</real>
+		<string>{0, 384}</string>
+		<string>{375, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -6118,8 +6118,8 @@
     s = 0;
 }</string>
 		</dict>
-		<real>336304326.436068</real>
-		<string>{1399, 969}</string>
+		<real>336315130.03389102</real>
+		<string>{1653, 1044}</string>
 		<string>{2707, 0}</string>
 		<dict>
 			<key>$class</key>
@@ -10166,7 +10166,7 @@
 				<integer>752</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>336313930.29505098</real>
+			<real>336315327.00110102</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -10177,7 +10177,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 14:32</string>
+		<string>Today at 14:55</string>
 		<integer>234</integer>
 		<string>AnimeUnderground</string>
 		<dict>
@@ -10350,7 +10350,7 @@
 				<integer>768</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/SeriesController.h</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/SeriesController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10368,7 +10368,7 @@
 				<integer>770</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/SeriesController.m</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/SerieDetailsController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10404,7 +10404,7 @@
 				<integer>774</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiaDetailsController.m</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/SeriesController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10422,7 +10422,7 @@
 				<integer>776</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/EntesController.xib</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiaDetailsController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10440,7 +10440,7 @@
 				<integer>778</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/EnteCell.xib</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/EntesController.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10458,7 +10458,7 @@
 				<integer>780</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiaCell.xib</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/EnteCell.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10476,7 +10476,7 @@
 				<integer>782</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiasController.xib</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiaCell.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10494,7 +10494,7 @@
 				<integer>784</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/EnteCell.h</string>
+		<string>file://localhost/Users/mrm/Desarrollo/AnimeUnderground-iOS/AnimeUnderground/NoticiasController.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11161,10 +11161,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336314435.66333699</real>
-		<string>{3690, 980}</string>
-		<string>{4177, 0}</string>
-		<string>-tableView:heightForRowAtIndexPath:</string>
+		<real>336315360.30681002</real>
+		<string>{2962, 953}</string>
+		<string>{3279, 0}</string>
+		<string>-tableView:cellForRowAtIndexPath:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -13069,7 +13069,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>997</integer>
+					<integer>999</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -13158,7 +13158,7 @@
 		<string>IDESCMStatusFilteringEnabled</string>
 		<string>IDESelectedObjects</string>
 		<string>IDEExpandedItemsSet</string>
-		<string>{{0, 198}, {259, 587}}</string>
+		<string>{{0, 336}, {259, 587}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>

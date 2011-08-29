@@ -30,6 +30,7 @@
     [inactivos release];
     [listas release];
     [downloads release];
+    [imageViews release];
     [super dealloc];
 }
 
@@ -50,6 +51,8 @@
     activos = [[[NSMutableArray alloc]init]retain];
     inactivos = [[[NSMutableArray alloc]init]retain];
     listas = [[[NSMutableArray alloc]init]retain];
+    int number = [[[AUnder sharedInstance]entes]count];
+    imageViews = [[[NSMutableArray alloc]initWithCapacity:number]retain];
     
     for (Ente *n in [[AUnder sharedInstance] entes]) {
         DeviantDownload *dd = [[DeviantDownload alloc]init];
@@ -131,8 +134,10 @@
     Ente* ente = [array objectAtIndex:indexPath.row];
     
     cell.nickEnte.text = [ente nick];
-    
-    DeviantDownload *download = [downloads objectAtIndex:indexPath.row];
+    int idx = indexPath.row;
+    if (!([ente isActivo]))
+        idx += [activos count];
+    DeviantDownload *download = [downloads objectAtIndex:idx];
     UIImage *cellImage = download.image;
     if (cellImage == nil)
     {
@@ -141,7 +146,6 @@
     }
     else
         [cell.loading stopAnimating];
-    
     cell.imagenAvatar.image = cellImage;
     
     return cell;

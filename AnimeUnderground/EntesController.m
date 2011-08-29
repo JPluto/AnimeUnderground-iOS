@@ -31,6 +31,7 @@
     [listas release];
     [downloads release];
     [imageViews release];
+    [loadingViews release];
     [super dealloc];
 }
 
@@ -53,6 +54,7 @@
     listas = [[[NSMutableArray alloc]init]retain];
     int number = [[[AUnder sharedInstance]entes]count];
     imageViews = [[[NSMutableArray alloc]initWithCapacity:number]retain];
+    loadingViews = [[[NSMutableArray alloc]initWithCapacity:number]retain];
     
     for (Ente *n in [[AUnder sharedInstance] entes]) {
         DeviantDownload *dd = [[DeviantDownload alloc]init];
@@ -148,17 +150,22 @@
         [cell.loading stopAnimating];
     cell.imagenAvatar.image = cellImage;
     
+    [imageViews insertObject:cell.imagenAvatar atIndex:idx];
+    [loadingViews insertObject:cell.loading atIndex:idx];
+    
     return cell;
 }
 
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download
 {
     NSUInteger index = [downloads indexOfObject:download]; 
-    NSUInteger indices[] = {0, index};
-    NSIndexPath *path = [[NSIndexPath alloc] initWithIndexes:indices length:2];
-    // TODO arreglar esto para quitar el spinner y refrescar el que toca
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:path] withRowAnimation:UITableViewRowAnimationNone];
-    [path release];
+    
+    UIActivityIndicatorView *act = [loadingViews objectAtIndex:index];
+    UIImageView *img = [imageViews objectAtIndex:index];
+    
+    img.image = download.image;
+    [act stopAnimating];
+    
     download.delegate = nil;
 }
 

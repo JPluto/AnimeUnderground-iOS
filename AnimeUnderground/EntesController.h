@@ -16,6 +16,7 @@
     NSMutableArray *activos;
     NSMutableArray *inactivos;
     NSMutableArray *imageViews;
+    NSMutableArray *loadingViews;
 }
 
 @end

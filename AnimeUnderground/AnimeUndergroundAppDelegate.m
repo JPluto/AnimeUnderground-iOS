@@ -19,6 +19,11 @@
 {
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
+    NSString *cargado = [[NSUserDefaults standardUserDefaults] stringForKey:@"usuarioLogin_preference"];
+    if (cargado == nil) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"autoLogin_preference"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

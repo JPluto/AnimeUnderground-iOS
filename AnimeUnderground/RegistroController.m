@@ -51,37 +51,40 @@
     NSString *parametros = @"action=register&agree=OK";
     NSString *datos= [foro webPost: url : parametros];
     if ([datos length] !=0) {
-    NSRange rangoABuscar = [datos rangeOfString:@"imagehash="];
-    NSRange rangoAux = [datos rangeOfString:@"\" alt=\"Verificaci"];
-    rangoABuscar.length = rangoAux.location-rangoABuscar.location;
-    
-    imagehash = [[datos substringWithRange:rangoABuscar] retain];
-    // http://foro.aunder.org/member.php?action=register&step=agreement&agree=Estoy%20de%20acuerdo
-    NSString *imageURL = @"http://foro.aunder.org/captcha.php?action=regimage&";
-    imageURL = [imageURL stringByAppendingString:imagehash];
-
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSData *mydata = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
-        UIImage *myimage = [[UIImage alloc] initWithData:mydata];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            catcha.image = myimage;
-            [myimage release];
-        });
+        NSRange rangoABuscar = [datos rangeOfString:@"imagehash="];
+        if (rangoABuscar.location != NSNotFound){
+            
         
-    });
+            NSRange rangoAux = [datos rangeOfString:@"\" alt=\"Verificaci"];
+            rangoABuscar.length = rangoAux.location-rangoABuscar.location;
+    
+            imagehash = [[datos substringWithRange:rangoABuscar] retain];
+            // http://foro.aunder.org/member.php?action=register&step=agreement&agree=Estoy%20de%20acuerdo
+            NSString *imageURL = @"http://foro.aunder.org/captcha.php?action=regimage&";
+            imageURL = [imageURL stringByAppendingString:imagehash];
+
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSData *mydata = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageURL]];
+                UIImage *myimage = [[UIImage alloc] initWithData:mydata];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    catcha.image = myimage;
+                    [myimage release];
+                });
+        
+            });
+            // el botón de volver nos lleva a la ventana de login
+            // TODO cambiar el estilo del botón a típico "atrás"
+            UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];	
+            self.navigationItem.leftBarButtonItem = backButton;
+            [backButton release];
+        } else {
+            //TODO ERROR Ya se ha registrado alguien con esta IP.
+ 
+        }
     } else {
         //TODO ERROR
-    }
-    
-    // el botón de volver nos lleva a la ventana de login
-    
-    
-    
-    // TODO cambiar el estilo del botón a típico "atrás"
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];	
-	self.navigationItem.leftBarButtonItem = backButton;
-	[backButton release];
-	
+
+    }	
 }
 - (void) handleBack:(id)sender
 {

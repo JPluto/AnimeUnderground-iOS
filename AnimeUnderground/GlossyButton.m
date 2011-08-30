@@ -15,8 +15,8 @@
 @synthesize gradientLayer;
 
 //PRimera Saturacion de color ha de ser de menos de 0.30f la saturacion final ha de ser de +0.05 ese valor.
-const float VALOR_DEGRADADO = 0.25f;
-const float VALOR_SATURADO = 0.28f;
+const float VALOR_DEGRADADO = 0.10f;
+const float VALOR_SATURADO = 0.25f;
 - (void)awakeFromNib;
 {
     // Initialize the gradient layer
@@ -57,7 +57,7 @@ const float VALOR_SATURADO = 0.28f;
         [gradientLayer setColors:
          [NSArray arrayWithObjects:
           (id)[colorDegradado CGColor],
-          (id)[colorDegradadoSaturado CGColor],
+          (id)[colorDegradado CGColor], //era Saturado
           (id)[_color CGColor],
           (id)[_color CGColor],
           (id)[colorDegradadoSaturado CGColor],nil]];
@@ -79,6 +79,8 @@ const float VALOR_SATURADO = 0.28f;
 {
     // Set the high color and repaint
     [self set_color:color];
+    // Fuerzo un solo color de marca.
+    [self set_color:[UIColor colorWithRed:1.0f green:0.5f blue:0.0f alpha:1.0f]];
     [[self layer] setNeedsDisplay];
 }
 

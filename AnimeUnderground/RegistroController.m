@@ -73,7 +73,24 @@
         //TODO ERROR
     }
     
+    // el botón de volver nos lleva a la ventana de login
+    
+    
+    
+    // TODO cambiar el estilo del botón a típico "atrás"
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];	
+	self.navigationItem.leftBarButtonItem = backButton;
+	[backButton release];
+	
 }
+- (void) handleBack:(id)sender
+{
+	NSLog(@"Atrás");
+	int anterior = [self.navigationController.viewControllers count]-3;
+	
+	[self.navigationController popToViewController: [self.navigationController.viewControllers objectAtIndex:anterior] animated:YES];
+}
+
 
 - (void)viewDidUnload
 {

@@ -22,6 +22,7 @@
 @synthesize datosExtra;
 @synthesize gridView;
 @synthesize rolFavorito;
+@synthesize sliderPageControl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +38,11 @@
     self = [super init];
     if (self) {
         ente = [[[AUnder sharedInstance] getEnteById:enteId]retain];
+        
+        imagenes = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+        
+        forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+        forLazySpinners = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
     }
     
     return self;
@@ -79,10 +85,17 @@
     self.subnick.text = ente.titulo;
     self.datosExtra.text = [NSString stringWithFormat:@"%@ - %d años - %@",ente.sexo,ente.edad,ente.ciudad];
     
-    imagenes = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+    self.sliderPageControl = [[SliderPageControl alloc] initWithFrame:CGRectMake(0,[self.view bounds].size.height-20,[self.view bounds].size.width,20)];
+    [self.sliderPageControl addTarget:self action:@selector(onPageChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.sliderPageControl setDelegate:self];
+    [self.sliderPageControl setShowsHint:YES];
+    [self.view addSubview:self.sliderPageControl];
+    [self.sliderPageControl release];
+    [self.sliderPageControl setNumberOfPages:[ente.cargos count]];
+    [self.sliderPageControl setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
     
-    forLazyLoading = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
-    forLazySpinners = [[[NSMutableArray alloc]initWithCapacity:[[ente cargos]count]]retain];
+    [self setupGridPages];
+
     
     NSMutableDictionary *roles = [[[NSMutableDictionary alloc]init]autorelease];
     
@@ -146,14 +159,30 @@
     self.rolFavorito = nil;
 }
 
+- (void)setupGridPages {
+    [sliderPageControl setNumberOfPages:gridView.numberOfPages];
+    [sliderPageControl setCurrentPage:gridView.currentPageIndex animated:YES];
+}
+
+- (void)onPageChanged:(id)sender
+{
+    [gridView moveToPage:sliderPageControl.currentPage];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
 #pragma - MMGridViewDataSource
+
+- (NSString *)sliderPageController:(id)controller hintTitleForPage:(NSInteger)page
+{
+	NSString *hintTitle = [[NSString alloc]initWithFormat:@"Página %d",page];
+	return hintTitle;
+}
+
 
 - (NSInteger)numberOfCellsInGridView:(MMGridView *)gridView
 {
@@ -207,7 +236,7 @@
 - (void)gridView:(MMGridView *)theGridView changedPageToIndex:(NSUInteger)index
 {
     NSLog(@"Cambio de página a %d",index);
-    //[self setupGridPages];
+    [self setupGridPages];
 }
 
 - (void)downloadDidFinishDownloading:(DeviantDownload *)download {

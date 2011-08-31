@@ -31,7 +31,7 @@
 
     self.title = @"AnimeUnderground";
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
-    [self.navigationController setNavigationBarHidden:YES];
+    //[self.navigationController setNavigationBarHidden:YES];
     //self.tableView = tableView;
     [[AUnder sharedInstance]setUpdateHandler:self];
 

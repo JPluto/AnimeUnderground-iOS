@@ -47,6 +47,13 @@
     [self setTitle:@"Registro"];
     AUnder *aunder = [AUnder sharedInstance];
     Foro *foro = aunder.foro;
+    
+    // el botón de volver nos lleva a la ventana de login
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleDone target:self action:@selector(handleBack:)];	
+    self.navigationItem.leftBarButtonItem = backButton;
+    [backButton release];
+    
     NSString *url = @"http://foro.aunder.org/member.php";
     NSString *parametros = @"action=register&agree=OK";
     NSString *datos= [foro webPost: url : parametros];
@@ -72,11 +79,7 @@
                 });
         
             });
-            // el botón de volver nos lleva a la ventana de login
-            // TODO cambiar el estilo del botón a típico "atrás"
-            UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(handleBack:)];	
-            self.navigationItem.leftBarButtonItem = backButton;
-            [backButton release];
+
         } else {
             //TODO ERROR Ya se ha registrado alguien con esta IP.
  

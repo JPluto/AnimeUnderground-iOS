@@ -192,7 +192,7 @@
     UIActivityIndicatorView *spinner = [forLazySpinners objectAtIndex:index];
     [spinner stopAnimating];
     [spinner release];
-
+    
     UIImage *tmp = [[download image] resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(155, 105) interpolationQuality:kCGInterpolationMedium];
     
     dispatch_async(dispatch_get_main_queue(), ^{

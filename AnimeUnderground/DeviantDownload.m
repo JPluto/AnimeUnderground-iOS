@@ -13,11 +13,27 @@
 @end
 
 @implementation DeviantDownload
-@synthesize urlString;
+//@synthesize urlString;
 @synthesize image;
 @synthesize delegate;
 @synthesize receivedData;
 #pragma mark -
+
+- (void)setUrlString:(NSString *)anUrlString
+{
+    if (urlString != anUrlString) {
+        [urlString release];
+        [urlStringMD5 release];
+        urlString = [anUrlString retain];
+        urlStringMD5 = [[self md5Hash:anUrlString] retain];
+    }
+}
+
+- (NSString *)urlString
+{
+    return [[urlString retain] autorelease]; 
+}
+
 
 - (UIImage *)image
 {
@@ -25,7 +41,7 @@
     {
         if (urlString != nil && [urlString length] > 0)
         {            
-            NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",[self md5Hash:urlString]];
+            NSString *tmp = [[NSString alloc]initWithFormat:@"%@.png",urlStringMD5]; // [self md5Hash:urlString]
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                                  NSUserDomainMask,
                                                                  YES);

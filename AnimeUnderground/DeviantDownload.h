@@ -27,13 +27,18 @@ enum
 @interface DeviantDownload : NSObject 
 {   
     NSString *urlString;   
+    NSString *urlStringMD5;
     UIImage *image;      
     id <NSObject, DeviantDownloadDelegate>  delegate;    
     @private NSMutableData *receivedData;   
     BOOL downloading;
 }
-@property (nonatomic, retain) NSString *urlString;
+
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, readonly) NSString *filename;
 @property (nonatomic, assign) id <NSObject, DeviantDownloadDelegate> delegate;
+
+-(void) setUrlString:(NSString*)anUrlStr;
+-(NSString *)urlString;
+
 @end

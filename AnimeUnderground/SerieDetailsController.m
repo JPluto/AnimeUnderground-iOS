@@ -111,11 +111,13 @@
         
         cargo.nombreLabel.text = ces.ente.nick;
         cargo.cargoLabel.text = [NSString stringWithFormat:@"%d capítulos como:\n%@",ces.capitulos,ces.cargo];
+        // 140x170
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSURL *urlAvatar = [NSURL URLWithString: [[ces.ente avatar]retain]]; 
-            UIImage *imageAvatar = [[UIImage imageWithData: [NSData dataWithContentsOfURL: urlAvatar]] retain];
+            UIImage *imageAvatar = [UIImage imageWithData: [NSData dataWithContentsOfURL: urlAvatar]];
+            UIImage *imageAvatarResized = [imageAvatar resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(140, 170) interpolationQuality:kCGInterpolationHigh];
             dispatch_async(dispatch_get_main_queue(), ^{
-                cargo.avatarImage.image = imageAvatar; 
+                cargo.avatarImage.image = imageAvatarResized; 
             });
         });
         

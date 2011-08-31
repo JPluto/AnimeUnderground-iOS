@@ -23,11 +23,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "AnimeUnderground/SerieDetailsController.m"
-         timestampString = "336056096.452861"
+         timestampString = "336484268.643217"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>

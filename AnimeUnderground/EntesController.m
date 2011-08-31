@@ -148,7 +148,7 @@
     }
     else
         [cell.loading stopAnimating];
-    cell.imagenAvatar.image = cellImage;
+    cell.imagenAvatar.image = [cellImage resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(105, 60) interpolationQuality:kCGInterpolationHigh];;
     
     [imageViews insertObject:cell.imagenAvatar atIndex:idx];
     [loadingViews insertObject:cell.loading atIndex:idx];

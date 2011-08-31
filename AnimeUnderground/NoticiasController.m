@@ -154,7 +154,7 @@
     else
         [cell.loading stopAnimating];
     
-    cell.imagen.image = cellImage;
+    cell.imagen.image = [cellImage resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:CGSizeMake(70, 40) interpolationQuality:kCGInterpolationMedium];;
     
     // Configure the cell.
     return cell;

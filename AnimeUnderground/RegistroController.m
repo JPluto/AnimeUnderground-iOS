@@ -82,11 +82,25 @@
 
         } else {
             //TODO ERROR Ya se ha registrado alguien con esta IP.
- 
+            UIAlertView *alert =
+            [[UIAlertView alloc] initWithTitle: @"Error"
+                                       message: @"Ya se ha realizado un registro con esta IP."
+                                      delegate: self
+                             cancelButtonTitle: @"OK"
+                             otherButtonTitles: nil];
+            [alert show];
+            [alert release];
         }
     } else {
         //TODO ERROR
-
+        UIAlertView *alert =
+        [[UIAlertView alloc] initWithTitle: @"Error"
+                                   message: @"No se ha podido acceder al servicio de AnimeUnderground, por favor pruebe luego."
+                                  delegate: self
+                         cancelButtonTitle: @"OK"
+                         otherButtonTitles: nil];
+        [alert show];
+        [alert release];
     }	
 }
 - (void) handleBack:(id)sender

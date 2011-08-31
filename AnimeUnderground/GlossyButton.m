@@ -80,7 +80,9 @@ const float VALOR_SATURADO = 0.25f;
     // Set the high color and repaint
     [self set_color:color];
     // Fuerzo un solo color de marca.
-    [self set_color:[UIColor colorWithRed:1.0f green:0.5f blue:0.0f alpha:1.0f]];
+    if ([color isEqual: [UIColor orangeColor]]) {
+        [self set_color:[UIColor colorWithRed:1.0f green:0.5f blue:0.0f alpha:1.0f]];   
+    }
     [[self layer] setNeedsDisplay];
 }
 

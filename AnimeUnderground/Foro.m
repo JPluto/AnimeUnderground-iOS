@@ -18,7 +18,15 @@
 - (BOOL) doLogin {
 	if (authCookie!=NULL) [authCookie release];
 	authCookie = NULL;
-	
+	for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+	{	
+		if (([[cookie domain] isEqual:@".aunder.org"]) && [[cookie name] isEqual:@"mybbuser"]) {
+			[[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+		}
+		
+	}
+
+    
 	for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
 	{	
 		if ([[cookie domain] isEqual:@"www.aunder.org"]) {

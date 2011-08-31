@@ -10,6 +10,7 @@
 #import "iCarousel.h"
 #import "DeviantDownload.h"
 #import "Imagen.h"
+#import "EnteDetailsController.h"
 
 @implementation NoticiaDetailsController
 
@@ -106,7 +107,10 @@
 
 -(IBAction)showEnteDetails {
     NSLog(@"Click en ente %d",codigoEnte);
+    EnteDetailsController *edc = [[EnteDetailsController alloc]initWithEnteId:codigoEnte];
+    [self.navigationController pushViewController:edc animated:YES];
 }
+
 -(IBAction)showForumThread {
     NSLog(@"Click en url %@",tid);
     ForoController *fc = [[ForoController alloc]init];

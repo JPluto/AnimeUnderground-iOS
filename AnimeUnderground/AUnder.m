@@ -318,7 +318,7 @@ static Foro* theForo = nil;
             [updateHandler onUpdateStatus:self:NSLocalizedString (@"Terminando el proceso de actualización", @"")];
         });
         [tb release];
-        
+         
         dispatch_async(dispatch_get_main_queue(), ^{
             [updateHandler onFinishUpdate:self];
         });

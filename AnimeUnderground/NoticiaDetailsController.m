@@ -11,6 +11,7 @@
 #import "DeviantDownload.h"
 #import "Imagen.h"
 #import "EnteDetailsController.h"
+#import "Noticia.h"
 
 @implementation NoticiaDetailsController
 
@@ -87,7 +88,24 @@
     
     scroll.contentSize = CGSizeMake(scroll.frame.size.width, (textoNoticia.frame.origin.y+textoNoticia.frame.size.height));
     
+    //Si la noticia es de una serie se podrá hacer checkin en cualquier otro caso estoy haciendo check a un ente desconocido.
     
+    if (noti.serie != nil) {
+        UIImage  *backImage = [UIImage imageNamed:@"check.png"];
+    
+
+        UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];  
+        [checkButton addTarget:self action:@selector(changeCheck) forControlEvents:UIControlEventTouchUpInside];
+        [checkButton setFrame:CGRectMake(0.0f, 0, 25, 26)];  
+    
+        UIImageView *imageView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
+        [imageView setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 26.0f)];
+        [checkButton addSubview:imageView];
+        imageView.alpha = 0.5f;
+        UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
+    
+        self.navigationItem.rightBarButtonItem = checkButtonItem; 
+    }
 }
  
 - (void)viewDidUnload
@@ -103,6 +121,21 @@
     self.scroll = nil;
     
 
+}
+
+// Action que activa o desactiva el "boton" se puede asignar dos funciones distintas con un forState pero esto es mas rapido.
+-(IBAction) changeCheck {
+    UIView *custom = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:0];
+
+    if ( custom.alpha == 0.5f ) {
+        NSLog(@"Click seleccionando el boton de check");
+        custom.alpha = 1.0f;
+        //TODO hago check a la serie
+    } else {
+        NSLog(@"Click deseleccionando el boton de check");
+        custom.alpha = 0.5f;
+        //TODO la mando a mamar la misma
+    }
 }
 
 -(IBAction)showEnteDetails {

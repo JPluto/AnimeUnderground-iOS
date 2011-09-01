@@ -13,6 +13,7 @@
 #import "CargoEnteSerie.h"
 #import "CargoCell.h"
 #import "EnteDetailsController.h"
+#import "CheckinDetailsController.h"
 
 @implementation SerieDetailsController
 
@@ -201,6 +202,29 @@
         [precuelaView removeFromSuperview];
         [secuelaView removeFromSuperview];
     }
+    UIImage  *backImage = [UIImage imageNamed:@"check.png"];
+    
+    
+    UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];  
+    [checkButton addTarget:self action:@selector(changeCheck) forControlEvents:UIControlEventTouchUpInside];
+    [checkButton setFrame:CGRectMake(0.0f, 0, 25, 26)];  
+    
+    UIImageView *imageView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
+    [imageView setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 26.0f)];
+    [checkButton addSubview:imageView];
+    //TODO Si la serie esta comprobada entera muestrala como 1.0f
+    imageView.alpha = 0.5f;
+    UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
+    
+    self.navigationItem.rightBarButtonItem = checkButtonItem; 
+}
+
+-(IBAction) changeCheck {
+    UIView *custom = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:0];
+    
+    //TODO hago push a la ventana de detalles de capitulos/check
+    CheckinDetailsController *cdc = [[[CheckinDetailsController alloc] initWithSerie:serie]autorelease];
+    [self.navigationController pushViewController:cdc animated:YES];
 }
 
 - (void)cellWasSelected:(CargoCell *)cell {

@@ -27,6 +27,7 @@
 
 + (id)sharedInstance;
 - (void)update;
+- (void)updateWithAuth;
 - (void)setUpdateHandler:(id)delegate;
 
 @end

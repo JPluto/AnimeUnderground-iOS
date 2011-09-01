@@ -2943,7 +2943,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336586999.51766002</real>
+		<real>336587021.43296498</real>
 		<string>{2302, 1785}</string>
 		<string>{2947, 0}</string>
 		<dict>
@@ -3086,9 +3086,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336586964.18391699</real>
-		<string>{2408, 4058}</string>
-		<string>{16577, 0}</string>
+		<real>336588028.44057399</real>
+		<string>{10394, 3374}</string>
+		<string>{10891, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -3465,9 +3465,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336586543.18458998</real>
-		<string>{142, 1791}</string>
-		<string>{812, 0}</string>
+		<real>336588019.75100201</real>
+		<string>{3812, 2018}</string>
+		<string>{4892, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5694,7 +5694,7 @@
 				<integer>427</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.m</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5712,7 +5712,7 @@
 				<integer>429</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.h</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/SeriesController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5730,7 +5730,7 @@
 				<integer>431</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.h</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5748,7 +5748,7 @@
 				<integer>433</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.m</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5766,7 +5766,7 @@
 				<integer>435</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/EnteDetailsController.m</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5784,7 +5784,7 @@
 				<integer>437</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/EnteDetailsController.h</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/EnteDetailsController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5802,7 +5802,7 @@
 				<integer>439</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/SeriesController.m</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/EnteDetailsController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -6009,7 +6009,7 @@
 		<string>IDEWorkspaceTabControllerDesignAreaSplitView</string>
 		<string>IDEShowUtilities</string>
 		<string>IDEEditorArea</string>
-		<string>Foro.m</string>
+		<string>AUnder.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -6238,7 +6238,7 @@
 		<string>IDESCMStatusFilteringEnabled</string>
 		<string>IDESelectedObjects</string>
 		<string>IDEExpandedItemsSet</string>
-		<string>{{0, 769}, {244, 860}}</string>
+		<string>{{0, 722}, {244, 860}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -6299,7 +6299,7 @@
 		</dict>
 		<string>AnimeUnderground</string>
 		<string>Logica</string>
-		<string>Foro.m</string>
+		<string>AUnder.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7223,7 +7223,7 @@
 				<integer>25</integer>
 			</dict>
 			<key>NS.string</key>
-			<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.m</string>
+			<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.m</string>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -7288,10 +7288,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>336586999.51804298</real>
-		<string>{2302, 1785}</string>
-		<string>{2947, 0}</string>
-		<string>-webPost::</string>
+		<real>336588028.44094199</real>
+		<string>{10394, 3374}</string>
+		<string>{10891, 0}</string>
+		<string>-update</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -7310,7 +7310,7 @@
 				<integer>586</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/Foro.m</string>
+		<string>file://localhost/Users/nacholopez/Documents/AnimeUnderground-iOS/AnimeUnderground/AUnder.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>

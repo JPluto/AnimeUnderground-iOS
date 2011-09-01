@@ -334,6 +334,21 @@ static Foro* theForo = nil;
     });        
 }
 
+// aquí va el código de actualización que solo se realizará cuando estemos autenticados
+- (void) updateWithAuth {
+    if (foro == nil) { 
+        NSLog(@"Foro no instanciado");
+        return;
+    }
+    
+    if (![foro isLogged]) {
+        NSLog(@"No estamos logueados");
+        return;
+    }
+    
+    // todo ok
+    
+}
 
 - (Serie*)getSerieById:(int)codigo {
     for (Serie *s in series) {

@@ -75,6 +75,8 @@
 		5694F7D7140FCE100074CC90 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7D6140FCE100074CC90 /* check.png */; };
 		5694F7DC140FD9490074CC90 /* CheckinDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5694F7DA140FD9490074CC90 /* CheckinDetailsController.m */; };
 		5694F7DD140FD9490074CC90 /* CheckinDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7DB140FD9490074CC90 /* CheckinDetailsController.xib */; };
+		5694F7E0140FE48C0074CC90 /* CheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5694F7DF140FE48C0074CC90 /* CheckinCell.m */; };
+		5694F7E2140FE4B10074CC90 /* CheckinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7E1140FE4B10074CC90 /* CheckinCell.xib */; };
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
 		56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */; };
 		56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */; };
@@ -193,6 +195,9 @@
 		5694F7D9140FD9490074CC90 /* CheckinDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinDetailsController.h; sourceTree = "<group>"; };
 		5694F7DA140FD9490074CC90 /* CheckinDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinDetailsController.m; sourceTree = "<group>"; };
 		5694F7DB140FD9490074CC90 /* CheckinDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinDetailsController.xib; sourceTree = "<group>"; };
+		5694F7DE140FE48C0074CC90 /* CheckinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinCell.h; sourceTree = "<group>"; };
+		5694F7DF140FE48C0074CC90 /* CheckinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinCell.m; sourceTree = "<group>"; };
+		5694F7E1140FE4B10074CC90 /* CheckinCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinCell.xib; sourceTree = "<group>"; };
 		569D24AD14041500000E7665 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		56A6FB4C1407F6A8006B34E0 /* PreRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreRegistroController.h; sourceTree = "<group>"; };
 		56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreRegistroController.m; sourceTree = "<group>"; };
@@ -236,6 +241,8 @@
 				AC2702A81408F510008DBE73 /* CargoCell.m */,
 				1E09C710140B9EDE00AEDF72 /* EnteCell.h */,
 				1E09C711140B9EDE00AEDF72 /* EnteCell.m */,
+				5694F7DE140FE48C0074CC90 /* CheckinCell.h */,
+				5694F7DF140FE48C0074CC90 /* CheckinCell.m */,
 			);
 			name = Celdas;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 				1E7FE000134CC30E00063CCE /* MainWindow.xib */,
 				1E040C7E136460FB0004B407 /* NoticiaCell.xib */,
 				1E09C714140BA11E00AEDF72 /* EnteCell.xib */,
+				5694F7E1140FE4B10074CC90 /* CheckinCell.xib */,
 			);
 			name = Presentacion;
 			sourceTree = "<group>";
@@ -566,6 +574,7 @@
 				1E8DABC3140E53E100C2CAD6 /* Default@2x.png in Resources */,
 				5694F7D7140FCE100074CC90 /* check.png in Resources */,
 				5694F7DD140FD9490074CC90 /* CheckinDetailsController.xib in Resources */,
+				5694F7E2140FE4B10074CC90 /* CheckinCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +624,7 @@
 				AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */,
 				1E09C712140B9EDE00AEDF72 /* EnteCell.m in Sources */,
 				5694F7DC140FD9490074CC90 /* CheckinDetailsController.m in Sources */,
+				5694F7E0140FE48C0074CC90 /* CheckinCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

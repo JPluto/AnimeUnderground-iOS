@@ -9,7 +9,7 @@
 #import "CheckinDetailsController.h"
 #import "Serie.h"
 #import "AUnder.h"
-
+#import "CheckinCell.h"
 
 @implementation CheckinDetailsController
 
@@ -99,32 +99,41 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return serie.capitulosTotales;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"CheckinCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CheckinCell *cell = (CheckinCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CheckinCell" owner:nil options:nil];
+		for (id currentObject in topLevelObjects) {
+			if ([currentObject isKindOfClass:[CheckinCell class]]) {
+				cell = (CheckinCell*) currentObject;
+				break;
+			}
+		}
+    }    
+
     
     // Configure the cell...
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 32;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

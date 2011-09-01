@@ -106,7 +106,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return serie.capitulosTotales;
+    NSInteger tam=serie.capitulosTotales;
+    return tam;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,6 +127,8 @@
 
     
     // Configure the cell...
+    cell.numero.text =01;
+    cell.check.alpha = 0.5f;
     
     return cell;
 }

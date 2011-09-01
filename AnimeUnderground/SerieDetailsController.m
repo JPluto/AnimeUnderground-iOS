@@ -204,17 +204,11 @@
     }
     UIImage  *backImage = [UIImage imageNamed:@"check.png"];
     
-    
-    UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];  
-    [checkButton addTarget:self action:@selector(changeCheck) forControlEvents:UIControlEventTouchUpInside];
-    [checkButton setFrame:CGRectMake(0.0f, 0, 25, 26)];  
-    
-    UIImageView *imageView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
-    [imageView setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 26.0f)];
-    [checkButton addSubview:imageView];
-    //TODO Si la serie esta comprobada entera muestrala como 1.0f
-    imageView.alpha = 0.5f;
-    UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
+    UIBarButtonItem *checkButtonItem = [[UIBarButtonItem alloc]
+                                        initWithTitle:@"Checkins"
+                                        style:UIBarButtonItemStylePlain
+                                        target:self
+                                        action:@selector(changeCheck)];;  
     
     self.navigationItem.rightBarButtonItem = checkButtonItem; 
 }

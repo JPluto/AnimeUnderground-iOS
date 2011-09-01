@@ -96,11 +96,23 @@
 
         UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];  
         [checkButton addTarget:self action:@selector(changeCheck) forControlEvents:UIControlEventTouchUpInside];
-        [checkButton setFrame:CGRectMake(0.0f, 0, 25, 26)];  
+        [checkButton setFrame:CGRectMake(0.0f, 0, 28, 28)];  
     
+        
         UIImageView *imageView = [[[UIImageView alloc] initWithImage:backImage] autorelease];
-        [imageView setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 26.0f)];
+        [imageView setFrame:CGRectMake(5.0f, 0.0f, 16.0f, 18.0f)];
         [checkButton addSubview:imageView];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 18.0f, 25.0f, 10.0f)];
+        label.text =@"Visto";
+        label.textColor = [UIColor whiteColor];
+        label.alpha = 0.5f;
+        label.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
+        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:10.0f];
+        label.shadowOffset=CGSizeMake(1.0f, 1.0f);
+
+        
+        [checkButton addSubview:label];
         imageView.alpha = 0.5f;
         UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
     
@@ -126,14 +138,17 @@
 // Action que activa o desactiva el "boton" se puede asignar dos funciones distintas con un forState pero esto es mas rapido.
 -(IBAction) changeCheck {
     UIView *custom = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:0];
-
+    UIView *customText = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:1];
+    
     if ( custom.alpha == 0.5f ) {
         NSLog(@"Click seleccionando el boton de check");
         custom.alpha = 1.0f;
+        customText.alpha = 1.0f;
         //TODO hago check a la serie
     } else {
         NSLog(@"Click deseleccionando el boton de check");
         custom.alpha = 0.5f;
+        customText.alpha = 0.5f;
         //TODO la mando a mamar la misma
     }
 }

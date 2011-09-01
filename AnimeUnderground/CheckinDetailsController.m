@@ -106,7 +106,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSInteger tam=serie.capitulosTotales;
+    NSInteger tam=serie.capitulosActuales;
     return tam;
 }
 
@@ -118,8 +118,9 @@
     if (cell == nil) {
 		NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CheckinCell" owner:nil options:nil];
 		for (id currentObject in topLevelObjects) {
-			if ([currentObject isKindOfClass:[CheckinCell class]]) {
-				cell = (CheckinCell*) currentObject;
+			if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+				cell = [(CheckinCell*) currentObject retain];
+                
 				break;
 			}
 		}
@@ -127,7 +128,7 @@
 
     
     // Configure the cell...
-    cell.numero.text =01;
+    cell.numero.text = [@"" stringByAppendingFormat:@"%2d",  (indexPath.row+1)];
     cell.check.alpha = 0.5f;
     
     return cell;
@@ -188,6 +189,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    NSLog(@"Check/uncheck del capitulo %d de la ser %@",(indexPath.row +1),serie.nombre);
 }
 
 @end

@@ -91,10 +91,16 @@
 	return YES;
 }
 
+- (BOOL) isLogged {
+    return (authCookie == NULL);
+}
+
+# pragma mark - Funciones HTTP
+
 - (NSString*) webPost: (NSString*) urlString:(NSString*) datosPost {
 	
 	NSData *postData = [datosPost dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    NSLog(datosPost);
+    NSLog(@"POST %@",datosPost);
 	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
 	
 	NSURL *url = [NSURL URLWithString:urlString];

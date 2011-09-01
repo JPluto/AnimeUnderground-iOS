@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSString *pass;
 
 - (BOOL)doLogin;
+- (BOOL)isLogged;
 
 @end

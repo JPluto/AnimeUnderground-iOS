@@ -82,11 +82,6 @@
         [downloads addObject: [dd retain]];
     }
     
-    imagenesNoticia.type = iCarouselTypeCoverFlow;
-    // habrá que añadir un loading al estilo de rootviewcontroller
-    [imagenesNoticia reloadData];
-    
-    scroll.contentSize = CGSizeMake(scroll.frame.size.width, (textoNoticia.frame.origin.y+textoNoticia.frame.size.height));
     
     //Si la noticia es de una serie se podrá hacer checkin en cualquier otro caso estoy haciendo check a un ente desconocido.
     
@@ -117,7 +112,30 @@
         UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
     
         self.navigationItem.rightBarButtonItem = checkButtonItem; 
+        
+        imagenesNoticia.type = iCarouselTypeCoverFlow;
+        [imagenesNoticia reloadData];
+
+        
+    } else {
+
+        // eliminamos el iCarousel
+        
+        int yTexto = imagenesNoticia.frame.origin.y;
+        int xTexto = textoNoticia.frame.origin.x;
+        int wTexto = textoNoticia.frame.size.width;
+        int hTexto = textoNoticia.frame.size.height;
+        
+        CGRect newFrame = CGRectMake(xTexto, yTexto, wTexto, hTexto);
+        
+        [imagenesNoticia removeFromSuperview];
+        
+        [self.textoNoticia setFrame:newFrame];
+
     }
+    
+    scroll.contentSize = CGSizeMake(scroll.frame.size.width, (textoNoticia.frame.origin.y+textoNoticia.frame.size.height));
+
 }
  
 - (void)viewDidUnload

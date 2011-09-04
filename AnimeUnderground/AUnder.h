@@ -30,6 +30,7 @@
 - (void)updateWithAuth;
 - (void)setUpdateHandler:(id)delegate;
 
+- (Serie*)getSerieById:(int)codigo;
 @end
 
 // para callbacks

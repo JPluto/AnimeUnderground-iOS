@@ -20,5 +20,5 @@
 
 - (BOOL)doLogin;
 - (BOOL)isLogged;
-
+- (NSString*) webGet: (NSString*) urlString;
 @end

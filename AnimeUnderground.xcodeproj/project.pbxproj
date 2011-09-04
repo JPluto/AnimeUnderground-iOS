@@ -80,6 +80,7 @@
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
 		56A6FB4F1407F6A8006B34E0 /* PreRegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */; };
 		56A6FB501407F6A8006B34E0 /* PreRegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */; };
+		56B35E2A1413B25800D349B3 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B35E291413B25800D349B3 /* Checkin.m */; };
 		56C340B8140693F50011DBDB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340B6140693F40011DBDB /* LoginViewController.m */; };
 		56C340B9140693F50011DBDB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340B7140693F40011DBDB /* LoginViewController.xib */; };
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
@@ -202,6 +203,8 @@
 		56A6FB4C1407F6A8006B34E0 /* PreRegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreRegistroController.h; sourceTree = "<group>"; };
 		56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreRegistroController.m; sourceTree = "<group>"; };
 		56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreRegistroController.xib; sourceTree = "<group>"; };
+		56B35E281413B25800D349B3 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
+		56B35E291413B25800D349B3 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
 		56C340B5140693F40011DBDB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		56C340B6140693F40011DBDB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		56C340B7140693F40011DBDB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				1E019800135AECD00053A16C /* Foro.m */,
 				1E16946513602070006DE80F /* Genero.h */,
 				1E16946613602070006DE80F /* Genero.m */,
+				56B35E281413B25800D349B3 /* Checkin.h */,
+				56B35E291413B25800D349B3 /* Checkin.m */,
 			);
 			name = Logica;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				1E09C712140B9EDE00AEDF72 /* EnteCell.m in Sources */,
 				5694F7DC140FD9490074CC90 /* CheckinDetailsController.m in Sources */,
 				5694F7E0140FE48C0074CC90 /* CheckinCell.m in Sources */,
+				56B35E2A1413B25800D349B3 /* Checkin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

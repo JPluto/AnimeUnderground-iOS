@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class Foro;
+@class Serie;
 
 @interface AUnder : NSObject {
     NSLock *lock;

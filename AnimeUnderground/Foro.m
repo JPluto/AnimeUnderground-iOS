@@ -12,6 +12,7 @@
 @implementation Foro
 @synthesize user;
 @synthesize pass;
+@synthesize uid;
 
 	
 
@@ -76,6 +77,8 @@
 			NSLog(@"domain: '%@'\n", [cookie domain]);
 			NSLog(@"path: '%@'\n",   [cookie path]);
 			//[cookie retain];
+            uid = [[[cookie value] componentsSeparatedByString:@"_"] objectAtIndex:0];
+            NSLog(@"UID = %@",uid);
 			authCookie = cookie;
 		}
 		

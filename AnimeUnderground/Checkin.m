@@ -9,6 +9,7 @@
 #import "Checkin.h"
 #import "Foro.h"
 #import "AUnder.h"
+#import "Serie.h"
 
 
 @implementation Checkin
@@ -143,6 +144,56 @@ static NSString *CMD_DEL = @"del";
 //    Log.d("AU","--parseCheckins");
 //}
 
+-(void) parseCheckins {
+
+    NSLog(@"-> parseCheckins ");
+
+    @synchronized(self) {
+        [checkins removeAllObjects];
+        if (cookie != nil) {
+            NSString *value = [cookie value] ;
+            NSArray *series = [value componentsSeparatedByString:@"k"];
+            for (NSString *serieRow in series ) {
+                @try {
+                    NSArray *bySerie = [serieRow componentsSeparatedByString:@"d"];
+                    Serie *serie = [[AUnder sharedInstance] getSerieById:[[bySerie objectAtIndex:0] integerValue ]];
+                    NSMutableArray *capitulos = [[NSMutableArray arrayWithCapacity:serie.capitulosActuales] autorelease];
+                    NSArray *capisAux = [[bySerie objectAtIndex:1] componentsSeparatedByString:@"i"];
+                    for (NSString *byCapitulos in capisAux) {
+                        if ([[byCapitulos stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] != 0) { //no es vacio
+                            NSInteger separador = [byCapitulos rangeOfString:@"-"].location;
+                            if (separador == NSNotFound) { //no es rango
+                                NSNumber *capitulo = [NSNumber numberWithInteger:[byCapitulos integerValue]];
+                                [capitulos addObject:capitulo];
+                            } else {
+                                NSArray *capisEnRango = [byCapitulos componentsSeparatedByString:@"-"];
+                                for (NSInteger i = [[capisEnRango objectAtIndex:0] integerValue]; i<= [[capisEnRango objectAtIndex:1] integerValue];i++){
+                                    [capitulos addObject:[NSNumber numberWithInteger:i]];
+                                }
+                            }
+                        }
+                    }
+                    if (serie != nil && [capitulos count] > 0) {
+                        [checkins setObject:capitulos forKey:serie];
+                    }
+                }
+                @catch (NSException *exception) {
+                    NSLog(@"Error: %@",[exception description]);
+                }
+                @finally {
+                    
+                }
+            }
+        } else {
+            NSLog(@"cookie nil");
+        }
+        
+    } //sincro
+    
+    NSLog(@"parseCheckins ->");
+
+}
+
 //public List<Integer> getSerieInfo(Serie serie)
 //{
 //    if (checkins.containsKey(serie))
@@ -150,6 +201,16 @@ static NSString *CMD_DEL = @"del";
 //    else 
 //        return new LinkedList<Integer>();
 //}
+
+-(NSMutableArray*) getSerieInfo: (Serie *)serie {
+    
+    NSMutableArray *ret = [[checkins objectForKey:serie] autorelease];
+    if (ret == nil) {
+        ret = [[NSMutableArray arrayWithCapacity:0] autorelease];
+    } 
+    
+    return ret;
+}
 
 // refresca el valor de una serie que ha sido modificada
 //private synchronized void refresh(Serie serie)
@@ -193,6 +254,38 @@ static NSString *CMD_DEL = @"del";
 //    parseCheckins();
 //    if (cHandler!=null) cHandler.updateFinished();
 //}
+
+-(void) refresh:(Serie*) serie {
+    @synchronized(self) {
+        
+        NSString *uid;
+        NSString *accion;
+        NSString *capitulos;
+        
+        NSMutableArray *capis = [self getSerieInfo:serie];
+        
+
+        [capis sortUsingSelector:@selector(compare:)];
+        
+        if ([capis count] >0 ) {
+            for (NSNumber *i in capis) {
+                capitulos = [capitulos stringByAppendingString:@","];
+            }
+            capitulos = [capitulos substringToIndex:([capitulos length] -1) ];
+            accion = CMD_ADD;
+        } else {
+            accion = CMD_DEL;
+        }
+
+        uid = [[AUnder sharedInstance] foro].uid;
+        
+        NSString *post =[NSString stringWithFormat:@"uid=%@&ids=%@&accion=%@&capi=%@",uid,serie.codigo,accion,capitulos];
+        NSString *ret= [[AUnder foro] webPost:@"http://www.aunder.org/checkins.php" :post];
+        NSLog(@"Respuesta=%@",ret);
+    }
+}
+
+
 
 //public synchronized void add(Serie serie,int capitulo)
 //{		

@@ -12,13 +12,16 @@
 @interface Foro : NSObject {
     NSString *user;
     NSString *pass;
+    NSString *uid;
     NSHTTPCookie *authCookie;
 }
 
 @property (nonatomic, retain) NSString *user;
 @property (nonatomic, retain) NSString *pass;
+@property (nonatomic, retain) NSString *uid;
 
 - (BOOL)doLogin;
 - (BOOL)isLogged;
 - (NSString*) webGet: (NSString*) urlString;
+- (NSString*) webPost: (NSString*) urlString:(NSString*) datosPost ;
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Foro;
-
+@class Serie;
 //private Cookie cookie;
 //private Foro foro;
 //private HashMap<Serie,List<Integer>> checkins;
@@ -23,4 +23,11 @@
 
 
 - (BOOL) isInitialized;
+-(NSMutableArray*) getSerieInfo: (Serie *)serie;
+-(void) add: (Serie*) serie elCapitulo:(NSNumber*) capitulo;
+-(void) add:(Serie*) serie losCapitulos:(NSMutableArray*) capitulos;
+-(void) addAll:(Serie*) serie;
+-(void) del:(Serie*)serie elCapitulo:(NSNumber *) capitulo;
+-(void) delAll:(Serie*)serie;
+
 @end

@@ -77,7 +77,7 @@
 			NSLog(@"domain: '%@'\n", [cookie domain]);
 			NSLog(@"path: '%@'\n",   [cookie path]);
 			//[cookie retain];
-            uid = [[[cookie value] componentsSeparatedByString:@"_"] objectAtIndex:0];
+            uid = [[[[cookie value] componentsSeparatedByString:@"_"] objectAtIndex:0] retain];
             NSLog(@"UID = %@",uid);
 			authCookie = cookie;
 		}

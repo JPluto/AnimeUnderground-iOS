@@ -69,7 +69,7 @@
     
     // Probamos si se puede hacer el Login
     AUnder *au = [AUnder sharedInstance];
-    Foro *foro = au.foro;
+    Foro *foro = [au foro];
     
     foro.user = [[NSUserDefaults standardUserDefaults] stringForKey:@"usuarioLogin_preference"];
     foro.pass = [[NSUserDefaults standardUserDefaults] stringForKey:@"passwordLogin_preference"];

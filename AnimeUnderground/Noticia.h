@@ -20,6 +20,7 @@
     NSString *tid;
     NSArray *descargas;
     NSArray *imagenes;
+    NSInteger capitulo;
 }
 
 @property (nonatomic, assign) int codigo;
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) NSString *tid;
 @property (nonatomic, retain) NSArray *descargas;
 @property (nonatomic, retain) NSArray *imagenes;
+@property NSInteger capitulo;
 
 
 @end

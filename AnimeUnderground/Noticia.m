@@ -20,5 +20,6 @@
 @synthesize tid;
 @synthesize descargas;
 @synthesize imagenes;
+@synthesize capitulo;
 
 @end

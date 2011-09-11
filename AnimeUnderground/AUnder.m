@@ -16,16 +16,19 @@
 #import "CargoEnteSerie.h"
 #import "Descarga.h"
 #import "Imagen.h"
+#import "Checkin.h"
 
 @implementation AUnder
 
 static AUnder* sharedInstance = nil;
 static Foro* theForo = nil;
+static Checkin* theChecks = nil;
 
 @synthesize series;
 @synthesize entes;
 @synthesize noticias;
-@synthesize foro;
+
+
 
 +(AUnder*)sharedInstance {
     if (sharedInstance == nil) {
@@ -35,10 +38,19 @@ static Foro* theForo = nil;
 }
 
 - (Foro*)foro {
-    if (!foro) 
-        foro = [[Foro alloc]init];
+    if (!theForo) 
+        theForo = [[Foro alloc]init];
     
-    return foro;
+    return theForo;
+}
+
+- (Checkin*)checkin {
+    
+    if (!theChecks) { 
+        theChecks = [[Checkin alloc]init];
+    }
+    
+    return theChecks;
 }
 
 - (void)setUpdateHandler:(id)aDelegate {
@@ -244,6 +256,8 @@ static Foro* theForo = nil;
             NSString *enlaceNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Enlace" parentElement:noticia]];
             NSString *threadNoticia = [TBXML textForElement:[TBXML childElementNamed:@"Thread" parentElement:noticia]];
             
+
+            
             // ahora tenemos que comprobar los que no son fijos
             
             TBXMLElement *serieNotiElem = [TBXML childElementNamed:@"Serie" parentElement:noticia];
@@ -287,6 +301,13 @@ static Foro* theForo = nil;
                 imagenesElem = [TBXML nextSiblingNamed:@"Imagen" searchFromElement:imagenesElem];
             }
             
+            //Añadido checkins
+            TBXML *capiElem =[TBXML childElementNamed:@"Capitulo" parentElement:noticia];
+            NSString *capiNoticia = nil;
+            if (capiElem != NULL) {
+                capiNoticia = [TBXML textForElement:capiElem];
+            }
+            
             // construimos la noticia
             
             Noticia *n = [[[Noticia alloc]init]retain];
@@ -301,6 +322,8 @@ static Foro* theForo = nil;
                 n.serie = [self getSerieById:serieId];
             n.descargas = [[NSArray arrayWithArray:descargas]retain];
             n.imagenes = [[NSArray arrayWithArray:imagenes]retain];
+            //Añadido checkins
+            n.capitulo = [capiNoticia integerValue];
             
             [tmpNoticias addObject:n];
             
@@ -336,12 +359,12 @@ static Foro* theForo = nil;
 
 // aquí va el código de actualización que solo se realizará cuando estemos autenticados
 - (void) updateWithAuth {
-    if (foro == nil) { 
+    if (theForo == nil) { 
         NSLog(@"Foro no instanciado");
         return;
     }
     
-    if (![foro isLogged]) {
+    if (![theForo isLogged]) {
         NSLog(@"No estamos logueados");
         return;
     }

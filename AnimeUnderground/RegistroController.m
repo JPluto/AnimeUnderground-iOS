@@ -46,7 +46,7 @@
     [registrarseB setColor: [UIColor orangeColor]];
     [self setTitle:@"Registro"];
     AUnder *aunder = [AUnder sharedInstance];
-    Foro *foro = aunder.foro;
+    Foro *foro = [aunder foro];
     
     // el botón de volver nos lleva a la ventana de login
     
@@ -150,7 +150,7 @@
     //TODO mandar registro a AU accion do_login y que sea lo que dios quiera.
     
     AUnder *aunder = [AUnder sharedInstance];
-    Foro *foro = aunder.foro;
+    Foro *foro = [aunder foro];
     BOOL correcto = YES;
     
     if ([username.text length]==0)

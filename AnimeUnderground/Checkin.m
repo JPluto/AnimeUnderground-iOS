@@ -174,7 +174,7 @@ static NSString *CMD_DEL = @"del";
                         }
                     }
                     if (serie != nil && [capitulos count] > 0) {
-                        [checkins setObject:capitulos forKey:serie];
+                        [checkins setObject:capitulos forKey:serie.nombre];
                     }
                 }
                 @catch (NSException *exception) {
@@ -204,7 +204,7 @@ static NSString *CMD_DEL = @"del";
 
 -(NSMutableArray*) getSerieInfo: (Serie *)serie {
     
-    NSMutableArray *ret = [[checkins objectForKey:serie] autorelease];
+    NSMutableArray *ret = [[checkins objectForKey:serie.nombre] autorelease];
     if (ret == nil) {
         ret = [[NSMutableArray arrayWithCapacity:0] autorelease];
     } 
@@ -258,9 +258,8 @@ static NSString *CMD_DEL = @"del";
 -(void) refresh:(Serie*) serie {
     @synchronized(self) {
         
-        NSString *uid;
         NSString *accion;
-        NSString *capitulos;
+        NSString *capitulos = @"";
         
         NSMutableArray *capis = [self getSerieInfo:serie];
         
@@ -269,19 +268,22 @@ static NSString *CMD_DEL = @"del";
         
         if ([capis count] >0 ) {
             for (NSNumber *i in capis) {
-                capitulos = [capitulos stringByAppendingString:@","];
+                capitulos = [capitulos stringByAppendingFormat:@"%d,",[i integerValue]];
             }
             capitulos = [capitulos substringToIndex:([capitulos length] -1) ];
+            NSLog(@"CAPITULOS=%@",capitulos);
             accion = CMD_ADD;
         } else {
             accion = CMD_DEL;
         }
 
-        uid = [[AUnder sharedInstance] foro].uid;
+        NSString *uid = [[[AUnder sharedInstance] foro] uid];
         
-        NSString *post =[NSString stringWithFormat:@"uid=%@&ids=%@&accion=%@&capi=%@",uid,serie.codigo,accion,capitulos];
-        NSString *ret= [[AUnder foro] webPost:@"http://www.aunder.org/checkins.php" :post];
+        NSString *post =[[NSString stringWithFormat:@"uid=%@&ids=%d&accion=%@&capi=%@",uid,serie.codigo,accion,capitulos] retain];
+        NSLog(@"POST VARIABLES = %@",post);
+        NSString *ret= [[[AUnder sharedInstance] foro] webPost:@"http://www.aunder.org/checkins.php" :post];
         NSLog(@"Respuesta=%@",ret);
+        [post release];
     }
 }
 
@@ -304,7 +306,7 @@ static NSString *CMD_DEL = @"del";
         if (![capis containsObject:capitulo]) {
             [capis addObject:capitulo];
         }
-        [checkins setObject:capis forKey:serie];
+        [checkins setObject:capis forKey:serie.nombre];
         
         [self refresh:serie];
     }
@@ -340,7 +342,7 @@ static NSString *CMD_DEL = @"del";
                         [capis addObject:i];
                     }
                 }
-                [checkins setObject:capis forKey:serie];
+                [checkins setObject:capis forKey:serie.nombre];
                 [self refresh:serie];                
             } else {
                 [self add:serie elCapitulo:[capitulos objectAtIndex:0]];
@@ -380,7 +382,7 @@ static NSString *CMD_DEL = @"del";
         if ([capis containsObject:capitulo]) {
             [capis removeObject:capitulo];
         }
-        [checkins setObject:capis forKey:serie];
+        [checkins setObject:capis forKey:serie.nombre];
         
         [self refresh:serie];
     }
@@ -398,7 +400,7 @@ static NSString *CMD_DEL = @"del";
     @synchronized(self) {
         NSMutableArray *capis = [self getSerieInfo:serie];
         [capis removeAllObjects];
-        [checkins setObject:capis forKey:serie];
+        [checkins setObject:capis forKey:serie.nombre];
         [self refresh:serie];
     }
 }

@@ -48,7 +48,7 @@
     [registroB setColor:[UIColor orangeColor]];
     
     AUnder *aunder = [AUnder sharedInstance];
-    Foro *foro = aunder.foro;
+    Foro *foro = [aunder foro];
     usuario.text = foro.user;
     pass.text = foro.pass;
     self.title = @"Login";
@@ -83,7 +83,7 @@
     NSString *user = usuario.text;
     NSString *password = pass.text;
     AUnder *aunder = [AUnder sharedInstance];
-    Foro *foro = aunder.foro;
+    Foro *foro = [aunder foro];
     if ([user length] != 0) { // comprueba vacío y nil
         foro.user = usuario.text;
         [[NSUserDefaults standardUserDefaults] setValue:foro.user forKey:@"usuarioLogin_preference"];

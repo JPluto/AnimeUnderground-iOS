@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 @class Foro;
 @class Serie;
+@class Checkin;
 
 @interface AUnder : NSObject {
     NSLock *lock;
-    Foro *foro;
+    //Foro *foro;
     id updateHandler;
     
     NSArray *series;
@@ -21,7 +22,6 @@
 }
 
 @property (nonatomic, retain) NSArray *series;
-@property (nonatomic, retain) Foro *foro;
 @property (nonatomic, retain) NSArray *entes;
 @property (nonatomic, retain) NSArray *noticias;
 
@@ -32,6 +32,9 @@
 - (void)setUpdateHandler:(id)delegate;
 
 - (Serie*)getSerieById:(int)codigo;
+
+- (Foro *) foro;
+- (Checkin *) checkin;
 @end
 
 // para callbacks

@@ -157,17 +157,21 @@
 -(IBAction) changeCheck {
     UIView *custom = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:0];
     UIView *customText = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:1];
-    
+    Noticia *noti = [[AUnder sharedInstance]getNoticiaByCodigo:codigoNoticia];
     if ( custom.alpha == 0.5f ) {
         NSLog(@"Click seleccionando el boton de check");
         custom.alpha = 1.0f;
         customText.alpha = 1.0f;
+        NSInteger capi = noti.capitulo;
+        [[[AUnder sharedInstance] checkin] add:noti.serie elCapitulo:[NSNumber numberWithInteger:capi]];
+        
         //TODO hago check a la serie
     } else {
         NSLog(@"Click deseleccionando el boton de check");
         custom.alpha = 0.5f;
         customText.alpha = 0.5f;
-        //TODO la mando a mamar la misma
+        NSInteger capi = noti.capitulo;
+        [[[AUnder sharedInstance] checkin] del:noti.serie elCapitulo:[NSNumber numberWithInteger:capi]];
     }
 }
 

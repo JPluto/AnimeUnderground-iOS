@@ -298,6 +298,18 @@ static NSString *CMD_DEL = @"del";
 //    refresh(serie);		
 //}
 
+-(void) add: (Serie*) serie elCapitulo:(NSNumber*) capitulo{
+    @synchronized(self) {
+        NSMutableArray *capis = [self getSerieInfo:serie];
+        if (![capis containsObject:capitulo]) {
+            [capis addObject:capitulo];
+        }
+        [checkins setObject:capis forKey:serie];
+        
+        [self refresh:serie];
+    }
+}
+
 //public synchronized void add(Serie serie, List<Integer> capitulos)
 //{
 //    if (capitulos.size()>1)
@@ -319,6 +331,23 @@ static NSString *CMD_DEL = @"del";
     // si esta vacio capitulos no hacemos nada
 //}
 
+-(void) add:(Serie*) serie losCapitulos:(NSMutableArray*) capitulos {
+        @synchronized(self) {
+            if ([capitulos count]>1){
+                NSMutableArray *capis = [self getSerieInfo:serie];
+                for (NSNumber *i in capitulos) {
+                    if (![capis containsObject:i]) {
+                        [capis addObject:i];
+                    }
+                }
+                [checkins setObject:capis forKey:serie];
+                [self refresh:serie];                
+            } else {
+                [self add:serie elCapitulo:[capitulos objectAtIndex:0]];
+            }
+        }
+}
+
 //public synchronized void addAll(Serie serie)
 //{
 //    List<Integer> todos = new LinkedList<Integer>();
@@ -326,6 +355,14 @@ static NSString *CMD_DEL = @"del";
 //        todos.add(Integer.valueOf(i));
 //    add(serie,todos);
 //}	
+
+-(void) addAll:(Serie*) serie {
+    NSMutableArray *todos = [NSMutableArray arrayWithCapacity:serie.capitulosActuales];
+    for (NSInteger i = 1; i <= serie.capitulosActuales ; i++ ) {
+        [todos addObject:[NSNumber numberWithInteger:i]];
+    }
+    [self add:serie losCapitulos:todos];
+}
 
 //public synchronized void del(Serie serie, int capitulo)
 //{
@@ -337,6 +374,18 @@ static NSString *CMD_DEL = @"del";
 //    refresh(serie);
 //}
 
+-(void) del:(Serie*)serie elCapitulo:(NSNumber *) capitulo {
+    @synchronized(self) {
+        NSMutableArray *capis = [self getSerieInfo:serie];
+        if ([capis containsObject:capitulo]) {
+            [capis removeObject:capitulo];
+        }
+        [checkins setObject:capis forKey:serie];
+        
+        [self refresh:serie];
+    }
+}
+
 //public synchronized void delAll(Serie serie)
 //{
 //    List<Integer> lista = getSerieInfo(serie);
@@ -345,6 +394,16 @@ static NSString *CMD_DEL = @"del";
 //    checkins.put(serie,lista);
 //    refresh(serie);
 //}
+-(void) delAll:(Serie*)serie {
+    @synchronized(self) {
+        NSMutableArray *capis = [self getSerieInfo:serie];
+        [capis removeAllObjects];
+        [checkins setObject:capis forKey:serie];
+        [self refresh:serie];
+    }
+}
+
+
 
 //public void setCallback(CheckInHandler cHandler) {
 //    this.cHandler = cHandler;

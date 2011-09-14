@@ -11,6 +11,7 @@
 #import "AUnder.h"
 #import "Serie.h"
 
+#define CHECK_URL @"http://www.aunder.org/checkin.php"
 
 @implementation Checkin
 
@@ -22,18 +23,8 @@ static NSString *CMD_DEL = @"del";
     self = [super init];
     if (self) {
         checkins = [[NSMutableDictionary dictionaryWithCapacity:10] retain];
-        for (NSHTTPCookie *cookieAux in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
-        {	
-            if (([[cookie domain] isEqual:@".aunder.org"]) && [[cookie name] isEqual:CHECKIN_COOKIE]) {
-                NSLog(@"name: '%@'\n",   [cookie name]);
-                NSLog(@"value: '%@'\n",  [cookie value]);
-                NSLog(@"domain: '%@'\n", [cookie domain]);
-                NSLog(@"path: '%@'\n",   [cookie path]);
-                            //[cookie retain];
-                cookie = [cookieAux retain];
-                }
-                        
-       }
+        [self refreshCookie];
+        [self parseCheckins];
     }
     return self;
 }
@@ -71,15 +62,21 @@ static NSString *CMD_DEL = @"del";
 		
 	}
         	
-    [[[AUnder sharedInstance] foro] webGet:@"http://www.aunder.org/checkins.php"];
-		
+    NSString *uid = [[[AUnder sharedInstance] foro] uid];
+    
+    NSString *post =[[NSString stringWithFormat:@"uid=%@&accion=check",uid] retain];
+    NSLog(@"POST VARIABLES = %@",post);
+    NSString *ret= [[[AUnder sharedInstance] foro] webPost:CHECK_URL :post];
+    NSLog(@"Respuesta=%@",ret);
+    [post release];
 	for (NSHTTPCookie *cookieAux in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
 	{	
-		if (([[cookie domain] isEqual:@".aunder.org"]) && [[cookie name] isEqual:CHECKIN_COOKIE]) {
-			NSLog(@"name: '%@'\n",   [cookie name]);
-			NSLog(@"value: '%@'\n",  [cookie value]);
-			NSLog(@"domain: '%@'\n", [cookie domain]);
-			NSLog(@"path: '%@'\n",   [cookie path]);
+
+		if (([[cookieAux domain] isEqual:@"www.aunder.org"]) && [[cookieAux name] isEqual:CHECKIN_COOKIE]) {
+			NSLog(@"name: '%@'\n",   [cookieAux name]);
+			NSLog(@"value: '%@'\n",  [cookieAux value]);
+			NSLog(@"domain: '%@'\n", [cookieAux domain]);
+			NSLog(@"path: '%@'\n",   [cookieAux path]);
 			//[cookie retain];
 			cookie = cookieAux;
 		}
@@ -154,34 +151,39 @@ static NSString *CMD_DEL = @"del";
             NSString *value = [cookie value] ;
             NSArray *series = [value componentsSeparatedByString:@"k"];
             for (NSString *serieRow in series ) {
-                @try {
-                    NSArray *bySerie = [serieRow componentsSeparatedByString:@"d"];
-                    Serie *serie = [[AUnder sharedInstance] getSerieById:[[bySerie objectAtIndex:0] integerValue ]];
-                    NSMutableArray *capitulos = [[NSMutableArray arrayWithCapacity:serie.capitulosActuales] autorelease];
-                    NSArray *capisAux = [[bySerie objectAtIndex:1] componentsSeparatedByString:@"i"];
-                    for (NSString *byCapitulos in capisAux) {
-                        if ([[byCapitulos stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] != 0) { //no es vacio
-                            NSInteger separador = [byCapitulos rangeOfString:@"-"].location;
-                            if (separador == NSNotFound) { //no es rango
-                                NSNumber *capitulo = [NSNumber numberWithInteger:[byCapitulos integerValue]];
-                                [capitulos addObject:capitulo];
-                            } else {
-                                NSArray *capisEnRango = [byCapitulos componentsSeparatedByString:@"-"];
-                                for (NSInteger i = [[capisEnRango objectAtIndex:0] integerValue]; i<= [[capisEnRango objectAtIndex:1] integerValue];i++){
-                                    [capitulos addObject:[NSNumber numberWithInteger:i]];
+                NSLog(@"%@",serieRow);
+                if ([[serieRow stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] != 0) {
+                    @try {
+                        NSArray *bySerie = [serieRow componentsSeparatedByString:@"d"];
+                        Serie *serie = [[AUnder sharedInstance] getSerieById:[[bySerie objectAtIndex:0] integerValue ]];
+                        NSMutableArray *capitulos = [[NSMutableArray arrayWithCapacity:serie.capitulosActuales] retain];
+                        NSArray *capisAux = [[bySerie objectAtIndex:1] componentsSeparatedByString:@"i"];
+                        for (NSString *byCapitulos in capisAux) {
+                            if ([[byCapitulos stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] != 0) { //no es vacio
+                                NSInteger separador = [byCapitulos rangeOfString:@"-"].location;
+                                if (separador == NSNotFound) { //no es rango
+                                    NSNumber *capitulo = [NSNumber numberWithInteger:[byCapitulos integerValue]];
+                                    [capitulos addObject:capitulo];
+                                } else {
+                                    NSArray *capisEnRango = [byCapitulos componentsSeparatedByString:@"-"];
+                                    NSLog(@"%@",capisEnRango);
+                                    for (NSInteger i = [[capisEnRango objectAtIndex:0] integerValue]; i<= [[capisEnRango objectAtIndex:1] integerValue];i++){
+                                        [capitulos addObject:[NSNumber numberWithInteger:i]];
+                                    }
                                 }
                             }
                         }
+                        if (serie != nil && [capitulos count] > 0) {
+                            [checkins setObject:capitulos forKey:serie.nombre];
+                            [capitulos release];
+                        }
                     }
-                    if (serie != nil && [capitulos count] > 0) {
-                        [checkins setObject:capitulos forKey:serie.nombre];
+                    @catch (NSException *exception) {
+                        NSLog(@"Error: %@",[exception description]);
                     }
-                }
-                @catch (NSException *exception) {
-                    NSLog(@"Error: %@",[exception description]);
-                }
-                @finally {
+                    @finally {
                     
+                    }
                 }
             }
         } else {
@@ -204,9 +206,9 @@ static NSString *CMD_DEL = @"del";
 
 -(NSMutableArray*) getSerieInfo: (Serie *)serie {
     
-    NSMutableArray *ret = [[checkins objectForKey:serie.nombre] autorelease];
+    NSMutableArray *ret = [checkins objectForKey:serie.nombre];
     if (ret == nil) {
-        ret = [[NSMutableArray arrayWithCapacity:0] autorelease];
+        ret = [NSMutableArray arrayWithCapacity:0];
     } 
     
     return ret;
@@ -256,7 +258,7 @@ static NSString *CMD_DEL = @"del";
 //}
 
 -(void) refresh:(Serie*) serie {
-    @synchronized(self) {
+   // @synchronized(self) {
         
         NSString *accion;
         NSString *capitulos = @"";
@@ -281,10 +283,10 @@ static NSString *CMD_DEL = @"del";
         
         NSString *post =[[NSString stringWithFormat:@"uid=%@&ids=%d&accion=%@&capi=%@",uid,serie.codigo,accion,capitulos] retain];
         NSLog(@"POST VARIABLES = %@",post);
-        NSString *ret= [[[AUnder sharedInstance] foro] webPost:@"http://www.aunder.org/checkins.php" :post];
+        NSString *ret= [[[AUnder sharedInstance] foro] webPost:CHECK_URL :post];
         NSLog(@"Respuesta=%@",ret);
         [post release];
-    }
+   // }
 }
 
 

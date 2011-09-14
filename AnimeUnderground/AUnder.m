@@ -49,7 +49,7 @@ static Checkin* theChecks = nil;
     if (!theChecks) { 
         theChecks = [[Checkin alloc]init];
     }
-    
+    NSLog(@"%@",theChecks);
     return theChecks;
 }
 

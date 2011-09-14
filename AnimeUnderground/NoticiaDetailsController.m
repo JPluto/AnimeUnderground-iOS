@@ -87,8 +87,13 @@
     
     if (noti.serie != nil) {
         UIImage  *backImage = [UIImage imageNamed:@"check.png"];
-    
+        NSArray *capis = [[[AUnder sharedInstance] checkin] getSerieInfo:noti.serie];
 
+        float alpha = 0.5f;
+        if ([capis containsObject:[NSNumber numberWithInteger:noti.capitulo]]) {
+            alpha = 1.0f;
+        }
+        
         UIButton *checkButton = [UIButton buttonWithType:UIButtonTypeCustom];  
         [checkButton addTarget:self action:@selector(changeCheck) forControlEvents:UIControlEventTouchUpInside];
         [checkButton setFrame:CGRectMake(0.0f, 0, 28, 28)];  
@@ -101,14 +106,15 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 18.0f, 25.0f, 10.0f)];
         label.text =@"Visto";
         label.textColor = [UIColor whiteColor];
-        label.alpha = 0.5f;
+        label.alpha = alpha;
         label.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.0];
         label.font = [UIFont fontWithName:@"Helvetica-Bold" size:10.0f];
         label.shadowOffset=CGSizeMake(1.0f, 1.0f);
 
         
         [checkButton addSubview:label];
-        imageView.alpha = 0.5f;
+        imageView.alpha = alpha;
+        [label release];
         UIBarButtonItem *checkButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:checkButton] autorelease];  
     
         self.navigationItem.rightBarButtonItem = checkButtonItem; 

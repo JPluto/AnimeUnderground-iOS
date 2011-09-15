@@ -10,6 +10,7 @@
 #import "Serie.h"
 #import "AUnder.h"
 #import "CheckinCell.h"
+#import "DeviantDownload.h"
 
 @implementation CheckinDetailsController
 

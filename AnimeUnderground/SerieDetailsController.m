@@ -13,7 +13,8 @@
 #import "CargoEnteSerie.h"
 #import "CargoCell.h"
 #import "EnteDetailsController.h"
-#import "CheckinDetailsController.h"
+#import "SerieCheckinController.h"
+
 
 @implementation SerieDetailsController
 
@@ -217,7 +218,8 @@
     UIView *custom = [[self.navigationItem.rightBarButtonItem.customView subviews] objectAtIndex:0];
     
     //TODO hago push a la ventana de detalles de capitulos/check
-    CheckinDetailsController *cdc = [[[CheckinDetailsController alloc] initWithSerie:serie]autorelease];
+    SerieCheckinController *cdc = [[[SerieCheckinController alloc] initWithSerie:serie]autorelease];
+    [cdc setSerie:serie];
     [self.navigationController pushViewController:cdc animated:YES];
 }
 

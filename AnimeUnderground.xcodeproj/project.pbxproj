@@ -72,9 +72,8 @@
 		1EF9B823139A56C100C42D76 /* calendar_view_day.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B822139A56C100C42D76 /* calendar_view_day.png */; };
 		1EF9B825139A889800C42D76 /* comments.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EF9B824139A889800C42D76 /* comments.png */; };
 		3E9854AF135F05FB00C7D987 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */; };
+		566C0EDB1422971C0000EF42 /* CheckinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 566C0EDA1422971C0000EF42 /* CheckinHelper.m */; };
 		5694F7D7140FCE100074CC90 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7D6140FCE100074CC90 /* check.png */; };
-		5694F7DC140FD9490074CC90 /* CheckinDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5694F7DA140FD9490074CC90 /* CheckinDetailsController.m */; };
-		5694F7DD140FD9490074CC90 /* CheckinDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7DB140FD9490074CC90 /* CheckinDetailsController.xib */; };
 		5694F7E0140FE48C0074CC90 /* CheckinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5694F7DF140FE48C0074CC90 /* CheckinCell.m */; };
 		5694F7E2140FE4B10074CC90 /* CheckinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5694F7E1140FE4B10074CC90 /* CheckinCell.xib */; };
 		569D24AE14041500000E7665 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 569D24AD14041500000E7665 /* Settings.bundle */; };
@@ -86,6 +85,8 @@
 		56C340D11406B7520011DBDB /* GlossyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D01406B7520011DBDB /* GlossyButton.m */; };
 		56C340D61406F0120011DBDB /* RegistroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C340D41406F0120011DBDB /* RegistroController.m */; };
 		56C340D71406F0120011DBDB /* RegistroController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56C340D51406F0120011DBDB /* RegistroController.xib */; };
+		56DEB84614228E4A004ECC0A /* SerieCheckinController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DEB84414228E4A004ECC0A /* SerieCheckinController.m */; };
+		56DEB84714228E4A004ECC0A /* SerieCheckinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DEB84514228E4A004ECC0A /* SerieCheckinController.xib */; };
 		AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E3970140946C600C90206 /* EnteDetailsController.m */; };
 		AC1E3973140946C600C90206 /* EnteDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1E3971140946C600C90206 /* EnteDetailsController.xib */; };
 		AC2702A91408F510008DBE73 /* CargoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2702A81408F510008DBE73 /* CargoCell.m */; };
@@ -192,10 +193,9 @@
 		1EF9B824139A889800C42D76 /* comments.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comments.png; sourceTree = "<group>"; };
 		3E9854AD135F05FB00C7D987 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		566C0ED91422971C0000EF42 /* CheckinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinHelper.h; sourceTree = "<group>"; };
+		566C0EDA1422971C0000EF42 /* CheckinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinHelper.m; sourceTree = "<group>"; };
 		5694F7D6140FCE100074CC90 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
-		5694F7D9140FD9490074CC90 /* CheckinDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinDetailsController.h; sourceTree = "<group>"; };
-		5694F7DA140FD9490074CC90 /* CheckinDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinDetailsController.m; sourceTree = "<group>"; };
-		5694F7DB140FD9490074CC90 /* CheckinDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinDetailsController.xib; sourceTree = "<group>"; };
 		5694F7DE140FE48C0074CC90 /* CheckinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinCell.h; sourceTree = "<group>"; };
 		5694F7DF140FE48C0074CC90 /* CheckinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinCell.m; sourceTree = "<group>"; };
 		5694F7E1140FE4B10074CC90 /* CheckinCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinCell.xib; sourceTree = "<group>"; };
@@ -213,6 +213,9 @@
 		56C340D31406F0120011DBDB /* RegistroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistroController.h; sourceTree = "<group>"; };
 		56C340D41406F0120011DBDB /* RegistroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistroController.m; sourceTree = "<group>"; };
 		56C340D51406F0120011DBDB /* RegistroController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistroController.xib; sourceTree = "<group>"; };
+		56DEB84314228E4A004ECC0A /* SerieCheckinController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerieCheckinController.h; sourceTree = "<group>"; };
+		56DEB84414228E4A004ECC0A /* SerieCheckinController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerieCheckinController.m; sourceTree = "<group>"; };
+		56DEB84514228E4A004ECC0A /* SerieCheckinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerieCheckinController.xib; sourceTree = "<group>"; };
 		AC1E396F140946C600C90206 /* EnteDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnteDetailsController.h; sourceTree = "<group>"; };
 		AC1E3970140946C600C90206 /* EnteDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnteDetailsController.m; sourceTree = "<group>"; };
 		AC1E3971140946C600C90206 /* EnteDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnteDetailsController.xib; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 				1E16946613602070006DE80F /* Genero.m */,
 				56B35E281413B25800D349B3 /* Checkin.h */,
 				56B35E291413B25800D349B3 /* Checkin.m */,
+				566C0ED91422971C0000EF42 /* CheckinHelper.h */,
+				566C0EDA1422971C0000EF42 /* CheckinHelper.m */,
 			);
 			name = Logica;
 			sourceTree = "<group>";
@@ -297,7 +302,7 @@
 		1E25AEB4134F9C4F007C68FF /* Presentacion */ = {
 			isa = PBXGroup;
 			children = (
-				5694F7DB140FD9490074CC90 /* CheckinDetailsController.xib */,
+				56DEB84514228E4A004ECC0A /* SerieCheckinController.xib */,
 				56C340D51406F0120011DBDB /* RegistroController.xib */,
 				AC1E3971140946C600C90206 /* EnteDetailsController.xib */,
 				56A6FB4E1407F6A8006B34E0 /* PreRegistroController.xib */,
@@ -322,6 +327,8 @@
 			children = (
 				1E7FDFFD134CC30E00063CCE /* AnimeUndergroundAppDelegate.h */,
 				1E7FDFFE134CC30E00063CCE /* AnimeUndergroundAppDelegate.m */,
+				56DEB84314228E4A004ECC0A /* SerieCheckinController.h */,
+				56DEB84414228E4A004ECC0A /* SerieCheckinController.m */,
 				56C340B5140693F40011DBDB /* LoginViewController.h */,
 				56C340B6140693F40011DBDB /* LoginViewController.m */,
 				1E7FE003134CC30E00063CCE /* RootViewController.h */,
@@ -344,8 +351,6 @@
 				56A6FB4D1407F6A8006B34E0 /* PreRegistroController.m */,
 				AC1E396F140946C600C90206 /* EnteDetailsController.h */,
 				AC1E3970140946C600C90206 /* EnteDetailsController.m */,
-				5694F7D9140FD9490074CC90 /* CheckinDetailsController.h */,
-				5694F7DA140FD9490074CC90 /* CheckinDetailsController.m */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -578,8 +583,8 @@
 				1E8DABC0140E53DC00C2CAD6 /* Default.png in Resources */,
 				1E8DABC3140E53E100C2CAD6 /* Default@2x.png in Resources */,
 				5694F7D7140FCE100074CC90 /* check.png in Resources */,
-				5694F7DD140FD9490074CC90 /* CheckinDetailsController.xib in Resources */,
 				5694F7E2140FE4B10074CC90 /* CheckinCell.xib in Resources */,
+				56DEB84714228E4A004ECC0A /* SerieCheckinController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,9 +633,10 @@
 				AC2702A91408F510008DBE73 /* CargoCell.m in Sources */,
 				AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */,
 				1E09C712140B9EDE00AEDF72 /* EnteCell.m in Sources */,
-				5694F7DC140FD9490074CC90 /* CheckinDetailsController.m in Sources */,
 				5694F7E0140FE48C0074CC90 /* CheckinCell.m in Sources */,
 				56B35E2A1413B25800D349B3 /* Checkin.m in Sources */,
+				56DEB84614228E4A004ECC0A /* SerieCheckinController.m in Sources */,
+				566C0EDB1422971C0000EF42 /* CheckinHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

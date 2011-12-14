@@ -90,6 +90,8 @@
 		AC1E3972140946C600C90206 /* EnteDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E3970140946C600C90206 /* EnteDetailsController.m */; };
 		AC1E3973140946C600C90206 /* EnteDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC1E3971140946C600C90206 /* EnteDetailsController.xib */; };
 		AC2702A91408F510008DBE73 /* CargoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2702A81408F510008DBE73 /* CargoCell.m */; };
+		AC60D6C9149941F5009E01F0 /* navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = AC60D6C7149941F4009E01F0 /* navbar.png */; };
+		AC60D6CA149941F5009E01F0 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC60D6C8149941F5009E01F0 /* navbar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,7 +197,7 @@
 		3E9854AE135F05FB00C7D987 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		566C0ED91422971C0000EF42 /* CheckinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinHelper.h; sourceTree = "<group>"; };
 		566C0EDA1422971C0000EF42 /* CheckinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinHelper.m; sourceTree = "<group>"; };
-		5694F7D6140FCE100074CC90 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		5694F7D6140FCE100074CC90 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = check.png; path = AnimeUnderground/check.png; sourceTree = "<group>"; };
 		5694F7DE140FE48C0074CC90 /* CheckinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinCell.h; sourceTree = "<group>"; };
 		5694F7DF140FE48C0074CC90 /* CheckinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinCell.m; sourceTree = "<group>"; };
 		5694F7E1140FE4B10074CC90 /* CheckinCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinCell.xib; sourceTree = "<group>"; };
@@ -221,6 +223,8 @@
 		AC1E3971140946C600C90206 /* EnteDetailsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnteDetailsController.xib; sourceTree = "<group>"; };
 		AC2702A71408F510008DBE73 /* CargoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CargoCell.h; sourceTree = "<group>"; };
 		AC2702A81408F510008DBE73 /* CargoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CargoCell.m; sourceTree = "<group>"; };
+		AC60D6C7149941F4009E01F0 /* navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar.png; sourceTree = "<group>"; };
+		AC60D6C8149941F5009E01F0 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,7 +454,6 @@
 		1E7FDFF5134CC30D00063CCE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5694F7D6140FCE100074CC90 /* check.png */,
 				1E7FDFF6134CC30D00063CCE /* AnimeUnderground-Info.plist */,
 				1E7FDFF7134CC30D00063CCE /* InfoPlist.strings */,
 				1E7FDFFA134CC30D00063CCE /* AnimeUnderground-Prefix.pch */,
@@ -463,6 +466,8 @@
 		1E83B7951373104A00AEAB73 /* Imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				AC60D6C7149941F4009E01F0 /* navbar.png */,
+				AC60D6C8149941F5009E01F0 /* navbar@2x.png */,
 				1EF9B824139A889800C42D76 /* comments.png */,
 				1E35EECF13AE75620016CD18 /* page.png */,
 				1EF9B822139A56C100C42D76 /* calendar_view_day.png */,
@@ -473,6 +478,7 @@
 				1E4742FB13762F4500E49025 /* series.png */,
 				1E4742FF13762FC500E49025 /* entes.png */,
 				1E4742F913762D9F00E49025 /* noticia.png */,
+				5694F7D6140FCE100074CC90 /* check.png */,
 				1E4743011376306800E49025 /* logros.png */,
 				1E83B7911373104000AEAB73 /* cargando.png */,
 				1E83B7921373104000AEAB73 /* cargando@2x.png */,
@@ -588,6 +594,8 @@
 				5694F7D7140FCE100074CC90 /* check.png in Resources */,
 				5694F7E2140FE4B10074CC90 /* CheckinCell.xib in Resources */,
 				56DEB84714228E4A004ECC0A /* SerieCheckinController.xib in Resources */,
+				AC60D6C9149941F5009E01F0 /* navbar.png in Resources */,
+				AC60D6CA149941F5009E01F0 /* navbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

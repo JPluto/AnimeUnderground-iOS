@@ -13,6 +13,7 @@
 #import "CargoEnteSerie.h"
 #import "CargoCell.h"
 #import "EnteDetailsController.h"
+#import "UIImage+Resize.h"
 #import "SerieCheckinController.h"
 
 

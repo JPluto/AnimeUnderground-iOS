@@ -19,6 +19,13 @@
 {
     // Override point for customization after application launch.
     // Add the navigation controller's view to the window and display.
+    
+    // navbar custom en iOS5
+    
+    if ([[UINavigationBar class]respondsToSelector:@selector(appearance)]) {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar.png"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
     NSString *cargado = [[NSUserDefaults standardUserDefaults] stringForKey:@"usuarioLogin_preference"];
     if (cargado == nil) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"autoLogin_preference"];

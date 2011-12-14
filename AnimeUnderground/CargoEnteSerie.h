@@ -20,4 +20,6 @@
 @property (nonatomic, retain) NSString *cargo;
 @property (nonatomic, assign) int capitulos;
 
+- (id)initWithEnte:(Ente*)anEnte serie:(Serie*)aSerie cargo:(NSString*)aCargo capitulos:(int)aCapitulos;
+
 @end

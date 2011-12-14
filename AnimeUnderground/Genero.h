@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString *nombre;
 @property (nonatomic, retain) NSMutableArray *series;
 
+- (id)initWithNombre:(NSString*)aNombre;
 +(void)addGeneros:(NSString *)generos:(Serie*)serie;
 +(void)clearGeneros;
 +(Genero*)getGenero:(NSString *)nombre;

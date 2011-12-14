@@ -13,6 +13,11 @@
 
 #define CHECK_URL @"http://www.aunder.org/checkin.php"
 
+@interface Checkin(Private)
+- (BOOL) refreshCookie;
+- (void) parseCheckins;
+@end
+
 @implementation Checkin
 
 static NSString *CHECKIN_COOKIE = @"AUCheckin";

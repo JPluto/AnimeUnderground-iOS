@@ -11,6 +11,7 @@
 #import "EnteDetailsController.h"
 #import "EnteCell.h"
 #import "Ente.h"
+#import "UIImage+Resize.h"
 
 @implementation EntesController
 @class AUnder;

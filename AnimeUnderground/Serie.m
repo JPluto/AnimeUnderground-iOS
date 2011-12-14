@@ -39,7 +39,7 @@
 @class Genero;
 
 -(NSString*) getGenerosString {
-    NSString *res = [[NSString alloc]initWithString:@""];
+    NSString *res = @"";
     for (Genero *g in generos) {
         res = [res stringByAppendingFormat:@" %@,",[g nombre]];
     }

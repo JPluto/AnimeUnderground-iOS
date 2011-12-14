@@ -35,6 +35,6 @@
 @property (nonatomic, assign) int edad;
 @property (nonatomic, retain) NSMutableArray *cargos;
 
-
+- (id)initWithCodigo:(int)aCodigo nick:(NSString*)aNick;
 
 @end

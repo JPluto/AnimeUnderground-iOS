@@ -15,6 +15,8 @@
 
 @property (nonatomic,retain) NSString *imagen;
 
+
+- (id)initWithImagen:(NSString*)anImagen;
 - (NSString*)getImageUrl;
 - (NSString*)getThumbUrl;
 - (NSString*)getMiniUrl;

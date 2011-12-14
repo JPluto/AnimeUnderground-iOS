@@ -20,6 +20,7 @@
 @property (nonatomic,retain) Noticia *noticia;
 @property (nonatomic,retain) NSString *version;
 
+- (id)initWithEnlace:(NSString*)anEnlace tipo:(NSString*)aTipo;
 +(NSArray*)descargas;
 
 @end

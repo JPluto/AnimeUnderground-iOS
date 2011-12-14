@@ -10,6 +10,7 @@
 
 @interface DeviantDownload()
 @property (nonatomic, retain) NSMutableData *receivedData;
+- (NSString *)md5Hash:(NSString *)clearText;
 @end
 
 @implementation DeviantDownload

@@ -526,6 +526,9 @@
 /* Begin PBXProject section */
 		1E7FDFE1134CC30B00063CCE /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 1E7FDFE4134CC30B00063CCE /* Build configuration list for PBXProject "AnimeUnderground" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

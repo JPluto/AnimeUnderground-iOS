@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
+#import "DeviantDownload.h"
 
-@interface NoticiaDetailsController : UIViewController {
+@interface NoticiaDetailsController : UIViewController<DeviantDownloadDelegate> {
     int codigoNoticia;
     NSMutableArray *downloads;
     int totalImagenes;

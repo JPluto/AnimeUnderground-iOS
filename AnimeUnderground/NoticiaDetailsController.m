@@ -12,6 +12,7 @@
 #import "Imagen.h"
 #import "EnteDetailsController.h"
 #import "Noticia.h"
+#import "UIImage+Resize.h"
 
 @implementation NoticiaDetailsController
 
@@ -229,7 +230,9 @@
         imagen = [UIImage imageNamed:@"page.png"];
         download.delegate = self;
     }
-    UIView *view = [[[UIImageView alloc] initWithImage:[self imageWithImage:imagen scaledToSize:CGSizeMake(200, 200)]] autorelease];
+    //UIView *view = [[[UIImageView alloc] initWithImage:[self imageWithImage:imagen scaledToSize:CGSizeMake(200, 200)]] autorelease];
+    imagen = [imagen resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:CGSizeMake(300, 300) interpolationQuality:kCGInterpolationMedium];
+    UIView *view = [[[UIImageView alloc] initWithImage:imagen ] autorelease];
         
     //UIView *view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page.png"]] autorelease];
     
